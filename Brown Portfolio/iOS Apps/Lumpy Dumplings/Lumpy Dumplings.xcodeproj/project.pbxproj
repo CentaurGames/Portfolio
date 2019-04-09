@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A73C3F4921E1BB8700469CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3F4821E1BB8700469CB8 /* AppDelegate.swift */; };
+		A73C3F4B21E1BB8700469CB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3F4A21E1BB8700469CB8 /* ViewController.swift */; };
+		A73C3F4E21E1BB8700469CB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F4C21E1BB8700469CB8 /* Main.storyboard */; };
+		A73C3F5021E1BB8700469CB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F4F21E1BB8700469CB8 /* Assets.xcassets */; };
+		A73C3F5321E1BB8700469CB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F5121E1BB8700469CB8 /* LaunchScreen.storyboard */; };
+		A73C3F5E21E1BB8700469CB8 /* Lumpy_DumplingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3F5D21E1BB8700469CB8 /* Lumpy_DumplingsTests.swift */; };
+		A73C3F6921E1BB8700469CB8 /* Lumpy_DumplingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3F6821E1BB8700469CB8 /* Lumpy_DumplingsUITests.swift */; };
+		A73C3F7721E1C0EA00469CB8 /* iPad1xLandscape_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F7621E1C0EA00469CB8 /* iPad1xLandscape_iOS7.png */; };
+		A73C3F7921E1C28500469CB8 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F7821E1C28500469CB8 /* index.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A73C3F5A21E1BB8700469CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A73C3F3D21E1BB8700469CB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A73C3F4421E1BB8700469CB8;
+			remoteInfo = "Lumpy Dumplings";
+		};
+		A73C3F6521E1BB8700469CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A73C3F3D21E1BB8700469CB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A73C3F4421E1BB8700469CB8;
+			remoteInfo = "Lumpy Dumplings";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A73C3F4521E1BB8700469CB8 /* Lumpy Dumplings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lumpy Dumplings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73C3F4821E1BB8700469CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A73C3F4A21E1BB8700469CB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A73C3F4D21E1BB8700469CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A73C3F4F21E1BB8700469CB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A73C3F5221E1BB8700469CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A73C3F5421E1BB8700469CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73C3F5921E1BB8700469CB8 /* Lumpy DumplingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lumpy DumplingsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73C3F5D21E1BB8700469CB8 /* Lumpy_DumplingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lumpy_DumplingsTests.swift; sourceTree = "<group>"; };
+		A73C3F5F21E1BB8700469CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73C3F6421E1BB8700469CB8 /* Lumpy DumplingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lumpy DumplingsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73C3F6821E1BB8700469CB8 /* Lumpy_DumplingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lumpy_DumplingsUITests.swift; sourceTree = "<group>"; };
+		A73C3F6A21E1BB8700469CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73C3F7621E1C0EA00469CB8 /* iPad1xLandscape_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad1xLandscape_iOS7.png; path = "../../../../Desktop/CENTAUR GAMES BLANK LAUNCH IMAGES/iPad1xLandscape_iOS7.png"; sourceTree = "<group>"; };
+		A73C3F7821E1C28500469CB8 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Desktop/Centaur Games iOS Apps/LUMPY DUMPLINGS SUITE/index.html"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A73C3F4221E1BB8700469CB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F5621E1BB8700469CB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F6121E1BB8700469CB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A73C3F3C21E1BB8700469CB8 = {
+			isa = PBXGroup;
+			children = (
+				A73C3F4721E1BB8700469CB8 /* Lumpy Dumplings */,
+				A73C3F5C21E1BB8700469CB8 /* Lumpy DumplingsTests */,
+				A73C3F6721E1BB8700469CB8 /* Lumpy DumplingsUITests */,
+				A73C3F4621E1BB8700469CB8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A73C3F4621E1BB8700469CB8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3F4521E1BB8700469CB8 /* Lumpy Dumplings.app */,
+				A73C3F5921E1BB8700469CB8 /* Lumpy DumplingsTests.xctest */,
+				A73C3F6421E1BB8700469CB8 /* Lumpy DumplingsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A73C3F4721E1BB8700469CB8 /* Lumpy Dumplings */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3F4821E1BB8700469CB8 /* AppDelegate.swift */,
+				A73C3F4A21E1BB8700469CB8 /* ViewController.swift */,
+				A73C3F4C21E1BB8700469CB8 /* Main.storyboard */,
+				A73C3F7621E1C0EA00469CB8 /* iPad1xLandscape_iOS7.png */,
+				A73C3F7821E1C28500469CB8 /* index.html */,
+				A73C3F4F21E1BB8700469CB8 /* Assets.xcassets */,
+				A73C3F5121E1BB8700469CB8 /* LaunchScreen.storyboard */,
+				A73C3F5421E1BB8700469CB8 /* Info.plist */,
+			);
+			path = "Lumpy Dumplings";
+			sourceTree = "<group>";
+		};
+		A73C3F5C21E1BB8700469CB8 /* Lumpy DumplingsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3F5D21E1BB8700469CB8 /* Lumpy_DumplingsTests.swift */,
+				A73C3F5F21E1BB8700469CB8 /* Info.plist */,
+			);
+			path = "Lumpy DumplingsTests";
+			sourceTree = "<group>";
+		};
+		A73C3F6721E1BB8700469CB8 /* Lumpy DumplingsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3F6821E1BB8700469CB8 /* Lumpy_DumplingsUITests.swift */,
+				A73C3F6A21E1BB8700469CB8 /* Info.plist */,
+			);
+			path = "Lumpy DumplingsUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A73C3F4421E1BB8700469CB8 /* Lumpy Dumplings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A73C3F6D21E1BB8700469CB8 /* Build configuration list for PBXNativeTarget "Lumpy Dumplings" */;
+			buildPhases = (
+				A73C3F4121E1BB8700469CB8 /* Sources */,
+				A73C3F4221E1BB8700469CB8 /* Frameworks */,
+				A73C3F4321E1BB8700469CB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Lumpy Dumplings";
+			productName = "Lumpy Dumplings";
+			productReference = A73C3F4521E1BB8700469CB8 /* Lumpy Dumplings.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A73C3F5821E1BB8700469CB8 /* Lumpy DumplingsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A73C3F7021E1BB8700469CB8 /* Build configuration list for PBXNativeTarget "Lumpy DumplingsTests" */;
+			buildPhases = (
+				A73C3F5521E1BB8700469CB8 /* Sources */,
+				A73C3F5621E1BB8700469CB8 /* Frameworks */,
+				A73C3F5721E1BB8700469CB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A73C3F5B21E1BB8700469CB8 /* PBXTargetDependency */,
+			);
+			name = "Lumpy DumplingsTests";
+			productName = "Lumpy DumplingsTests";
+			productReference = A73C3F5921E1BB8700469CB8 /* Lumpy DumplingsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A73C3F6321E1BB8700469CB8 /* Lumpy DumplingsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A73C3F7321E1BB8700469CB8 /* Build configuration list for PBXNativeTarget "Lumpy DumplingsUITests" */;
+			buildPhases = (
+				A73C3F6021E1BB8700469CB8 /* Sources */,
+				A73C3F6121E1BB8700469CB8 /* Frameworks */,
+				A73C3F6221E1BB8700469CB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A73C3F6621E1BB8700469CB8 /* PBXTargetDependency */,
+			);
+			name = "Lumpy DumplingsUITests";
+			productName = "Lumpy DumplingsUITests";
+			productReference = A73C3F6421E1BB8700469CB8 /* Lumpy DumplingsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A73C3F3D21E1BB8700469CB8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Centaur Games";
+				TargetAttributes = {
+					A73C3F4421E1BB8700469CB8 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A73C3F5821E1BB8700469CB8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A73C3F4421E1BB8700469CB8;
+					};
+					A73C3F6321E1BB8700469CB8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A73C3F4421E1BB8700469CB8;
+					};
+				};
+			};
+			buildConfigurationList = A73C3F4021E1BB8700469CB8 /* Build configuration list for PBXProject "Lumpy Dumplings" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A73C3F3C21E1BB8700469CB8;
+			productRefGroup = A73C3F4621E1BB8700469CB8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A73C3F4421E1BB8700469CB8 /* Lumpy Dumplings */,
+				A73C3F5821E1BB8700469CB8 /* Lumpy DumplingsTests */,
+				A73C3F6321E1BB8700469CB8 /* Lumpy DumplingsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A73C3F4321E1BB8700469CB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3F7921E1C28500469CB8 /* index.html in Resources */,
+				A73C3F5321E1BB8700469CB8 /* LaunchScreen.storyboard in Resources */,
+				A73C3F5021E1BB8700469CB8 /* Assets.xcassets in Resources */,
+				A73C3F7721E1C0EA00469CB8 /* iPad1xLandscape_iOS7.png in Resources */,
+				A73C3F4E21E1BB8700469CB8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F5721E1BB8700469CB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F6221E1BB8700469CB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A73C3F4121E1BB8700469CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3F4B21E1BB8700469CB8 /* ViewController.swift in Sources */,
+				A73C3F4921E1BB8700469CB8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F5521E1BB8700469CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3F5E21E1BB8700469CB8 /* Lumpy_DumplingsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F6021E1BB8700469CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3F6921E1BB8700469CB8 /* Lumpy_DumplingsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A73C3F5B21E1BB8700469CB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A73C3F4421E1BB8700469CB8 /* Lumpy Dumplings */;
+			targetProxy = A73C3F5A21E1BB8700469CB8 /* PBXContainerItemProxy */;
+		};
+		A73C3F6621E1BB8700469CB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A73C3F4421E1BB8700469CB8 /* Lumpy Dumplings */;
+			targetProxy = A73C3F6521E1BB8700469CB8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A73C3F4C21E1BB8700469CB8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A73C3F4D21E1BB8700469CB8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A73C3F5121E1BB8700469CB8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A73C3F5221E1BB8700469CB8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A73C3F6B21E1BB8700469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A73C3F6C21E1BB8700469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A73C3F6E21E1BB8700469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Lumpy Dumplings/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Lumpy-Dumplings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A73C3F6F21E1BB8700469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Lumpy Dumplings/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Lumpy-Dumplings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A73C3F7121E1BB8700469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Lumpy DumplingsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Lumpy-DumplingsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lumpy Dumplings.app/Lumpy Dumplings";
+			};
+			name = Debug;
+		};
+		A73C3F7221E1BB8700469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Lumpy DumplingsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Lumpy-DumplingsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lumpy Dumplings.app/Lumpy Dumplings";
+			};
+			name = Release;
+		};
+		A73C3F7421E1BB8700469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Lumpy DumplingsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Lumpy-DumplingsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Lumpy Dumplings";
+			};
+			name = Debug;
+		};
+		A73C3F7521E1BB8700469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Lumpy DumplingsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Lumpy-DumplingsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Lumpy Dumplings";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A73C3F4021E1BB8700469CB8 /* Build configuration list for PBXProject "Lumpy Dumplings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3F6B21E1BB8700469CB8 /* Debug */,
+				A73C3F6C21E1BB8700469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A73C3F6D21E1BB8700469CB8 /* Build configuration list for PBXNativeTarget "Lumpy Dumplings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3F6E21E1BB8700469CB8 /* Debug */,
+				A73C3F6F21E1BB8700469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A73C3F7021E1BB8700469CB8 /* Build configuration list for PBXNativeTarget "Lumpy DumplingsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3F7121E1BB8700469CB8 /* Debug */,
+				A73C3F7221E1BB8700469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A73C3F7321E1BB8700469CB8 /* Build configuration list for PBXNativeTarget "Lumpy DumplingsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3F7421E1BB8700469CB8 /* Debug */,
+				A73C3F7521E1BB8700469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A73C3F3D21E1BB8700469CB8 /* Project object */;
+}

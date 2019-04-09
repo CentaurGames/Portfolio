@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7139DE521CDE86D00C4D419 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7139DE421CDE86D00C4D419 /* AppDelegate.swift */; };
+		A7139DE721CDE86D00C4D419 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7139DE621CDE86D00C4D419 /* ViewController.swift */; };
+		A7139DEA21CDE86D00C4D419 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7139DE821CDE86D00C4D419 /* Main.storyboard */; };
+		A7139DEC21CDE86E00C4D419 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7139DEB21CDE86E00C4D419 /* Assets.xcassets */; };
+		A7139DEF21CDE86E00C4D419 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7139DED21CDE86E00C4D419 /* LaunchScreen.storyboard */; };
+		A7139DFA21CDE86E00C4D419 /* Bubble_ShooterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7139DF921CDE86E00C4D419 /* Bubble_ShooterTests.swift */; };
+		A7139E0521CDE86E00C4D419 /* Bubble_ShooterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7139E0421CDE86E00C4D419 /* Bubble_ShooterUITests.swift */; };
+		A7139E1321D1840C00C4D419 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A7139E1221D1840C00C4D419 /* index.html */; };
+		A7139E1721D1F4C300C4D419 /* iPad2xPortrait_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = A7139E1621D1F4C300C4D419 /* iPad2xPortrait_iOS7.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7139DF621CDE86E00C4D419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7139DD921CDE86D00C4D419 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7139DE021CDE86D00C4D419;
+			remoteInfo = "Bubble Shooter";
+		};
+		A7139E0121CDE86E00C4D419 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7139DD921CDE86D00C4D419 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7139DE021CDE86D00C4D419;
+			remoteInfo = "Bubble Shooter";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A7139DE121CDE86D00C4D419 /* Bubble Shooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bubble Shooter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7139DE421CDE86D00C4D419 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A7139DE621CDE86D00C4D419 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7139DE921CDE86D00C4D419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7139DEB21CDE86E00C4D419 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7139DEE21CDE86E00C4D419 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A7139DF021CDE86E00C4D419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7139DF521CDE86E00C4D419 /* Bubble ShooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bubble ShooterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7139DF921CDE86E00C4D419 /* Bubble_ShooterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble_ShooterTests.swift; sourceTree = "<group>"; };
+		A7139DFB21CDE86E00C4D419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7139E0021CDE86E00C4D419 /* Bubble ShooterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bubble ShooterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7139E0421CDE86E00C4D419 /* Bubble_ShooterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble_ShooterUITests.swift; sourceTree = "<group>"; };
+		A7139E0621CDE86E00C4D419 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7139E1221D1840C00C4D419 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Desktop/Centaur Games iOS Apps/BUBBLE SHOOTER/index.html"; sourceTree = "<group>"; };
+		A7139E1621D1F4C300C4D419 /* iPad2xPortrait_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad2xPortrait_iOS7.png; path = "../../../../Desktop/CENTAUR GAMES BLANK LAUNCH IMAGES/iPad2xPortrait_iOS7.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7139DDE21CDE86D00C4D419 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7139DF221CDE86E00C4D419 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7139DFD21CDE86E00C4D419 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7139DD821CDE86D00C4D419 = {
+			isa = PBXGroup;
+			children = (
+				A7139DE321CDE86D00C4D419 /* Bubble Shooter */,
+				A7139DF821CDE86E00C4D419 /* Bubble ShooterTests */,
+				A7139E0321CDE86E00C4D419 /* Bubble ShooterUITests */,
+				A7139DE221CDE86D00C4D419 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7139DE221CDE86D00C4D419 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7139DE121CDE86D00C4D419 /* Bubble Shooter.app */,
+				A7139DF521CDE86E00C4D419 /* Bubble ShooterTests.xctest */,
+				A7139E0021CDE86E00C4D419 /* Bubble ShooterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7139DE321CDE86D00C4D419 /* Bubble Shooter */ = {
+			isa = PBXGroup;
+			children = (
+				A7139DE421CDE86D00C4D419 /* AppDelegate.swift */,
+				A7139DE621CDE86D00C4D419 /* ViewController.swift */,
+				A7139DE821CDE86D00C4D419 /* Main.storyboard */,
+				A7139E1621D1F4C300C4D419 /* iPad2xPortrait_iOS7.png */,
+				A7139E1221D1840C00C4D419 /* index.html */,
+				A7139DEB21CDE86E00C4D419 /* Assets.xcassets */,
+				A7139DED21CDE86E00C4D419 /* LaunchScreen.storyboard */,
+				A7139DF021CDE86E00C4D419 /* Info.plist */,
+			);
+			path = "Bubble Shooter";
+			sourceTree = "<group>";
+		};
+		A7139DF821CDE86E00C4D419 /* Bubble ShooterTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7139DF921CDE86E00C4D419 /* Bubble_ShooterTests.swift */,
+				A7139DFB21CDE86E00C4D419 /* Info.plist */,
+			);
+			path = "Bubble ShooterTests";
+			sourceTree = "<group>";
+		};
+		A7139E0321CDE86E00C4D419 /* Bubble ShooterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A7139E0421CDE86E00C4D419 /* Bubble_ShooterUITests.swift */,
+				A7139E0621CDE86E00C4D419 /* Info.plist */,
+			);
+			path = "Bubble ShooterUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7139DE021CDE86D00C4D419 /* Bubble Shooter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7139E0921CDE86E00C4D419 /* Build configuration list for PBXNativeTarget "Bubble Shooter" */;
+			buildPhases = (
+				A7139DDD21CDE86D00C4D419 /* Sources */,
+				A7139DDE21CDE86D00C4D419 /* Frameworks */,
+				A7139DDF21CDE86D00C4D419 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bubble Shooter";
+			productName = "Bubble Shooter";
+			productReference = A7139DE121CDE86D00C4D419 /* Bubble Shooter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7139DF421CDE86E00C4D419 /* Bubble ShooterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7139E0C21CDE86E00C4D419 /* Build configuration list for PBXNativeTarget "Bubble ShooterTests" */;
+			buildPhases = (
+				A7139DF121CDE86E00C4D419 /* Sources */,
+				A7139DF221CDE86E00C4D419 /* Frameworks */,
+				A7139DF321CDE86E00C4D419 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7139DF721CDE86E00C4D419 /* PBXTargetDependency */,
+			);
+			name = "Bubble ShooterTests";
+			productName = "Bubble ShooterTests";
+			productReference = A7139DF521CDE86E00C4D419 /* Bubble ShooterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A7139DFF21CDE86E00C4D419 /* Bubble ShooterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7139E0F21CDE86E00C4D419 /* Build configuration list for PBXNativeTarget "Bubble ShooterUITests" */;
+			buildPhases = (
+				A7139DFC21CDE86E00C4D419 /* Sources */,
+				A7139DFD21CDE86E00C4D419 /* Frameworks */,
+				A7139DFE21CDE86E00C4D419 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7139E0221CDE86E00C4D419 /* PBXTargetDependency */,
+			);
+			name = "Bubble ShooterUITests";
+			productName = "Bubble ShooterUITests";
+			productReference = A7139E0021CDE86E00C4D419 /* Bubble ShooterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7139DD921CDE86D00C4D419 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Centaur Games";
+				TargetAttributes = {
+					A7139DE021CDE86D00C4D419 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A7139DF421CDE86E00C4D419 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A7139DE021CDE86D00C4D419;
+					};
+					A7139DFF21CDE86E00C4D419 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A7139DE021CDE86D00C4D419;
+					};
+				};
+			};
+			buildConfigurationList = A7139DDC21CDE86D00C4D419 /* Build configuration list for PBXProject "Bubble Shooter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A7139DD821CDE86D00C4D419;
+			productRefGroup = A7139DE221CDE86D00C4D419 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7139DE021CDE86D00C4D419 /* Bubble Shooter */,
+				A7139DF421CDE86E00C4D419 /* Bubble ShooterTests */,
+				A7139DFF21CDE86E00C4D419 /* Bubble ShooterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7139DDF21CDE86D00C4D419 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7139DEF21CDE86E00C4D419 /* LaunchScreen.storyboard in Resources */,
+				A7139E1321D1840C00C4D419 /* index.html in Resources */,
+				A7139E1721D1F4C300C4D419 /* iPad2xPortrait_iOS7.png in Resources */,
+				A7139DEC21CDE86E00C4D419 /* Assets.xcassets in Resources */,
+				A7139DEA21CDE86D00C4D419 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7139DF321CDE86E00C4D419 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7139DFE21CDE86E00C4D419 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7139DDD21CDE86D00C4D419 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7139DE721CDE86D00C4D419 /* ViewController.swift in Sources */,
+				A7139DE521CDE86D00C4D419 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7139DF121CDE86E00C4D419 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7139DFA21CDE86E00C4D419 /* Bubble_ShooterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7139DFC21CDE86E00C4D419 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7139E0521CDE86E00C4D419 /* Bubble_ShooterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7139DF721CDE86E00C4D419 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7139DE021CDE86D00C4D419 /* Bubble Shooter */;
+			targetProxy = A7139DF621CDE86E00C4D419 /* PBXContainerItemProxy */;
+		};
+		A7139E0221CDE86E00C4D419 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7139DE021CDE86D00C4D419 /* Bubble Shooter */;
+			targetProxy = A7139E0121CDE86E00C4D419 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7139DE821CDE86D00C4D419 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7139DE921CDE86D00C4D419 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A7139DED21CDE86E00C4D419 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7139DEE21CDE86E00C4D419 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7139E0721CDE86E00C4D419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A7139E0821CDE86E00C4D419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7139E0A21CDE86E00C4D419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Bubble Shooter/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.bubbleshooter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A7139E0B21CDE86E00C4D419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Bubble Shooter/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.bubbleshooter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A7139E0D21CDE86E00C4D419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Bubble ShooterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Centaur-Games.Bubble-ShooterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bubble Shooter.app/Bubble Shooter";
+			};
+			name = Debug;
+		};
+		A7139E0E21CDE86E00C4D419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Bubble ShooterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Centaur-Games.Bubble-ShooterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bubble Shooter.app/Bubble Shooter";
+			};
+			name = Release;
+		};
+		A7139E1021CDE86E00C4D419 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Bubble ShooterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Centaur-Games.Bubble-ShooterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bubble Shooter";
+			};
+			name = Debug;
+		};
+		A7139E1121CDE86E00C4D419 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Bubble ShooterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Centaur-Games.Bubble-ShooterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Bubble Shooter";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7139DDC21CDE86D00C4D419 /* Build configuration list for PBXProject "Bubble Shooter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7139E0721CDE86E00C4D419 /* Debug */,
+				A7139E0821CDE86E00C4D419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7139E0921CDE86E00C4D419 /* Build configuration list for PBXNativeTarget "Bubble Shooter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7139E0A21CDE86E00C4D419 /* Debug */,
+				A7139E0B21CDE86E00C4D419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7139E0C21CDE86E00C4D419 /* Build configuration list for PBXNativeTarget "Bubble ShooterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7139E0D21CDE86E00C4D419 /* Debug */,
+				A7139E0E21CDE86E00C4D419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7139E0F21CDE86E00C4D419 /* Build configuration list for PBXNativeTarget "Bubble ShooterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7139E1021CDE86E00C4D419 /* Debug */,
+				A7139E1121CDE86E00C4D419 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7139DD921CDE86D00C4D419 /* Project object */;
+}

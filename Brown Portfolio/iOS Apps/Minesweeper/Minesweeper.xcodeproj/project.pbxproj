@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7175C4421D46672007B0F5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7175C4321D46672007B0F5A /* AppDelegate.swift */; };
+		A7175C4621D46672007B0F5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7175C4521D46672007B0F5A /* ViewController.swift */; };
+		A7175C4921D46672007B0F5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7175C4721D46672007B0F5A /* Main.storyboard */; };
+		A7175C4B21D46673007B0F5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7175C4A21D46673007B0F5A /* Assets.xcassets */; };
+		A7175C4E21D46673007B0F5A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7175C4C21D46673007B0F5A /* LaunchScreen.storyboard */; };
+		A7175C5921D46673007B0F5A /* MinesweeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7175C5821D46673007B0F5A /* MinesweeperTests.swift */; };
+		A7175C6421D46673007B0F5A /* MinesweeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7175C6321D46673007B0F5A /* MinesweeperUITests.swift */; };
+		A7175C7221D46876007B0F5A /* iPad2xPortrait_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = A7175C7121D46876007B0F5A /* iPad2xPortrait_iOS7.png */; };
+		A7175C7421D46A52007B0F5A /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A7175C7321D46A52007B0F5A /* index.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7175C5521D46673007B0F5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7175C3821D46672007B0F5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7175C3F21D46672007B0F5A;
+			remoteInfo = Minesweeper;
+		};
+		A7175C6021D46673007B0F5A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7175C3821D46672007B0F5A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7175C3F21D46672007B0F5A;
+			remoteInfo = Minesweeper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A7175C4021D46672007B0F5A /* Minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7175C4321D46672007B0F5A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A7175C4521D46672007B0F5A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7175C4821D46672007B0F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7175C4A21D46673007B0F5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7175C4D21D46673007B0F5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A7175C4F21D46673007B0F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7175C5421D46673007B0F5A /* MinesweeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinesweeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7175C5821D46673007B0F5A /* MinesweeperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperTests.swift; sourceTree = "<group>"; };
+		A7175C5A21D46673007B0F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7175C5F21D46673007B0F5A /* MinesweeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MinesweeperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7175C6321D46673007B0F5A /* MinesweeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinesweeperUITests.swift; sourceTree = "<group>"; };
+		A7175C6521D46673007B0F5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7175C7121D46876007B0F5A /* iPad2xPortrait_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad2xPortrait_iOS7.png; path = "../../../../Desktop/CENTAUR GAMES BLANK LAUNCH IMAGES/iPad2xPortrait_iOS7.png"; sourceTree = "<group>"; };
+		A7175C7321D46A52007B0F5A /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Desktop/Centaur Games iOS Apps/MINESWEEPER/index.html"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7175C3D21D46672007B0F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7175C5121D46673007B0F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7175C5C21D46673007B0F5A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7175C3721D46672007B0F5A = {
+			isa = PBXGroup;
+			children = (
+				A7175C4221D46672007B0F5A /* Minesweeper */,
+				A7175C5721D46673007B0F5A /* MinesweeperTests */,
+				A7175C6221D46673007B0F5A /* MinesweeperUITests */,
+				A7175C4121D46672007B0F5A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7175C4121D46672007B0F5A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7175C4021D46672007B0F5A /* Minesweeper.app */,
+				A7175C5421D46673007B0F5A /* MinesweeperTests.xctest */,
+				A7175C5F21D46673007B0F5A /* MinesweeperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7175C4221D46672007B0F5A /* Minesweeper */ = {
+			isa = PBXGroup;
+			children = (
+				A7175C4321D46672007B0F5A /* AppDelegate.swift */,
+				A7175C4521D46672007B0F5A /* ViewController.swift */,
+				A7175C7321D46A52007B0F5A /* index.html */,
+				A7175C4721D46672007B0F5A /* Main.storyboard */,
+				A7175C7121D46876007B0F5A /* iPad2xPortrait_iOS7.png */,
+				A7175C4A21D46673007B0F5A /* Assets.xcassets */,
+				A7175C4C21D46673007B0F5A /* LaunchScreen.storyboard */,
+				A7175C4F21D46673007B0F5A /* Info.plist */,
+			);
+			path = Minesweeper;
+			sourceTree = "<group>";
+		};
+		A7175C5721D46673007B0F5A /* MinesweeperTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7175C5821D46673007B0F5A /* MinesweeperTests.swift */,
+				A7175C5A21D46673007B0F5A /* Info.plist */,
+			);
+			path = MinesweeperTests;
+			sourceTree = "<group>";
+		};
+		A7175C6221D46673007B0F5A /* MinesweeperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A7175C6321D46673007B0F5A /* MinesweeperUITests.swift */,
+				A7175C6521D46673007B0F5A /* Info.plist */,
+			);
+			path = MinesweeperUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7175C3F21D46672007B0F5A /* Minesweeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7175C6821D46673007B0F5A /* Build configuration list for PBXNativeTarget "Minesweeper" */;
+			buildPhases = (
+				A7175C3C21D46672007B0F5A /* Sources */,
+				A7175C3D21D46672007B0F5A /* Frameworks */,
+				A7175C3E21D46672007B0F5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Minesweeper;
+			productName = Minesweeper;
+			productReference = A7175C4021D46672007B0F5A /* Minesweeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7175C5321D46673007B0F5A /* MinesweeperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7175C6B21D46673007B0F5A /* Build configuration list for PBXNativeTarget "MinesweeperTests" */;
+			buildPhases = (
+				A7175C5021D46673007B0F5A /* Sources */,
+				A7175C5121D46673007B0F5A /* Frameworks */,
+				A7175C5221D46673007B0F5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7175C5621D46673007B0F5A /* PBXTargetDependency */,
+			);
+			name = MinesweeperTests;
+			productName = MinesweeperTests;
+			productReference = A7175C5421D46673007B0F5A /* MinesweeperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A7175C5E21D46673007B0F5A /* MinesweeperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7175C6E21D46673007B0F5A /* Build configuration list for PBXNativeTarget "MinesweeperUITests" */;
+			buildPhases = (
+				A7175C5B21D46673007B0F5A /* Sources */,
+				A7175C5C21D46673007B0F5A /* Frameworks */,
+				A7175C5D21D46673007B0F5A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7175C6121D46673007B0F5A /* PBXTargetDependency */,
+			);
+			name = MinesweeperUITests;
+			productName = MinesweeperUITests;
+			productReference = A7175C5F21D46673007B0F5A /* MinesweeperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7175C3821D46672007B0F5A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Centaur Games";
+				TargetAttributes = {
+					A7175C3F21D46672007B0F5A = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A7175C5321D46673007B0F5A = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A7175C3F21D46672007B0F5A;
+					};
+					A7175C5E21D46673007B0F5A = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A7175C3F21D46672007B0F5A;
+					};
+				};
+			};
+			buildConfigurationList = A7175C3B21D46672007B0F5A /* Build configuration list for PBXProject "Minesweeper" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A7175C3721D46672007B0F5A;
+			productRefGroup = A7175C4121D46672007B0F5A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7175C3F21D46672007B0F5A /* Minesweeper */,
+				A7175C5321D46673007B0F5A /* MinesweeperTests */,
+				A7175C5E21D46673007B0F5A /* MinesweeperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7175C3E21D46672007B0F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7175C7421D46A52007B0F5A /* index.html in Resources */,
+				A7175C7221D46876007B0F5A /* iPad2xPortrait_iOS7.png in Resources */,
+				A7175C4E21D46673007B0F5A /* LaunchScreen.storyboard in Resources */,
+				A7175C4B21D46673007B0F5A /* Assets.xcassets in Resources */,
+				A7175C4921D46672007B0F5A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7175C5221D46673007B0F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7175C5D21D46673007B0F5A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7175C3C21D46672007B0F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7175C4621D46672007B0F5A /* ViewController.swift in Sources */,
+				A7175C4421D46672007B0F5A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7175C5021D46673007B0F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7175C5921D46673007B0F5A /* MinesweeperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7175C5B21D46673007B0F5A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7175C6421D46673007B0F5A /* MinesweeperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7175C5621D46673007B0F5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7175C3F21D46672007B0F5A /* Minesweeper */;
+			targetProxy = A7175C5521D46673007B0F5A /* PBXContainerItemProxy */;
+		};
+		A7175C6121D46673007B0F5A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7175C3F21D46672007B0F5A /* Minesweeper */;
+			targetProxy = A7175C6021D46673007B0F5A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7175C4721D46672007B0F5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7175C4821D46672007B0F5A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A7175C4C21D46673007B0F5A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7175C4D21D46673007B0F5A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7175C6621D46673007B0F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A7175C6721D46673007B0F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7175C6921D46673007B0F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = Minesweeper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.Minesweeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A7175C6A21D46673007B0F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = Minesweeper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.Minesweeper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A7175C6C21D46673007B0F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = MinesweeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.MinesweeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minesweeper.app/Minesweeper";
+			};
+			name = Debug;
+		};
+		A7175C6D21D46673007B0F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = MinesweeperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.MinesweeperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minesweeper.app/Minesweeper";
+			};
+			name = Release;
+		};
+		A7175C6F21D46673007B0F5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = MinesweeperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.MinesweeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Minesweeper;
+			};
+			name = Debug;
+		};
+		A7175C7021D46673007B0F5A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = MinesweeperUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.MinesweeperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Minesweeper;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7175C3B21D46672007B0F5A /* Build configuration list for PBXProject "Minesweeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7175C6621D46673007B0F5A /* Debug */,
+				A7175C6721D46673007B0F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7175C6821D46673007B0F5A /* Build configuration list for PBXNativeTarget "Minesweeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7175C6921D46673007B0F5A /* Debug */,
+				A7175C6A21D46673007B0F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7175C6B21D46673007B0F5A /* Build configuration list for PBXNativeTarget "MinesweeperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7175C6C21D46673007B0F5A /* Debug */,
+				A7175C6D21D46673007B0F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7175C6E21D46673007B0F5A /* Build configuration list for PBXNativeTarget "MinesweeperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7175C6F21D46673007B0F5A /* Debug */,
+				A7175C7021D46673007B0F5A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7175C3821D46672007B0F5A /* Project object */;
+}
