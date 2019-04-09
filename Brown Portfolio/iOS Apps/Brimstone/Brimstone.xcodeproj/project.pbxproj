@@ -1,0 +1,620 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7235B5221F5144A00694348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7235B5121F5144A00694348 /* AppDelegate.swift */; };
+		A7235B5421F5144A00694348 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7235B5321F5144A00694348 /* ViewController.swift */; };
+		A7235B5721F5144A00694348 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7235B5521F5144A00694348 /* Main.storyboard */; };
+		A7235B5921F5144B00694348 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7235B5821F5144B00694348 /* Assets.xcassets */; };
+		A7235B5C21F5144B00694348 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7235B5A21F5144B00694348 /* LaunchScreen.storyboard */; };
+		A7235B6721F5144B00694348 /* BrimstoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7235B6621F5144B00694348 /* BrimstoneTests.swift */; };
+		A7235B7221F5144B00694348 /* BrimstoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7235B7121F5144B00694348 /* BrimstoneUITests.swift */; };
+		A7235B8021F51B9500694348 /* iPad1xLandscape_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = A7235B7F21F51B9500694348 /* iPad1xLandscape_iOS7.png */; };
+		A7235B8221F51F6800694348 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A7235B8121F51F6800694348 /* index.html */; };
+		A7235B8821F7EED800694348 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7235B8721F7EED800694348 /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7235B6321F5144B00694348 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7235B4621F5144A00694348 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7235B4D21F5144A00694348;
+			remoteInfo = Brimstone;
+		};
+		A7235B6E21F5144B00694348 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7235B4621F5144A00694348 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7235B4D21F5144A00694348;
+			remoteInfo = Brimstone;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A7235B4E21F5144A00694348 /* Brimstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Brimstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7235B5121F5144A00694348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A7235B5321F5144A00694348 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7235B5621F5144A00694348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A7235B5821F5144B00694348 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7235B5B21F5144B00694348 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A7235B5D21F5144B00694348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7235B6221F5144B00694348 /* BrimstoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrimstoneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7235B6621F5144B00694348 /* BrimstoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrimstoneTests.swift; sourceTree = "<group>"; };
+		A7235B6821F5144B00694348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7235B6D21F5144B00694348 /* BrimstoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrimstoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7235B7121F5144B00694348 /* BrimstoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrimstoneUITests.swift; sourceTree = "<group>"; };
+		A7235B7321F5144B00694348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7235B7F21F51B9500694348 /* iPad1xLandscape_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad1xLandscape_iOS7.png; path = "../../../../Desktop/CENTAUR GAMES BLANK LAUNCH IMAGES/iPad1xLandscape_iOS7.png"; sourceTree = "<group>"; };
+		A7235B8121F51F6800694348 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Desktop/Centaur Games iOS Apps/BRIMSTONE/index.html"; sourceTree = "<group>"; };
+		A7235B8721F7EED800694348 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7235B4B21F5144A00694348 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7235B8821F7EED800694348 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7235B5F21F5144B00694348 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7235B6A21F5144B00694348 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7235B4521F5144A00694348 = {
+			isa = PBXGroup;
+			children = (
+				A7235B5021F5144A00694348 /* Brimstone */,
+				A7235B6521F5144B00694348 /* BrimstoneTests */,
+				A7235B7021F5144B00694348 /* BrimstoneUITests */,
+				A7235B4F21F5144A00694348 /* Products */,
+				A7235B8621F7EED800694348 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A7235B4F21F5144A00694348 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7235B4E21F5144A00694348 /* Brimstone.app */,
+				A7235B6221F5144B00694348 /* BrimstoneTests.xctest */,
+				A7235B6D21F5144B00694348 /* BrimstoneUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7235B5021F5144A00694348 /* Brimstone */ = {
+			isa = PBXGroup;
+			children = (
+				A7235B5121F5144A00694348 /* AppDelegate.swift */,
+				A7235B5321F5144A00694348 /* ViewController.swift */,
+				A7235B5521F5144A00694348 /* Main.storyboard */,
+				A7235B5821F5144B00694348 /* Assets.xcassets */,
+				A7235B8121F51F6800694348 /* index.html */,
+				A7235B7F21F51B9500694348 /* iPad1xLandscape_iOS7.png */,
+				A7235B5A21F5144B00694348 /* LaunchScreen.storyboard */,
+				A7235B5D21F5144B00694348 /* Info.plist */,
+			);
+			path = Brimstone;
+			sourceTree = "<group>";
+		};
+		A7235B6521F5144B00694348 /* BrimstoneTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7235B6621F5144B00694348 /* BrimstoneTests.swift */,
+				A7235B6821F5144B00694348 /* Info.plist */,
+			);
+			path = BrimstoneTests;
+			sourceTree = "<group>";
+		};
+		A7235B7021F5144B00694348 /* BrimstoneUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A7235B7121F5144B00694348 /* BrimstoneUITests.swift */,
+				A7235B7321F5144B00694348 /* Info.plist */,
+			);
+			path = BrimstoneUITests;
+			sourceTree = "<group>";
+		};
+		A7235B8621F7EED800694348 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7235B8721F7EED800694348 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7235B4D21F5144A00694348 /* Brimstone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7235B7621F5144B00694348 /* Build configuration list for PBXNativeTarget "Brimstone" */;
+			buildPhases = (
+				A7235B4A21F5144A00694348 /* Sources */,
+				A7235B4B21F5144A00694348 /* Frameworks */,
+				A7235B4C21F5144A00694348 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Brimstone;
+			productName = Brimstone;
+			productReference = A7235B4E21F5144A00694348 /* Brimstone.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7235B6121F5144B00694348 /* BrimstoneTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7235B7921F5144B00694348 /* Build configuration list for PBXNativeTarget "BrimstoneTests" */;
+			buildPhases = (
+				A7235B5E21F5144B00694348 /* Sources */,
+				A7235B5F21F5144B00694348 /* Frameworks */,
+				A7235B6021F5144B00694348 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7235B6421F5144B00694348 /* PBXTargetDependency */,
+			);
+			name = BrimstoneTests;
+			productName = BrimstoneTests;
+			productReference = A7235B6221F5144B00694348 /* BrimstoneTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A7235B6C21F5144B00694348 /* BrimstoneUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7235B7C21F5144B00694348 /* Build configuration list for PBXNativeTarget "BrimstoneUITests" */;
+			buildPhases = (
+				A7235B6921F5144B00694348 /* Sources */,
+				A7235B6A21F5144B00694348 /* Frameworks */,
+				A7235B6B21F5144B00694348 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7235B6F21F5144B00694348 /* PBXTargetDependency */,
+			);
+			name = BrimstoneUITests;
+			productName = BrimstoneUITests;
+			productReference = A7235B6D21F5144B00694348 /* BrimstoneUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7235B4621F5144A00694348 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Centaur Games";
+				TargetAttributes = {
+					A7235B4D21F5144A00694348 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+					A7235B6121F5144B00694348 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A7235B4D21F5144A00694348;
+					};
+					A7235B6C21F5144B00694348 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A7235B4D21F5144A00694348;
+					};
+				};
+			};
+			buildConfigurationList = A7235B4921F5144A00694348 /* Build configuration list for PBXProject "Brimstone" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A7235B4521F5144A00694348;
+			productRefGroup = A7235B4F21F5144A00694348 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7235B4D21F5144A00694348 /* Brimstone */,
+				A7235B6121F5144B00694348 /* BrimstoneTests */,
+				A7235B6C21F5144B00694348 /* BrimstoneUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7235B4C21F5144A00694348 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7235B8221F51F6800694348 /* index.html in Resources */,
+				A7235B5C21F5144B00694348 /* LaunchScreen.storyboard in Resources */,
+				A7235B5921F5144B00694348 /* Assets.xcassets in Resources */,
+				A7235B8021F51B9500694348 /* iPad1xLandscape_iOS7.png in Resources */,
+				A7235B5721F5144A00694348 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7235B6021F5144B00694348 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7235B6B21F5144B00694348 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7235B4A21F5144A00694348 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7235B5421F5144A00694348 /* ViewController.swift in Sources */,
+				A7235B5221F5144A00694348 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7235B5E21F5144B00694348 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7235B6721F5144B00694348 /* BrimstoneTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7235B6921F5144B00694348 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7235B7221F5144B00694348 /* BrimstoneUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7235B6421F5144B00694348 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7235B4D21F5144A00694348 /* Brimstone */;
+			targetProxy = A7235B6321F5144B00694348 /* PBXContainerItemProxy */;
+		};
+		A7235B6F21F5144B00694348 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7235B4D21F5144A00694348 /* Brimstone */;
+			targetProxy = A7235B6E21F5144B00694348 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7235B5521F5144A00694348 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7235B5621F5144A00694348 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A7235B5A21F5144B00694348 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7235B5B21F5144B00694348 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7235B7421F5144B00694348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A7235B7521F5144B00694348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7235B7721F5144B00694348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = Brimstone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.Brimstone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A7235B7821F5144B00694348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = Brimstone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.Brimstone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A7235B7A21F5144B00694348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = BrimstoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.BrimstoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Brimstone.app/Brimstone";
+			};
+			name = Debug;
+		};
+		A7235B7B21F5144B00694348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = BrimstoneTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.BrimstoneTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Brimstone.app/Brimstone";
+			};
+			name = Release;
+		};
+		A7235B7D21F5144B00694348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = BrimstoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.BrimstoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Brimstone;
+			};
+			name = Debug;
+		};
+		A7235B7E21F5144B00694348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = BrimstoneUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.centaurgamesonline.BrimstoneUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Brimstone;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7235B4921F5144A00694348 /* Build configuration list for PBXProject "Brimstone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7235B7421F5144B00694348 /* Debug */,
+				A7235B7521F5144B00694348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7235B7621F5144B00694348 /* Build configuration list for PBXNativeTarget "Brimstone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7235B7721F5144B00694348 /* Debug */,
+				A7235B7821F5144B00694348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7235B7921F5144B00694348 /* Build configuration list for PBXNativeTarget "BrimstoneTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7235B7A21F5144B00694348 /* Debug */,
+				A7235B7B21F5144B00694348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7235B7C21F5144B00694348 /* Build configuration list for PBXNativeTarget "BrimstoneUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7235B7D21F5144B00694348 /* Debug */,
+				A7235B7E21F5144B00694348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7235B4621F5144A00694348 /* Project object */;
+}
