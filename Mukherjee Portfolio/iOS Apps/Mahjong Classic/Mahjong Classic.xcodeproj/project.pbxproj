@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A748946F21DDC2A700230C2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A748946E21DDC2A700230C2D /* AppDelegate.swift */; };
+		A748947121DDC2A700230C2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A748947021DDC2A700230C2D /* ViewController.swift */; };
+		A748947421DDC2A700230C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A748947221DDC2A700230C2D /* Main.storyboard */; };
+		A748947621DDC2A800230C2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A748947521DDC2A800230C2D /* Assets.xcassets */; };
+		A748947921DDC2A800230C2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A748947721DDC2A800230C2D /* LaunchScreen.storyboard */; };
+		A748948421DDC2A800230C2D /* Mahjong_ClassicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A748948321DDC2A800230C2D /* Mahjong_ClassicTests.swift */; };
+		A748948F21DDC2A800230C2D /* Mahjong_ClassicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A748948E21DDC2A800230C2D /* Mahjong_ClassicUITests.swift */; };
+		A748949D21DDC62500230C2D /* iPad1xLandscape_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = A748949C21DDC62400230C2D /* iPad1xLandscape_iOS7.png */; };
+		A748949F21DDC70F00230C2D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A748949E21DDC70F00230C2D /* index.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A748948021DDC2A800230C2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A748946321DDC2A700230C2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A748946A21DDC2A700230C2D;
+			remoteInfo = "Mahjong Classic";
+		};
+		A748948B21DDC2A800230C2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A748946321DDC2A700230C2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A748946A21DDC2A700230C2D;
+			remoteInfo = "Mahjong Classic";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A748946B21DDC2A700230C2D /* Mahjong Classic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mahjong Classic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A748946E21DDC2A700230C2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A748947021DDC2A700230C2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A748947321DDC2A700230C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A748947521DDC2A800230C2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A748947821DDC2A800230C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A748947A21DDC2A800230C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A748947F21DDC2A800230C2D /* Mahjong ClassicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mahjong ClassicTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A748948321DDC2A800230C2D /* Mahjong_ClassicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mahjong_ClassicTests.swift; sourceTree = "<group>"; };
+		A748948521DDC2A800230C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A748948A21DDC2A800230C2D /* Mahjong ClassicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mahjong ClassicUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A748948E21DDC2A800230C2D /* Mahjong_ClassicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mahjong_ClassicUITests.swift; sourceTree = "<group>"; };
+		A748949021DDC2A800230C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A748949C21DDC62400230C2D /* iPad1xLandscape_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad1xLandscape_iOS7.png; path = "../../../../Desktop/CENTAUR GAMES BLANK LAUNCH IMAGES/iPad1xLandscape_iOS7.png"; sourceTree = "<group>"; };
+		A748949E21DDC70F00230C2D /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Desktop/Centaur Games iOS Apps/MAHJONG CLASSIC/index.html"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A748946821DDC2A700230C2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A748947C21DDC2A800230C2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A748948721DDC2A800230C2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A748946221DDC2A700230C2D = {
+			isa = PBXGroup;
+			children = (
+				A748946D21DDC2A700230C2D /* Mahjong Classic */,
+				A748948221DDC2A800230C2D /* Mahjong ClassicTests */,
+				A748948D21DDC2A800230C2D /* Mahjong ClassicUITests */,
+				A748946C21DDC2A700230C2D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A748946C21DDC2A700230C2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A748946B21DDC2A700230C2D /* Mahjong Classic.app */,
+				A748947F21DDC2A800230C2D /* Mahjong ClassicTests.xctest */,
+				A748948A21DDC2A800230C2D /* Mahjong ClassicUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A748946D21DDC2A700230C2D /* Mahjong Classic */ = {
+			isa = PBXGroup;
+			children = (
+				A748946E21DDC2A700230C2D /* AppDelegate.swift */,
+				A748947021DDC2A700230C2D /* ViewController.swift */,
+				A748949E21DDC70F00230C2D /* index.html */,
+				A748947221DDC2A700230C2D /* Main.storyboard */,
+				A748949C21DDC62400230C2D /* iPad1xLandscape_iOS7.png */,
+				A748947521DDC2A800230C2D /* Assets.xcassets */,
+				A748947721DDC2A800230C2D /* LaunchScreen.storyboard */,
+				A748947A21DDC2A800230C2D /* Info.plist */,
+			);
+			path = "Mahjong Classic";
+			sourceTree = "<group>";
+		};
+		A748948221DDC2A800230C2D /* Mahjong ClassicTests */ = {
+			isa = PBXGroup;
+			children = (
+				A748948321DDC2A800230C2D /* Mahjong_ClassicTests.swift */,
+				A748948521DDC2A800230C2D /* Info.plist */,
+			);
+			path = "Mahjong ClassicTests";
+			sourceTree = "<group>";
+		};
+		A748948D21DDC2A800230C2D /* Mahjong ClassicUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A748948E21DDC2A800230C2D /* Mahjong_ClassicUITests.swift */,
+				A748949021DDC2A800230C2D /* Info.plist */,
+			);
+			path = "Mahjong ClassicUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A748946A21DDC2A700230C2D /* Mahjong Classic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A748949321DDC2A800230C2D /* Build configuration list for PBXNativeTarget "Mahjong Classic" */;
+			buildPhases = (
+				A748946721DDC2A700230C2D /* Sources */,
+				A748946821DDC2A700230C2D /* Frameworks */,
+				A748946921DDC2A700230C2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Mahjong Classic";
+			productName = "Mahjong Classic";
+			productReference = A748946B21DDC2A700230C2D /* Mahjong Classic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A748947E21DDC2A800230C2D /* Mahjong ClassicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A748949621DDC2A800230C2D /* Build configuration list for PBXNativeTarget "Mahjong ClassicTests" */;
+			buildPhases = (
+				A748947B21DDC2A800230C2D /* Sources */,
+				A748947C21DDC2A800230C2D /* Frameworks */,
+				A748947D21DDC2A800230C2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A748948121DDC2A800230C2D /* PBXTargetDependency */,
+			);
+			name = "Mahjong ClassicTests";
+			productName = "Mahjong ClassicTests";
+			productReference = A748947F21DDC2A800230C2D /* Mahjong ClassicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A748948921DDC2A800230C2D /* Mahjong ClassicUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A748949921DDC2A800230C2D /* Build configuration list for PBXNativeTarget "Mahjong ClassicUITests" */;
+			buildPhases = (
+				A748948621DDC2A800230C2D /* Sources */,
+				A748948721DDC2A800230C2D /* Frameworks */,
+				A748948821DDC2A800230C2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A748948C21DDC2A800230C2D /* PBXTargetDependency */,
+			);
+			name = "Mahjong ClassicUITests";
+			productName = "Mahjong ClassicUITests";
+			productReference = A748948A21DDC2A800230C2D /* Mahjong ClassicUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A748946321DDC2A700230C2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Centaur Games";
+				TargetAttributes = {
+					A748946A21DDC2A700230C2D = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A748947E21DDC2A800230C2D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A748946A21DDC2A700230C2D;
+					};
+					A748948921DDC2A800230C2D = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A748946A21DDC2A700230C2D;
+					};
+				};
+			};
+			buildConfigurationList = A748946621DDC2A700230C2D /* Build configuration list for PBXProject "Mahjong Classic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A748946221DDC2A700230C2D;
+			productRefGroup = A748946C21DDC2A700230C2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A748946A21DDC2A700230C2D /* Mahjong Classic */,
+				A748947E21DDC2A800230C2D /* Mahjong ClassicTests */,
+				A748948921DDC2A800230C2D /* Mahjong ClassicUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A748946921DDC2A700230C2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A748949F21DDC70F00230C2D /* index.html in Resources */,
+				A748947921DDC2A800230C2D /* LaunchScreen.storyboard in Resources */,
+				A748947621DDC2A800230C2D /* Assets.xcassets in Resources */,
+				A748949D21DDC62500230C2D /* iPad1xLandscape_iOS7.png in Resources */,
+				A748947421DDC2A700230C2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A748947D21DDC2A800230C2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A748948821DDC2A800230C2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A748946721DDC2A700230C2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A748947121DDC2A700230C2D /* ViewController.swift in Sources */,
+				A748946F21DDC2A700230C2D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A748947B21DDC2A800230C2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A748948421DDC2A800230C2D /* Mahjong_ClassicTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A748948621DDC2A800230C2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A748948F21DDC2A800230C2D /* Mahjong_ClassicUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A748948121DDC2A800230C2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A748946A21DDC2A700230C2D /* Mahjong Classic */;
+			targetProxy = A748948021DDC2A800230C2D /* PBXContainerItemProxy */;
+		};
+		A748948C21DDC2A800230C2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A748946A21DDC2A700230C2D /* Mahjong Classic */;
+			targetProxy = A748948B21DDC2A800230C2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A748947221DDC2A700230C2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A748947321DDC2A700230C2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A748947721DDC2A800230C2D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A748947821DDC2A800230C2D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A748949121DDC2A800230C2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A748949221DDC2A800230C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A748949421DDC2A800230C2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Mahjong Classic/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Mahjong-Classic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A748949521DDC2A800230C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Mahjong Classic/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Mahjong-Classic";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A748949721DDC2A800230C2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Mahjong ClassicTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Mahjong-ClassicTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mahjong Classic.app/Mahjong Classic";
+			};
+			name = Debug;
+		};
+		A748949821DDC2A800230C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Mahjong ClassicTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Mahjong-ClassicTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mahjong Classic.app/Mahjong Classic";
+			};
+			name = Release;
+		};
+		A748949A21DDC2A800230C2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Mahjong ClassicUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Mahjong-ClassicUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Mahjong Classic";
+			};
+			name = Debug;
+		};
+		A748949B21DDC2A800230C2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Mahjong ClassicUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Mahjong-ClassicUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Mahjong Classic";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A748946621DDC2A700230C2D /* Build configuration list for PBXProject "Mahjong Classic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A748949121DDC2A800230C2D /* Debug */,
+				A748949221DDC2A800230C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A748949321DDC2A800230C2D /* Build configuration list for PBXNativeTarget "Mahjong Classic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A748949421DDC2A800230C2D /* Debug */,
+				A748949521DDC2A800230C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A748949621DDC2A800230C2D /* Build configuration list for PBXNativeTarget "Mahjong ClassicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A748949721DDC2A800230C2D /* Debug */,
+				A748949821DDC2A800230C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A748949921DDC2A800230C2D /* Build configuration list for PBXNativeTarget "Mahjong ClassicUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A748949A21DDC2A800230C2D /* Debug */,
+				A748949B21DDC2A800230C2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A748946321DDC2A700230C2D /* Project object */;
+}

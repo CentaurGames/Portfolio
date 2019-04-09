@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A730E9D0220220B900FD65DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E9CF220220B900FD65DB /* AppDelegate.swift */; };
+		A730E9D2220220B900FD65DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E9D1220220B900FD65DB /* ViewController.swift */; };
+		A730E9D5220220B900FD65DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A730E9D3220220B900FD65DB /* Main.storyboard */; };
+		A730E9D7220220BA00FD65DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A730E9D6220220BA00FD65DB /* Assets.xcassets */; };
+		A730E9DA220220BA00FD65DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A730E9D8220220BA00FD65DB /* LaunchScreen.storyboard */; };
+		A730E9E5220220BA00FD65DB /* Pool_DynamiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E9E4220220BA00FD65DB /* Pool_DynamiteTests.swift */; };
+		A730E9F0220220BA00FD65DB /* Pool_DynamiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A730E9EF220220BA00FD65DB /* Pool_DynamiteUITests.swift */; };
+		A730E9FE2202241B00FD65DB /* iPad1xLandscape_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = A730E9FD2202241B00FD65DB /* iPad1xLandscape_iOS7.png */; };
+		A730EA002202285600FD65DB /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A730E9FF2202285600FD65DB /* index.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A730E9E1220220BA00FD65DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A730E9C4220220B900FD65DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A730E9CB220220B900FD65DB;
+			remoteInfo = "Pool Dynamite";
+		};
+		A730E9EC220220BA00FD65DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A730E9C4220220B900FD65DB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A730E9CB220220B900FD65DB;
+			remoteInfo = "Pool Dynamite";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A730E9CC220220B900FD65DB /* Pool Dynamite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pool Dynamite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A730E9CF220220B900FD65DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A730E9D1220220B900FD65DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A730E9D4220220B900FD65DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A730E9D6220220BA00FD65DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A730E9D9220220BA00FD65DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A730E9DB220220BA00FD65DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A730E9E0220220BA00FD65DB /* Pool DynamiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pool DynamiteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A730E9E4220220BA00FD65DB /* Pool_DynamiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool_DynamiteTests.swift; sourceTree = "<group>"; };
+		A730E9E6220220BA00FD65DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A730E9EB220220BA00FD65DB /* Pool DynamiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pool DynamiteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A730E9EF220220BA00FD65DB /* Pool_DynamiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pool_DynamiteUITests.swift; sourceTree = "<group>"; };
+		A730E9F1220220BA00FD65DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A730E9FD2202241B00FD65DB /* iPad1xLandscape_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad1xLandscape_iOS7.png; path = "../../../../Desktop/CENTAUR GAMES BLANK LAUNCH IMAGES/iPad1xLandscape_iOS7.png"; sourceTree = "<group>"; };
+		A730E9FF2202285600FD65DB /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Desktop/Centaur Games iOS Apps/POOL DYNAMITE/index.html"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A730E9C9220220B900FD65DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A730E9DD220220BA00FD65DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A730E9E8220220BA00FD65DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A730E9C3220220B900FD65DB = {
+			isa = PBXGroup;
+			children = (
+				A730E9CE220220B900FD65DB /* Pool Dynamite */,
+				A730E9E3220220BA00FD65DB /* Pool DynamiteTests */,
+				A730E9EE220220BA00FD65DB /* Pool DynamiteUITests */,
+				A730E9CD220220B900FD65DB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A730E9CD220220B900FD65DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A730E9CC220220B900FD65DB /* Pool Dynamite.app */,
+				A730E9E0220220BA00FD65DB /* Pool DynamiteTests.xctest */,
+				A730E9EB220220BA00FD65DB /* Pool DynamiteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A730E9CE220220B900FD65DB /* Pool Dynamite */ = {
+			isa = PBXGroup;
+			children = (
+				A730E9CF220220B900FD65DB /* AppDelegate.swift */,
+				A730E9D1220220B900FD65DB /* ViewController.swift */,
+				A730E9D3220220B900FD65DB /* Main.storyboard */,
+				A730E9FF2202285600FD65DB /* index.html */,
+				A730E9D6220220BA00FD65DB /* Assets.xcassets */,
+				A730E9FD2202241B00FD65DB /* iPad1xLandscape_iOS7.png */,
+				A730E9D8220220BA00FD65DB /* LaunchScreen.storyboard */,
+				A730E9DB220220BA00FD65DB /* Info.plist */,
+			);
+			path = "Pool Dynamite";
+			sourceTree = "<group>";
+		};
+		A730E9E3220220BA00FD65DB /* Pool DynamiteTests */ = {
+			isa = PBXGroup;
+			children = (
+				A730E9E4220220BA00FD65DB /* Pool_DynamiteTests.swift */,
+				A730E9E6220220BA00FD65DB /* Info.plist */,
+			);
+			path = "Pool DynamiteTests";
+			sourceTree = "<group>";
+		};
+		A730E9EE220220BA00FD65DB /* Pool DynamiteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A730E9EF220220BA00FD65DB /* Pool_DynamiteUITests.swift */,
+				A730E9F1220220BA00FD65DB /* Info.plist */,
+			);
+			path = "Pool DynamiteUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A730E9CB220220B900FD65DB /* Pool Dynamite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A730E9F4220220BA00FD65DB /* Build configuration list for PBXNativeTarget "Pool Dynamite" */;
+			buildPhases = (
+				A730E9C8220220B900FD65DB /* Sources */,
+				A730E9C9220220B900FD65DB /* Frameworks */,
+				A730E9CA220220B900FD65DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pool Dynamite";
+			productName = "Pool Dynamite";
+			productReference = A730E9CC220220B900FD65DB /* Pool Dynamite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A730E9DF220220BA00FD65DB /* Pool DynamiteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A730E9F7220220BA00FD65DB /* Build configuration list for PBXNativeTarget "Pool DynamiteTests" */;
+			buildPhases = (
+				A730E9DC220220BA00FD65DB /* Sources */,
+				A730E9DD220220BA00FD65DB /* Frameworks */,
+				A730E9DE220220BA00FD65DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A730E9E2220220BA00FD65DB /* PBXTargetDependency */,
+			);
+			name = "Pool DynamiteTests";
+			productName = "Pool DynamiteTests";
+			productReference = A730E9E0220220BA00FD65DB /* Pool DynamiteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A730E9EA220220BA00FD65DB /* Pool DynamiteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A730E9FA220220BA00FD65DB /* Build configuration list for PBXNativeTarget "Pool DynamiteUITests" */;
+			buildPhases = (
+				A730E9E7220220BA00FD65DB /* Sources */,
+				A730E9E8220220BA00FD65DB /* Frameworks */,
+				A730E9E9220220BA00FD65DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A730E9ED220220BA00FD65DB /* PBXTargetDependency */,
+			);
+			name = "Pool DynamiteUITests";
+			productName = "Pool DynamiteUITests";
+			productReference = A730E9EB220220BA00FD65DB /* Pool DynamiteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A730E9C4220220B900FD65DB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Centaur Games";
+				TargetAttributes = {
+					A730E9CB220220B900FD65DB = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A730E9DF220220BA00FD65DB = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A730E9CB220220B900FD65DB;
+					};
+					A730E9EA220220BA00FD65DB = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A730E9CB220220B900FD65DB;
+					};
+				};
+			};
+			buildConfigurationList = A730E9C7220220B900FD65DB /* Build configuration list for PBXProject "Pool Dynamite" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A730E9C3220220B900FD65DB;
+			productRefGroup = A730E9CD220220B900FD65DB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A730E9CB220220B900FD65DB /* Pool Dynamite */,
+				A730E9DF220220BA00FD65DB /* Pool DynamiteTests */,
+				A730E9EA220220BA00FD65DB /* Pool DynamiteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A730E9CA220220B900FD65DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A730EA002202285600FD65DB /* index.html in Resources */,
+				A730E9DA220220BA00FD65DB /* LaunchScreen.storyboard in Resources */,
+				A730E9D7220220BA00FD65DB /* Assets.xcassets in Resources */,
+				A730E9FE2202241B00FD65DB /* iPad1xLandscape_iOS7.png in Resources */,
+				A730E9D5220220B900FD65DB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A730E9DE220220BA00FD65DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A730E9E9220220BA00FD65DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A730E9C8220220B900FD65DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A730E9D2220220B900FD65DB /* ViewController.swift in Sources */,
+				A730E9D0220220B900FD65DB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A730E9DC220220BA00FD65DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A730E9E5220220BA00FD65DB /* Pool_DynamiteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A730E9E7220220BA00FD65DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A730E9F0220220BA00FD65DB /* Pool_DynamiteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A730E9E2220220BA00FD65DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A730E9CB220220B900FD65DB /* Pool Dynamite */;
+			targetProxy = A730E9E1220220BA00FD65DB /* PBXContainerItemProxy */;
+		};
+		A730E9ED220220BA00FD65DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A730E9CB220220B900FD65DB /* Pool Dynamite */;
+			targetProxy = A730E9EC220220BA00FD65DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A730E9D3220220B900FD65DB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A730E9D4220220B900FD65DB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A730E9D8220220BA00FD65DB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A730E9D9220220BA00FD65DB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A730E9F2220220BA00FD65DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A730E9F3220220BA00FD65DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A730E9F5220220BA00FD65DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Pool Dynamite/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Pool-Dynamite";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A730E9F6220220BA00FD65DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Pool Dynamite/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Pool-Dynamite";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A730E9F8220220BA00FD65DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Pool DynamiteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Pool-DynamiteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pool Dynamite.app/Pool Dynamite";
+			};
+			name = Debug;
+		};
+		A730E9F9220220BA00FD65DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Pool DynamiteTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Pool-DynamiteTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pool Dynamite.app/Pool Dynamite";
+			};
+			name = Release;
+		};
+		A730E9FB220220BA00FD65DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Pool DynamiteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Pool-DynamiteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pool Dynamite";
+			};
+			name = Debug;
+		};
+		A730E9FC220220BA00FD65DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Pool DynamiteUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Pool-DynamiteUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pool Dynamite";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A730E9C7220220B900FD65DB /* Build configuration list for PBXProject "Pool Dynamite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A730E9F2220220BA00FD65DB /* Debug */,
+				A730E9F3220220BA00FD65DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A730E9F4220220BA00FD65DB /* Build configuration list for PBXNativeTarget "Pool Dynamite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A730E9F5220220BA00FD65DB /* Debug */,
+				A730E9F6220220BA00FD65DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A730E9F7220220BA00FD65DB /* Build configuration list for PBXNativeTarget "Pool DynamiteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A730E9F8220220BA00FD65DB /* Debug */,
+				A730E9F9220220BA00FD65DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A730E9FA220220BA00FD65DB /* Build configuration list for PBXNativeTarget "Pool DynamiteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A730E9FB220220BA00FD65DB /* Debug */,
+				A730E9FC220220BA00FD65DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A730E9C4220220B900FD65DB /* Project object */;
+}
