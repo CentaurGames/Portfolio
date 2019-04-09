@@ -1,0 +1,603 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A73C3F8721E459D200469CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3F8621E459D200469CB8 /* AppDelegate.swift */; };
+		A73C3F8921E459D200469CB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3F8821E459D200469CB8 /* ViewController.swift */; };
+		A73C3F8C21E459D200469CB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F8A21E459D200469CB8 /* Main.storyboard */; };
+		A73C3F8E21E459D300469CB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F8D21E459D300469CB8 /* Assets.xcassets */; };
+		A73C3F9121E459D300469CB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73C3F8F21E459D300469CB8 /* LaunchScreen.storyboard */; };
+		A73C3F9C21E459D300469CB8 /* Chicken_WingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3F9B21E459D300469CB8 /* Chicken_WingsTests.swift */; };
+		A73C3FA721E459D300469CB8 /* Chicken_WingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73C3FA621E459D300469CB8 /* Chicken_WingsUITests.swift */; };
+		A73C3FB521E45F4500469CB8 /* iPad1xLandscape_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = A73C3FB421E45F4500469CB8 /* iPad1xLandscape_iOS7.png */; };
+		A73C3FB721E4671E00469CB8 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = A73C3FB621E4671D00469CB8 /* index.html */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A73C3F9821E459D300469CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A73C3F7B21E459D200469CB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A73C3F8221E459D200469CB8;
+			remoteInfo = "Chicken Wings";
+		};
+		A73C3FA321E459D300469CB8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A73C3F7B21E459D200469CB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A73C3F8221E459D200469CB8;
+			remoteInfo = "Chicken Wings";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A73C3F8321E459D200469CB8 /* Chicken Wings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chicken Wings.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73C3F8621E459D200469CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A73C3F8821E459D200469CB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A73C3F8B21E459D200469CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A73C3F8D21E459D300469CB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A73C3F9021E459D300469CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A73C3F9221E459D300469CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73C3F9721E459D300469CB8 /* Chicken WingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chicken WingsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73C3F9B21E459D300469CB8 /* Chicken_WingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chicken_WingsTests.swift; sourceTree = "<group>"; };
+		A73C3F9D21E459D300469CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73C3FA221E459D300469CB8 /* Chicken WingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chicken WingsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A73C3FA621E459D300469CB8 /* Chicken_WingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chicken_WingsUITests.swift; sourceTree = "<group>"; };
+		A73C3FA821E459D300469CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A73C3FB421E45F4500469CB8 /* iPad1xLandscape_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad1xLandscape_iOS7.png; path = "../../../../Desktop/CENTAUR GAMES BLANK LAUNCH IMAGES/iPad1xLandscape_iOS7.png"; sourceTree = "<group>"; };
+		A73C3FB621E4671D00469CB8 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = "../../../../Desktop/Centaur Games iOS Apps/CHICKEN WINGS/index.html"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A73C3F8021E459D200469CB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F9421E459D300469CB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F9F21E459D300469CB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A73C3F7A21E459D200469CB8 = {
+			isa = PBXGroup;
+			children = (
+				A73C3F8521E459D200469CB8 /* Chicken Wings */,
+				A73C3F9A21E459D300469CB8 /* Chicken WingsTests */,
+				A73C3FA521E459D300469CB8 /* Chicken WingsUITests */,
+				A73C3F8421E459D200469CB8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A73C3F8421E459D200469CB8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3F8321E459D200469CB8 /* Chicken Wings.app */,
+				A73C3F9721E459D300469CB8 /* Chicken WingsTests.xctest */,
+				A73C3FA221E459D300469CB8 /* Chicken WingsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A73C3F8521E459D200469CB8 /* Chicken Wings */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3F8621E459D200469CB8 /* AppDelegate.swift */,
+				A73C3F8821E459D200469CB8 /* ViewController.swift */,
+				A73C3F8A21E459D200469CB8 /* Main.storyboard */,
+				A73C3FB621E4671D00469CB8 /* index.html */,
+				A73C3F8D21E459D300469CB8 /* Assets.xcassets */,
+				A73C3FB421E45F4500469CB8 /* iPad1xLandscape_iOS7.png */,
+				A73C3F8F21E459D300469CB8 /* LaunchScreen.storyboard */,
+				A73C3F9221E459D300469CB8 /* Info.plist */,
+			);
+			path = "Chicken Wings";
+			sourceTree = "<group>";
+		};
+		A73C3F9A21E459D300469CB8 /* Chicken WingsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3F9B21E459D300469CB8 /* Chicken_WingsTests.swift */,
+				A73C3F9D21E459D300469CB8 /* Info.plist */,
+			);
+			path = "Chicken WingsTests";
+			sourceTree = "<group>";
+		};
+		A73C3FA521E459D300469CB8 /* Chicken WingsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A73C3FA621E459D300469CB8 /* Chicken_WingsUITests.swift */,
+				A73C3FA821E459D300469CB8 /* Info.plist */,
+			);
+			path = "Chicken WingsUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A73C3F8221E459D200469CB8 /* Chicken Wings */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A73C3FAB21E459D300469CB8 /* Build configuration list for PBXNativeTarget "Chicken Wings" */;
+			buildPhases = (
+				A73C3F7F21E459D200469CB8 /* Sources */,
+				A73C3F8021E459D200469CB8 /* Frameworks */,
+				A73C3F8121E459D200469CB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Chicken Wings";
+			productName = "Chicken Wings";
+			productReference = A73C3F8321E459D200469CB8 /* Chicken Wings.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A73C3F9621E459D300469CB8 /* Chicken WingsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A73C3FAE21E459D300469CB8 /* Build configuration list for PBXNativeTarget "Chicken WingsTests" */;
+			buildPhases = (
+				A73C3F9321E459D300469CB8 /* Sources */,
+				A73C3F9421E459D300469CB8 /* Frameworks */,
+				A73C3F9521E459D300469CB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A73C3F9921E459D300469CB8 /* PBXTargetDependency */,
+			);
+			name = "Chicken WingsTests";
+			productName = "Chicken WingsTests";
+			productReference = A73C3F9721E459D300469CB8 /* Chicken WingsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A73C3FA121E459D300469CB8 /* Chicken WingsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A73C3FB121E459D300469CB8 /* Build configuration list for PBXNativeTarget "Chicken WingsUITests" */;
+			buildPhases = (
+				A73C3F9E21E459D300469CB8 /* Sources */,
+				A73C3F9F21E459D300469CB8 /* Frameworks */,
+				A73C3FA021E459D300469CB8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A73C3FA421E459D300469CB8 /* PBXTargetDependency */,
+			);
+			name = "Chicken WingsUITests";
+			productName = "Chicken WingsUITests";
+			productReference = A73C3FA221E459D300469CB8 /* Chicken WingsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A73C3F7B21E459D200469CB8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Centaur Games";
+				TargetAttributes = {
+					A73C3F8221E459D200469CB8 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					A73C3F9621E459D300469CB8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A73C3F8221E459D200469CB8;
+					};
+					A73C3FA121E459D300469CB8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = A73C3F8221E459D200469CB8;
+					};
+				};
+			};
+			buildConfigurationList = A73C3F7E21E459D200469CB8 /* Build configuration list for PBXProject "Chicken Wings" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A73C3F7A21E459D200469CB8;
+			productRefGroup = A73C3F8421E459D200469CB8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A73C3F8221E459D200469CB8 /* Chicken Wings */,
+				A73C3F9621E459D300469CB8 /* Chicken WingsTests */,
+				A73C3FA121E459D300469CB8 /* Chicken WingsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A73C3F8121E459D200469CB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3FB721E4671E00469CB8 /* index.html in Resources */,
+				A73C3F9121E459D300469CB8 /* LaunchScreen.storyboard in Resources */,
+				A73C3F8E21E459D300469CB8 /* Assets.xcassets in Resources */,
+				A73C3FB521E45F4500469CB8 /* iPad1xLandscape_iOS7.png in Resources */,
+				A73C3F8C21E459D200469CB8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F9521E459D300469CB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3FA021E459D300469CB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A73C3F7F21E459D200469CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3F8921E459D200469CB8 /* ViewController.swift in Sources */,
+				A73C3F8721E459D200469CB8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F9321E459D300469CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3F9C21E459D300469CB8 /* Chicken_WingsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73C3F9E21E459D300469CB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73C3FA721E459D300469CB8 /* Chicken_WingsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A73C3F9921E459D300469CB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A73C3F8221E459D200469CB8 /* Chicken Wings */;
+			targetProxy = A73C3F9821E459D300469CB8 /* PBXContainerItemProxy */;
+		};
+		A73C3FA421E459D300469CB8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A73C3F8221E459D200469CB8 /* Chicken Wings */;
+			targetProxy = A73C3FA321E459D300469CB8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A73C3F8A21E459D200469CB8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A73C3F8B21E459D200469CB8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A73C3F8F21E459D300469CB8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A73C3F9021E459D300469CB8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A73C3FA921E459D300469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A73C3FAA21E459D300469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A73C3FAC21E459D300469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Chicken Wings/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Chicken-Wings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A73C3FAD21E459D300469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Chicken Wings/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Chicken-Wings";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A73C3FAF21E459D300469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Chicken WingsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Chicken-WingsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chicken Wings.app/Chicken Wings";
+			};
+			name = Debug;
+		};
+		A73C3FB021E459D300469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Chicken WingsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Chicken-WingsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Chicken Wings.app/Chicken Wings";
+			};
+			name = Release;
+		};
+		A73C3FB221E459D300469CB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Chicken WingsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Chicken-WingsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Chicken Wings";
+			};
+			name = Debug;
+		};
+		A73C3FB321E459D300469CB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WRQ7336L2M;
+				INFOPLIST_FILE = "Chicken WingsUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.centaurgamesonline.Chicken-WingsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Chicken Wings";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A73C3F7E21E459D200469CB8 /* Build configuration list for PBXProject "Chicken Wings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3FA921E459D300469CB8 /* Debug */,
+				A73C3FAA21E459D300469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A73C3FAB21E459D300469CB8 /* Build configuration list for PBXNativeTarget "Chicken Wings" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3FAC21E459D300469CB8 /* Debug */,
+				A73C3FAD21E459D300469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A73C3FAE21E459D300469CB8 /* Build configuration list for PBXNativeTarget "Chicken WingsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3FAF21E459D300469CB8 /* Debug */,
+				A73C3FB021E459D300469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A73C3FB121E459D300469CB8 /* Build configuration list for PBXNativeTarget "Chicken WingsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73C3FB221E459D300469CB8 /* Debug */,
+				A73C3FB321E459D300469CB8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A73C3F7B21E459D200469CB8 /* Project object */;
+}
