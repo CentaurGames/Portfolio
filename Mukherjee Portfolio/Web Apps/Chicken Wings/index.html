@@ -9,6 +9,7 @@
 <script src="dataURIs.js"></script>
 <script>
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var treeCanvas = document.getElementById("treeCanvas");
 var treeContext = treeCanvas.getContext("2d");
@@ -35,17 +36,19 @@ var scrollSpeed = 15, treeScrollY = 0, scrollInterval, isScrollIntervalRunning =
 var treeImage, mushroomImage, eggImage, replayImage, scoreImage;
 var areImagesLoaded = 0;
 
+//URLs for the audio.
 var backgroundAudioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/10/TRG_Banks_-_06_-_A_Christmas_ball.mp3";
 
 var isReplayButtonOn = 1;
 var score = 0, bestScore = 0;
 var backgroundAudioContext, backgroundBuffer,  backgroundAudioVolume, isAudioLoaded = 0, isAudioLoading = 0, isIOS, isMobile;
 
-
+//Remove the scrollbars.
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function loadBackgroundAudio() {
+	//Loads the audio for playback
 	if (isAudioLoading) {
 		return;
 	}
@@ -67,6 +70,7 @@ function loadBackgroundAudio() {
 }
 
 function playBackgroundSound() {
+	//Plays the audio
 	if (!isAudioLoaded) {
 		return;
 	}
@@ -360,7 +364,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
-	//You know what to do here.
+	//Centers and rescales all the Canvases.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
