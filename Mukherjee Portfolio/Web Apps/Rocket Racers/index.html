@@ -8,9 +8,11 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
+//URLs for the audio.
 var pingURL = "http://centaurgamesonline.com/wp-content/uploads/2018/08/70107__justinbw__power-on.wav";
 var explosionURL = "http://centaurgamesonline.com/wp-content/uploads/2018/07/Grenade3.mp3";
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var trackCanvas = document.getElementById("trackCanvas");
 var trackContext = trackCanvas.getContext("2d");
@@ -49,10 +51,12 @@ var ignoreClicks = 0;
 var score = 0;
 var isPingAudioLoaded = 0, isPingAudioLoading = 0, isExplosionAudioLoaded = 0, isExplosionAudioLoading = 0, isIOS, isMobile;
 
+//Remove the scrollbars.
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function loadExplosionAudio() {
+	//Loads the colliding audio for playback.
 	if (isExplosionAudioLoading) return;
 	isExplosionAudioLoading = 1;
 	var request = new XMLHttpRequest();
@@ -69,6 +73,7 @@ function loadExplosionAudio() {
 }
 
 function loadPingAudio() {
+	//Loads the audio which is played upon completion of one lap.
 	if (isPingAudioLoading) return;
 	isPingAudioLoading = 1;
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -87,6 +92,7 @@ function loadPingAudio() {
 }
 
 function playPingSound() {
+	//Plays the audio which is played upon completion of one lap.
 	if (!isPingAudioLoaded) return;
 	if (lastAudioSource) {
 		lastAudioSource.stop();
@@ -105,6 +111,7 @@ function playPingSound() {
 }
 
 function playExplosionSound() {
+	//Plays the colliding audio.
 	if (!isExplosionAudioLoaded) return;
 	if (lastAudioSource) {
 		lastAudioSource.stop();
@@ -145,6 +152,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
+	//Centers and rescales all the Canvases.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -198,6 +206,7 @@ function rescaleCanvases() {
 }
 
 function drawScore() {
+	//Renders the score on the Canvas.
 	screenContext.clearRect(0,0,700,700);
 	screenContext.strokeStyle = "black";
 	screenContext.fillStyle = "white";
@@ -210,6 +219,8 @@ function drawScore() {
 }
 
 function detectCollision() {
+	//Purpose:
+		//This function detects collision between the cars.
 	if ((theta1+phi) >= theta2 && (theta1-phi) <= theta2 && R1 == R2) {
 		if (isCarTimerRunning) {
 			clearInterval(carTimer);
@@ -235,6 +246,8 @@ function detectCollision() {
 }
 
 function carAI() {
+	//Purpose:
+		//This function creates the AI for the other driver.
 	if (Math.random() < 0.4) {
 		return;
 	}
@@ -246,6 +259,8 @@ function carAI() {
 }
 
 function userClick(evt) {
+	//Purpose:
+		//This function is called when the user clicks.
 	evt.preventDefault();
 	if (isIOS && !isPingAudioLoaded) {
 		loadPingAudio();
@@ -269,6 +284,8 @@ function userClick(evt) {
 }
 
 function drawCars() {
+	//Purpose:
+		//Rendering the car image.
 	carContext.clearRect(0,0,700,700);
 	carContext.save();
 	carContext.translate(350,350);
@@ -283,6 +300,8 @@ function drawCars() {
 }
 
 function moveCars() {
+	//Purpose:
+		//This function moves the cars by a single step forward.
 	theta1 += omega;
 	theta2 -= omega;
 	if (theta2 < 0) {
@@ -300,6 +319,8 @@ function moveCars() {
 }
 
 function initializeGame() {
+	//Purpose:
+		//This function reinitializes all the global variable.
 	playPingSound();
 	score = 0;
 	ignoreClicks = 0;
@@ -319,6 +340,8 @@ function initializeGame() {
 }
 
 function startGame() {
+	//Purpose:
+		//Set all the event listeners for the game.
 	score = 0;
 	ignoreClicks = 0;
 	R1 = 295;
@@ -341,6 +364,8 @@ function startGame() {
 }
 
 function createReplayButton() {
+	//Purpose:
+		//Sketch the replay button and load it as an image.
 	imageContext.clearRect(0,0,100,100);
 	imageContext.fillStyle = "black";
 	imageContext.beginPath();
@@ -382,6 +407,8 @@ function createReplayButton() {
 }
 
 function createRaceTrack() {
+	//Purpose:
+		//Sketch the racetrack and load it as an image.
 	carCanvas.width = 700;
 	carCanvas.height = 700;
 	trackContext.clearRect(0,0,700,700);
@@ -426,6 +453,8 @@ function createRaceTrack() {
 }
 
 function createTrackMarks() {
+	//Purpose:
+		//Sketch the track marks.
 	trackContext.strokeStyle = "white";
 	trackContext.lineWidth = 3;
 	trackContext.beginPath();
@@ -437,6 +466,8 @@ function createTrackMarks() {
 }
 
 function createLaneMarks() {
+	//Purpose:
+		//Sketch the lane marks.
 	trackContext.strokeStyle = "white";
 	trackContext.lineWidth = 5;
 	trackContext.beginPath();
@@ -473,6 +504,8 @@ function createLaneMarks() {
 }
 
 function createStartRace() {
+	//Purpose:
+		//Sketch the starting point of the racetrack.
 	trackContext.fillStyle = "rgb(40,40,40)";  
 	trackContext.fillRect(trackCanvas.width/2 - 20,trackCanvas.height/2 - r2,40,140);
 	trackContext.strokeStyle = "white";
@@ -488,6 +521,8 @@ function createStartRace() {
 }
 
 function createCar1() {
+	//Purpose:
+		//Sketch the first car and load it as an image.
 	carContext.clearRect(0,0,110,100);
 	carContext.save();
 	carContext.translate(5,25);
@@ -648,6 +683,8 @@ function createCar1() {
 }
 
 function createCar2() {
+	//Purpose:
+		//Sketch the second car and load it as an image.
 	carContext.clearRect(0,0,110,100);
 	carContext.save();
 	carContext.translate(55,50);
@@ -810,6 +847,7 @@ function createCar2() {
 	carImage2.onload = createRaceTrack;
 }
 
+//Render collision animation.
 function animateCollision() {
 	explosiveIndex = 0; 
 	if (isExplosiveTimerRunning) {
@@ -845,6 +883,7 @@ function animateCollision() {
 	isExplosiveTimerRunning = 1;
 }
 
+//Drawing the individual frames of the collision animation.
 function smoke7() {
 	imageCanvas.width = imageCanvas.width;
 	imageContext.strokeStyle = "lightgrey"
@@ -1405,6 +1444,8 @@ function drawRing0() {
 }
 
 function run() {
+	//Purpose:
+		//Start the game.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1;
 	if (/iPhone|iPad|iPod/i.test(navigator.userAgent) || true) {
 		isIOS = 1;
