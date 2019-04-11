@@ -144,6 +144,7 @@ function setEventListeners() {
 }
 
 function centerAllCanvases() {
+	//Reposition the game view to the center of the screen.
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
 	var rect = scrollPreventCanvas.getBoundingClientRect();
@@ -184,6 +185,7 @@ function centerAllCanvases() {
 }
 
 function rescaleAllCanvases() {
+	//Rescale the game view to fit the screen, and center it afterwards.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -247,6 +249,7 @@ function rescaleAllCanvases() {
 	hiddenCanvas.style.left = "0px";
 	hiddenCanvas.style.top = "0px";
 	if (isMobile) {
+		//In mobile devices, we need a 500 ms lag before the canvases are centered.
 		setTimeout(function() {
 			window.scrollTo(0,rect.top);
 			centerAllCanvases();
@@ -255,10 +258,12 @@ function rescaleAllCanvases() {
 		window.scrollTo(0,rect.top);
 		centerAllCanvases();
 	}
+	//All the canvases need to be re-rendered because their rendering is deleted by the context rescaling.
 	renderAll();
 }
 
 function renderAll() {
+	//Render all the objects in the game view.
 	numberContext.clearRect(0,0,400,400);
 	tileContext.clearRect(0,0,400,400);
 	flagContext.clearRect(0,0,400,400);
@@ -285,6 +290,7 @@ function renderAll() {
 }
 
 function initialize() {
+	//Restart the game.
 	imageCanvas.width = 0;
 	imageCanvas.height = 0;
 	hiddenCanvas.width = 0;
@@ -309,6 +315,7 @@ function initialize() {
 
 function drawSmiley2()
 {
+	//Draw the :o smiley and load it into an image.
 	imageCanvas.width = smileyWidth;
 	imageCanvas.height = smileyHeight;
 	var grad = imageContext.createLinearGradient(0,0,smileyWidth,smileyHeight);
@@ -341,6 +348,7 @@ function drawSmiley2()
 
 function drawSmiley1()
 {
+	//Draw the :) smiley and load it into an image. 
 	imageCanvas.width = smileyWidth;
 	imageCanvas.height = smileyHeight;
 	var grad = imageContext.createLinearGradient(0,0,smileyWidth,smileyHeight);
@@ -374,6 +382,7 @@ function drawSmiley1()
 
 function drawClock()
 {
+	//Render the clock digits. 999 is the max number that can be displayed.
 	if (secondsCounter > 999)
 	{
 		secondsCounter = 999;
@@ -396,6 +405,7 @@ function drawClock()
 
 function drawScoreboard()
 {
+	//Render the score digits. 999 is the max number that can be displayed.
 	if (numberOfFlagsLeft > 999)
 	{
 		numberOfFlagsLeft = 999;
@@ -418,6 +428,7 @@ function drawScoreboard()
 
 function drawHorizontalBar(startY)
 {
+	//Draws the horizontal bars in the clock digits.
 	imageContext.beginPath();
 	imageContext.moveTo(7,startY);
 	imageContext.lineTo(18,startY);
@@ -433,6 +444,7 @@ function drawHorizontalBar(startY)
 
 function drawVerticalBar(startX,startY)
 {
+	//Draws the vertical bars in the clock digits.
 	imageContext.beginPath();
 	imageContext.moveTo(startX,startY+2);
 	imageContext.lineTo(startX,startY+13);
@@ -448,6 +460,9 @@ function drawVerticalBar(startX,startY)
 
 function drawDigit(top,topleft,topright,middle,bottomleft,bottomright,bottom)
 {
+	//Draws a clock digit.
+	//The arguments tell which vertical and horizontal bars are to be displayed.
+	//Example: setting all the arguments to 1 will display an 8, while setting the middle to 0 will display a 0.
 	imageContext.fillStyle = "black";
 	imageContext.fillRect(0,0,numberWidth,numberHeight);
 	imageContext.fillStyle = (top ? brightLED:dimLED);
@@ -475,6 +490,8 @@ function drawDigit(top,topleft,topright,middle,bottomleft,bottomright,bottom)
 
 function drawNumber(num)
 {
+	//Draws a clock digit, stores it into an image, and recursively draws the next digit.
+	//num is the digit to be drawn.
 	imageCanvas.width = numberWidth;
 	imageCanvas.height = numberHeight;
 	if (num > 9)
@@ -525,6 +542,7 @@ function drawNumber(num)
 
 function createTimerCanvas()
 {
+	//Renders the canvas which contains the score, the smiley and the clock.
 	backgroundContext.fillStyle = "gainsboro";
 	backgroundContext.fillRect(0,0,backgroundWidth,backgroundHeight);
 	var grad = timerContext.createLinearGradient(0,0,timerWidth,timerHeight);
@@ -536,6 +554,7 @@ function createTimerCanvas()
 
 function createGrid()
 {
+	//Initializes the number grid.
 	for (var i = 0; i < grid.length; i++)
 	{
 		grid[i] = new Array(numberOfCellsVertical);
@@ -551,11 +570,11 @@ function createGrid()
 			flagGrid[i][j] = 0;
 		}
 	}
-	return;
 }
 
 function createBombs()
 {
+	//Randomly distribute the bombs throughout the grid.
 	var bombX, bombY;
 	for (var i = 0; i < numberOfBombs; i++)
 	{
@@ -569,12 +588,12 @@ function createBombs()
 				break;
 			}
 		}
-	}	
-	return;
+	}
 }
 
 function countBombs(i,j)
 {
+	//Count how many bombs are adjacent to the tile located at position (i,j).
 	var counter = 0;
 	if (i+1 < grid.length)
 	{
@@ -610,11 +629,11 @@ function countBombs(i,j)
 		}
 	}
 	grid[i][j] = counter;
-	return;
 }
 
 function fillNumbers()
 {
+	//Fill up the numbers in the grid.
 	for (var i = 0; i < grid.length; i++)
 	{
 		for (var j = 0; j < grid[i].length; j++)
@@ -625,11 +644,11 @@ function fillNumbers()
 			}
 		}
 	}
-	return;
 }
 
 function drawTile(i,j)
 {
+	//Render the tile at position (i,j).
 	var x = i*pixelWidth;
 	var y = j*pixelHeight;
 	tileContext.fillStyle = "ghostwhite";
@@ -653,11 +672,11 @@ function drawTile(i,j)
 	gradient.addColorStop(1,"grey");
 	tileContext.fillStyle = gradient;
 	tileContext.fillRect(x+Math.round(pixelWidth/10),y+Math.round(pixelHeight/10),Math.round(4*pixelWidth/5),Math.round(4*pixelHeight/5));
-	return;	
 }
 
 function drawNumberTile(i,j,number)
 {
+	//Render the number at position (i,j).
 	var x = i*pixelWidth;
 	var y = j*pixelHeight;
 	numberContext.strokeStyle = "grey";
@@ -765,11 +784,11 @@ function drawNumberTile(i,j,number)
 	x = Math.round(x);
 	y = Math.round(y);
 	numberContext.fillText(number,x,y,pixelWidth);
-	return;
 }
 
 function renderNumbers()
 {
+	//Render all the numbers on the grid.
 	for (var i = 0; i < grid.length; i++)
 	{
 		for (var j = 0; j < grid[i].length; j++)
@@ -777,11 +796,11 @@ function renderNumbers()
 			drawNumberTile(i,j,grid[i][j]);
 		}
 	}
-	return;
 }
 
 function renderTiles()
 {
+	//Render all the tiles that have not been cleared from the canvas.
 	for (var i = 0; i < grid.length; i++)
 	{
 		for (var j = 0; j < grid[i].length; j++)
@@ -803,6 +822,7 @@ function renderTiles()
 
 function clearCell(i,j)
 {
+	//Clear the tile at position (i,j) and all the tiles surrounding it that are not adjacent to any bombs.
 	if (tileGrid[i][j] === 0) return;
 	tileGrid[i][j] = 0;
 	var x = i*pixelWidth;
@@ -850,17 +870,15 @@ function clearCell(i,j)
 			}
 		}
 	}
-	return;
 }
 
 function gameOverSequence()
 {
+	//End the game.
 	gameOver = 1;
 	if (isMyTimerRunning) {
 		clearInterval(myTimer);
 	}
-	//smileyCanvas.width = smileyWidth;
-	//smileyCanvas.height = smileyHeight;
 	smileyContext.clearRect(0,0,30,30);
 	smileyContext.drawImage(smiley2,0,0);
 	var x, y;
@@ -876,10 +894,10 @@ function gameOverSequence()
 			}
 		}
 	}
-	return;
 }
 
 function drawAllFlags() {
+	//Render the flags.
 	for (var i = 0; i < flagGrid.length; i++) {
 		for (var j = 0; j < flagGrid[i].length; j++) {
 			if (flagGrid[i][j]) {
@@ -897,6 +915,7 @@ function drawAllFlags() {
 
 function drawGreenFlag(i,j)
 {
+	//Render the green flag at position (i,j).
 	var x = i*pixelWidth + Math.round(pixelWidth/2);
 	var y = j*pixelHeight;
 	flagContext.fillStyle = "black";
@@ -911,10 +930,10 @@ function drawGreenFlag(i,j)
 	flagContext.fill();
 	flagContext.fillStyle = "black";
 	flagContext.fillRect(x-Math.round(pixelWidth/3),y+Math.round(3*pixelHeight/4),Math.round(2*pixelWidth/3),Math.round(pixelHeight/8));
-	return;	
 }
 
 function drawRedFlag(i,j) {
+	//Render the red flag at position (i,j).
 	var x = i*pixelWidth + Math.round(pixelWidth/2);
 	var y = j*pixelHeight;
 	flagContext.fillStyle = "black";
@@ -929,11 +948,12 @@ function drawRedFlag(i,j) {
 	flagContext.fill();
 	flagContext.fillStyle = "black";
 	flagContext.fillRect(x-Math.round(pixelWidth/3),y+Math.round(3*pixelHeight/4),Math.round(2*pixelWidth/3),Math.round(pixelHeight/8));
-	return;	
 }
 
 function shiftClick(x,y)
 {
+	//Plants a flag on the tile.
+	//May be called either by SHIFT+CLICK (on desktop) or TAP+HOLD (on touchscreen).
 	var scale = 400./numberCanvas.width;
 	var i = Math.floor(x*scale/pixelWidth);
 	var j = Math.floor(y*scale/pixelHeight);
@@ -970,6 +990,7 @@ function shiftClick(x,y)
 
 function checkForVictory()
 {
+	//Tests if all the bombs have flags on them.
 	var counter = 0;
 	for (var i = 0; i < tileGrid.length; i++)
 	{
@@ -984,6 +1005,7 @@ function checkForVictory()
 
 function victorySequence()
 {
+	//Turn all the red flags green and end the game.
 	playerIsVictorious = 1;
 	for (var i = 0; i < tileGrid.length; i++)
 	{
@@ -1011,14 +1033,12 @@ function victorySequence()
 		clearInterval(myTimer);
 		isMyTimerRunning = 0;
 	}
-	//var im = new Image(canvasWidth,canvasHeight);
-	//im.src = flagCanvas.toDataURL("image/png");
-	//im.onload = function() { alert("You win!"); }
-	return;
 }
 
 function unshiftClick(x,y)
 {
+	//Clears the tile and, if there is a bomb under it, ends the game.
+	//Can be called through either CLICK (on desktop) or TAP (on touchscreen).
 	var scale = 400./numberCanvas.width;
 	var i = Math.floor(x*scale/pixelWidth);
 	var j = Math.floor(y*scale/pixelHeight);
@@ -1044,6 +1064,9 @@ function unshiftClick(x,y)
 
 function clickStuff(e)
 {
+	//Called every time the user clicks (desktop) or taps (touchscreen).
+	//e is the click event passed by the event listener.
+	//Finds the tile the user clicked on and either plants a flag (if SHIFT or HOLD is on) or clears the tile (if SHIFT or HOLD is off).
 	var rect = tileCanvas.getBoundingClientRect();
 	horizontalOffset = rect.left;
 	verticalOffset = rect.top;
@@ -1057,8 +1080,6 @@ function clickStuff(e)
 			clearInterval(myTimer);
 			isMyTimerRunning = 0;
 		}
-		//flagCanvas.width = canvasWidth;
-		//flagCanvas.height = canvasHeight;
 		flagContext.clearRect(0,0,400,400);
 		play();
 		return;
@@ -1071,11 +1092,12 @@ function clickStuff(e)
 	} else {
 		shiftClick(e.clientX-horizontalOffset,e.clientY-verticalOffset);
 	}
-	return;
 }
 
 function play()
 {
+	//This is the first function to be called when the body loads.
+	//Initializes the game and starts loading images.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1; 
 	playerIsVictorious = 0;
 	if (!imagesLoaded)
