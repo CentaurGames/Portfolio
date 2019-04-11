@@ -1,6 +1,8 @@
+//URLs for the audio.
 var backgroundAudioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/09/emoji.mp3";
 var swipeAudioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/09/dustyroom_cartoon_swipe_med_pitch.mp3";
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var imageCanvas = document.getElementById("imgCanvas");
 var imageContext = imageCanvas.getContext("2d");
@@ -37,10 +39,12 @@ var isShuffling = 0;
 var backgroundAudioContext, swipeAudioContext, swipeBuffer, backgroundBuffer,  backgroundAudioVolume, swipeAudioVolume, lastSwipeAudioSource, isSwipeAudioLoaded = 0, isBackgroundAudioLoaded = 0, isSwipeAudioLoading = 0, isBackgroundAudioLoading = 0, backgroundIsPlaying = 0;
 var isIOS = 0, isMobile = 0;
 
+//Remove the scrollbars.
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function loadBackgroundAudio() {
+	//Loads the background audio for playback
 	if (isBackgroundAudioLoading) {
 		return;
 	}
@@ -62,6 +66,7 @@ function loadBackgroundAudio() {
 }
 
 function loadSwipeAudio() {
+	//Loads the swipe audio for playback
 	if (isSwipeAudioLoading) {
 		return;
 	}
@@ -82,6 +87,7 @@ function loadSwipeAudio() {
 }
 
 function playSwipeSound() {
+	//Plays the swipe audio
 	if (!isSwipeAudioLoaded) {
 		return;
 	}
@@ -103,6 +109,7 @@ function playSwipeSound() {
 }
 
 function playBackgroundSound() {
+	//Plays the background audio
 	if (!isBackgroundAudioLoaded) {
 		return;
 	}
@@ -145,6 +152,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
+	//Centers and rescales all the Canvases.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -238,6 +246,7 @@ function gameOverSequence() {
 }
 
 function selectedTile() {
+	//Highlight the selected tile.
 	imageCanvas.width = tileWidth;
 	imageCanvas.height = tileHeight;
 	imageContext.save();
