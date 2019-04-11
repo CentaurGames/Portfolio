@@ -246,6 +246,7 @@ function gameOverSequence() {
 }
 
 function selectedTile() {
+	//Highlight the selected tile.
 	imageCanvas.width = tileWidth;
 	imageCanvas.height = tileHeight;
 	imageContext.save();
