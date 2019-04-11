@@ -10,9 +10,11 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
+//URLs for the audio.
 var pingURL = "http://centaurgamesonline.com/wp-content/uploads/2018/08/70107__justinbw__power-on.wav";
 var explosionURL = "http://centaurgamesonline.com/wp-content/uploads/2018/07/Grenade3.mp3";
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var trackCanvas = document.getElementById("trackCanvas");
 var trackContext = trackCanvas.getContext("2d");
@@ -68,10 +70,13 @@ var coinThetas = new Array(numOfCoins);
 var isCoinActive = new Array(numOfCoins);
 var coinTimer;
 
+//Remove the scrollbars.
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function initializeCoins() {
+	//Purpose:
+		//This function sets up the coins' rotation.
 	rotateX(phiX);
 	rotateY(phiY);
 	for (var i = 0; i < coinThetas.length; i++) {
@@ -83,6 +88,8 @@ function initializeCoins() {
 }
 
 function rotateCoins() {
+	//Purpose:
+		//This function rotates the coins by a time step.
 	rotateX(-nu*Math.sin(phiX)*Math.sin(phiY));
 	rotateY(-nu*Math.cos(phiX));
 	rotateZ(-nu*Math.sin(phiX)*Math.cos(phiY));
@@ -90,6 +97,8 @@ function rotateCoins() {
 }
 
 function drawCoin(x,y) {
+	//Purpose:
+		//This function sketches a single coin.
 	coinContext.save();
 	coinContext.translate(x,y-2);
 	coinContext.transform(rotationMatrix[0][0],rotationMatrix[1][0],rotationMatrix[0][1],rotationMatrix[1][1],rotationMatrix[0][2],rotationMatrix[1][2]);
@@ -103,6 +112,8 @@ function drawCoin(x,y) {
 }
 
 function renderCoins() {
+	//Purpose:
+		//This function renders all the coins.
 	coinContext.clearRect(0,0,700,700);
 	for (var i = 0; i < coinRs.length; i++) {
 		if (isCoinActive[i]) {
@@ -111,6 +122,8 @@ function renderCoins() {
 	}
 }
 
+//The functions below establish the matrix arithmetic to perform rotations.
+	
 function matrixProduct(mat1,mat2) {
 	var mat3 = [[0,0,0],[0,0,0],[0,0,0]];
 	for (var i = 0; i < 3; i++) {
@@ -155,6 +168,7 @@ function rotateZ(angle) {
 }
 
 function createCoinEdge() {
+	//Sketch the edge of the gold coin and load it.
 	imageCanvas.height = 24;
 	imageCanvas.width = 24;
 	imageContext.save();
@@ -172,6 +186,7 @@ function createCoinEdge() {
 }
 
 function createGoldCoins() {
+	//Sketch the face of the gold coin and load it.
 	imageCanvas.height = 24;
 	imageCanvas.width = 24;
 	imageContext.save();
@@ -225,6 +240,7 @@ function createGoldCoins() {
 }
 
 function createBackTrack() {
+	//Sketch back Canvas and load it. 
 	backContext.clearRect(0,0,1200,700);
 	var grad = backContext.createLinearGradient(0,0,1200,700);
 	grad.addColorStop(0,"rgb(0,150,0)");
@@ -238,6 +254,7 @@ function createBackTrack() {
 }
 
 function loadExplosionAudio() {
+	//Loads the colliding audio for playback.
 	if (isExplosionAudioLoading) return;
 	isExplosionAudioLoading = 1;
 	var request = new XMLHttpRequest();
@@ -254,6 +271,7 @@ function loadExplosionAudio() {
 }
 
 function loadPingAudio() {
+	//Loads the audio which is played upon completion of one lap.
 	if (isPingAudioLoading) return;
 	isPingAudioLoading = 1;
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -272,6 +290,7 @@ function loadPingAudio() {
 }
 
 function playPingSound() {
+	//Plays the audio which is played upon completion of one lap.
 	if (!isPingAudioLoaded) return;
 	if (lastAudioSource) {
 		lastAudioSource.stop();
@@ -291,6 +310,7 @@ function playPingSound() {
 }
 
 function playExplosionSound() {
+	//Plays the colliding audio.
 	if (!isExplosionAudioLoaded) return;
 	if (lastAudioSource) {
 		lastAudioSource.stop();
@@ -334,6 +354,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
+	//Centers and rescales all the Canvases.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -399,6 +420,7 @@ function rescaleCanvases() {
 }
 
 function drawBestScore() {
+	//Renders the best score on the Canvas.
 	screenContext.strokeStyle = "black";
 	screenContext.fillStyle = "white";
 	screenContext.lineWidth = 1;
@@ -410,6 +432,7 @@ function drawBestScore() {
 }
 
 function drawScore() {
+	//Renders the score on the Canvas.
 	screenContext.clearRect(0,0,1200,700);
 	screenContext.strokeStyle = "black";
 	screenContext.fillStyle = "white";
@@ -424,6 +447,7 @@ function drawScore() {
 }
 
 function detectCollision() {
+	//This function detects collision between the cars.
 	if ((theta1+phi) >= theta2 && (theta1-phi) <= theta2 && R1 == R2) {
 		if (isCarTimerRunning) {
 			clearInterval(carTimer);
@@ -449,6 +473,7 @@ function detectCollision() {
 }
 
 function carAI() {
+	//This function creates the AI for the other driver.
 	if (Math.random() < 0.4) {
 		return;
 	}
@@ -460,6 +485,7 @@ function carAI() {
 }
 
 function userClick(evt) {
+	//This function is called when the user clicks.
 	evt.preventDefault();
 	if (isIOS && !isPingAudioLoaded) {
 		loadPingAudio();
@@ -483,6 +509,7 @@ function userClick(evt) {
 }
 
 function drawCars() {
+	//Rendering the car image.
 	carContext.clearRect(0,0,700,700);
 	carContext.save();
 	carContext.translate(350,350);
@@ -497,6 +524,7 @@ function drawCars() {
 }
 
 function moveCars() {
+	//This function moves the cars by a single step forward.
 	theta1 += omega;
 	theta2 -= omega;
 	if (theta2 < 0) {
@@ -524,6 +552,7 @@ function moveCars() {
 }
 
 function initializeGame() {
+	//This function reinitializes all the global variable.
 	playPingSound();
 	score = 0;
 	ignoreClicks = 0;
@@ -544,6 +573,7 @@ function initializeGame() {
 }
 
 function startGame() {
+	//Set all the event listeners for the game.
 	score = 0;
 	ignoreClicks = 0;
 	R1 = 295;
@@ -566,6 +596,7 @@ function startGame() {
 }
 
 function createReplayButton() {
+	//Sketch the replay button and load it as an image.
 	imageCanvas.width = 100;
 	imageCanvas.height = 100;
 	imageContext.clearRect(0,0,100,100);
@@ -609,6 +640,7 @@ function createReplayButton() {
 }
 
 function createRaceTrack() {
+	//Sketch the racetrack and load it as an image.
 	carCanvas.width = 700;
 	carCanvas.height = 700;
 	trackContext.clearRect(0,0,700,700);
@@ -648,6 +680,7 @@ function createRaceTrack() {
 }
 
 function createTrackMarks() {
+	//Sketch the track marks.
 	trackContext.strokeStyle = "white";
 	trackContext.lineWidth = 3;
 	trackContext.beginPath();
@@ -659,6 +692,7 @@ function createTrackMarks() {
 }
 
 function createLaneMarks() {
+	//Sketch the lane marks.
 	trackContext.strokeStyle = "white";
 	trackContext.lineWidth = 5;
 	trackContext.beginPath();
@@ -695,6 +729,7 @@ function createLaneMarks() {
 }
 
 function createStartRace() {
+	//Sketch the starting point of the racetrack.
 	trackContext.fillStyle = "rgb(40,40,40)";  
 	trackContext.fillRect(trackCanvas.width/2 - 20,trackCanvas.height/2 - r2,40,140);
 	trackContext.strokeStyle = "white";
@@ -710,6 +745,7 @@ function createStartRace() {
 }
 
 function createCar1() {
+	//Sketch the first car and load it as an image.
 	carContext.clearRect(0,0,110,100);
 	carContext.save();
 	carContext.translate(5,25);
@@ -870,6 +906,7 @@ function createCar1() {
 }
 
 function createCar2() {
+	//Sketch the second car and load it as an image.
 	carContext.clearRect(0,0,110,100);
 	carContext.save();
 	carContext.translate(55,50);
@@ -1033,6 +1070,7 @@ function createCar2() {
 }
 
 function animateCollision() {
+	//Render collision animation.
 	explosiveIndex = 0; 
 	if (isExplosiveTimerRunning) {
 		return;
@@ -1072,6 +1110,8 @@ function animateCollision() {
 	isExplosiveTimerRunning = 1;
 }
 
+//The following functions sketch the individual frames of the collision animation.
+	
 function smoke7() {
 	imageCanvas.width = imageCanvas.width;
 	imageContext.strokeStyle = "lightgrey"
@@ -1633,6 +1673,7 @@ function drawRing0() {
 }
 
 function run() {
+	//Start the game.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1;
 	if (/iPhone|iPad|iPod/i.test(navigator.userAgent) || true) {
 		isIOS = 1;
