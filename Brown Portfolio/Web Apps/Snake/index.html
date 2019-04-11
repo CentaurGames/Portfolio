@@ -9,11 +9,13 @@
 <canvas id="background" width="400" height="400" style="position: absolute; left: 0px; top: 0px; z-index: 1; border: 1px solid black;"></canvas>
 <canvas id="playButton" width="400" height="400" style="position: absolute; left: 0px; top: 0px; z-index: 3; border: 1px solid black;"></canvas>
 <canvas id="txtCanvas" width="400" height="400" style="position: absolute; left: 0px; top: 0px; z-index: 4; border: 1px solid black;"></canvas>
+	<!-- Prevent the browser window from zooming on double-tap. -->
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
 var delta_t = 70;
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var c = document.getElementById("myCanvas");
 var canvasWidth = c.width;
@@ -46,10 +48,12 @@ var APPLEX, APPLEY;
 var myTimer;
 var isMobile = 0;
 
+//Disable and hide the scrollbars (we don't need them).
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function centerCanvas(canvas) {
+	//Reposition the canvas to the center of the screen.
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
 	var rect = canvas.getBoundingClientRect();
@@ -64,6 +68,7 @@ function centerCanvas(canvas) {
 }
 
 function centerAllCanvases() {
+	//Reposition the game view to the center of the screen.
 	centerCanvas(scrollPreventCanvas);
 	centerCanvas(c);
 	centerCanvas(background_canvas);
@@ -72,12 +77,14 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvas(canvas,context,scale) {
+	//Rescale the canvas to a given size.
 	canvas.width = Math.floor(canvasWidth*scale);
 	canvas.height = Math.floor(canvasHeight*scale);
 	context.scale(scale,scale);
 }
 
 function rescaleAllCanvases() {
+	//Rescale the game view to fit the screen, and center it.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -103,6 +110,7 @@ function rescaleAllCanvases() {
 	rescaleCanvas(buttonCanvas,buttonContext,scale);
 	rescaleCanvas(textCanvas,textContext,scale);
 	if (isMobile) {
+		//Mobile devices require a 500 ms lag before centering.
 		setTimeout(function() {
 			window.scrollTo(0,rect.top);
 			centerAllCanvases();
@@ -111,6 +119,7 @@ function rescaleAllCanvases() {
 		window.scrollTo(0,rect.top);
 		centerAllCanvases();
 	}
+	//The game view must be re-rendered since scaling the contexts clears their rendering.
 	draw_background();
 	render_initializer();
 	if (GAME_PAUSED || GAME_OVER) {
@@ -128,6 +137,7 @@ function rescaleAllCanvases() {
 
 function drawButton()
 {
+	//Renders the replay button.
 	buttonContext.strokeStyle = "black";
 	buttonContext.fillStyle = "black";
 	buttonContext.moveTo(Math.round(canvasWidth/2)-20,Math.round(canvasHeight/2)-20);
@@ -138,12 +148,12 @@ function drawButton()
 	buttonContext.closePath();
 	buttonContext.fill();
 	buttonContext.stroke();
-	return;
 }
 
 function touchButton(e)
 {
-	//if (e.targetTouches.length > 1) {return;}
+	//Called every time the play button is tapped on a touchscreen device.
+	//e is the touch event passed by the event listener.
 	var rect = c.getBoundingClientRect();
 	var x = e.targetTouches[0].clientX - rect.left;
 	var y = e.targetTouches[0].clientY - rect.top;
@@ -191,11 +201,12 @@ function touchButton(e)
 		drawButton();
 		GAME_PAUSED = 1;
 	}
-	return;
 }
 
 function clickButton(e)
 {
+	//Called every time the play button is clicked.
+	//e is the click event passed by the event listener.
 	var rect = c.getBoundingClientRect();
 	var scale = 400./c.width;
 	var x = (e.clientX - rect.left)*scale;
@@ -226,6 +237,7 @@ function clickButton(e)
 
 function draw_segment(i,j)
 {
+	//Render a segment of the snake at position (i,j).
 	var x = i*canvasWidth/XMAX;
 	var y = j*canvasHeight/YMAX;
 	x -= pixel_width/2;
@@ -250,11 +262,11 @@ function draw_segment(i,j)
 	ctx.lineTo(x,y);
 	ctx.fillStyle = "purple";
 	ctx.fill();
-	return;
 }
 
 function draw_apple(i,j)
 {
+	//Render the apple at position (i,j).
 	var x = i*canvasWidth/XMAX;
 	var y = j*canvasHeight/YMAX;
 	var x1, y1, x2, y2, x3, y3, width, height, newx, newy;
@@ -295,11 +307,11 @@ function draw_apple(i,j)
 	ctx.lineTo(newx-2*width,y3);
 	ctx.fillStyle = "green";
 	ctx.fill();
-	return;
 }
 
 function pixel_on(i,j)
 {
+	//Render either the snake or the apple at position (i,j).
 	switch (grid[i][j])
 	{
 		case 1:
@@ -309,21 +321,22 @@ function pixel_on(i,j)
 			draw_apple(i,j);
 			break;
 	}
-	return;
 }
 
 function pixel_off(i,j)
 {
+	//Clear the region around position (i,j).
 	var x = i*canvasWidth/XMAX;
 	var y = j*canvasHeight/YMAX;
 	x -= pixel_width/2;
 	y -= pixel_height/2;
 	ctx.clearRect(Math.round(x),Math.round(y),pixel_width,pixel_height);
-	return;
 }
 
 function click_stuff(e)
 {
+	//Called whenever an arrow key is pressed.
+	//e is the keypress event passed by the event listener.
 	if (GAME_OVER || GAME_PAUSED) {return;}
 	switch (e.keyCode)
 	{
@@ -352,11 +365,11 @@ function click_stuff(e)
 			VY = 1;
 			break;
 	}
-	return;
 }
 
 function fill_grid()
 {
+	//Fills the grid with zeroes.
 	for (var i = 0; i < grid.length; i++)
 	{
 		grid[i] = new Array(YMAX+1);
@@ -368,11 +381,11 @@ function fill_grid()
 			grid[i][j] = 0;
 		}
 	}
-	return;
 }
 
 function create_apple()
 {
+	//Place the apple at a random location within the grid.
 	var test = 0;
 	while (test == 0)
 	{
@@ -385,11 +398,11 @@ function create_apple()
 			return;
 		}
 	}
-	return;
 }
 
 Array.prototype.update=function(x)
 {
+	//Places the head of the snake at x and shifts the rest of its body forward.
 	var newx = x;
 	var oldx;
 	for (var i = 0; i < this.length; i++)
@@ -398,11 +411,11 @@ Array.prototype.update=function(x)
 		this[i] = newx;
 		newx = oldx;	
 	}
-	return;
 }
 
 function draw_background()
 {
+	//Renders the background checkerboard pattern.
 	var step_width = Math.round(canvasWidth/15);
 	var step_height = Math.round(canvasHeight/15);
 	for (var i = 0; i < canvasWidth; i += step_width)
@@ -420,10 +433,10 @@ function draw_background()
 			background_ctx.fillRect(i,j,step_width,step_height);
 		}
 	}
-	return;
 }
 
 function render_pixels() {
+	//Renders the snake and the apple.
 	ctx.clearRect(0,0,400,400);
 	for (var i = 0; i <= XMAX; i++)
 	{
@@ -446,13 +459,14 @@ function render_pixels() {
 
 function render_initializer()
 {
+	//This is the "expensive" render which renders everything. Once it has been called, future renders can render only the differences.
 	draw_background();
 	render_pixels();
-	return;
 }
 
 function move_forward()
 {
+	//Move the snake.
 	if (GAME_OVER || GAME_PAUSED) {return;}
 	var HEADX = snakex[0] + VX;
 	var HEADY = snakey[0] + VY;
@@ -507,14 +521,13 @@ function move_forward()
 	snakex.update(HEADX);
 	snakey.update(HEADY);
 	grid[TAILX][TAILY] = 0;
-	//pixel_off(TAILX,TAILY);
 	grid[HEADX][HEADY] = 1;
-	//draw_segment(HEADX,HEADY);
 	render_pixels();
 }
 
 function play()
 {
+	//This is the first function to be called when the body loads. It initializes the game, sets the event listeners and sets the timing intervals.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1; 
 	window.addEventListener("resize",rescaleAllCanvases);
 	document.onkeydown = click_stuff;
@@ -542,7 +555,6 @@ function play()
 		grid[snakex[i]][snakey[i]] = 1;
 	}
 	create_apple();
-	//render_initializer();
 	rescaleAllCanvases();
 	if (GAME_PAUSED)
 	{
