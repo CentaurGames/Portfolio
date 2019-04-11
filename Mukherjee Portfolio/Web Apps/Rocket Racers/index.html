@@ -847,8 +847,8 @@ function createCar2() {
 	carImage2.onload = createRaceTrack;
 }
 
-//Render collision animation.
 function animateCollision() {
+	//Render collision animation.
 	explosiveIndex = 0; 
 	if (isExplosiveTimerRunning) {
 		return;
@@ -883,7 +883,8 @@ function animateCollision() {
 	isExplosiveTimerRunning = 1;
 }
 
-//Drawing the individual frames of the collision animation.
+//The following functions sketch the individual frames of the collision animation.
+	
 function smoke7() {
 	imageCanvas.width = imageCanvas.width;
 	imageContext.strokeStyle = "lightgrey"
