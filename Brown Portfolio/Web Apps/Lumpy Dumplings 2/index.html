@@ -9,12 +9,16 @@
 <canvas id="bkgrndCanvas" width="1136" height="640" style="position: absolute; top: 10px; left: 10px; z-index: 2; border: 0px solid black;"></canvas>
 <canvas id="dmplngCanvas" width="1136" height="640" style="position: absolute; top: 10px; left: 10px; z-index: 3; border: 0px solid black;"></canvas>
 <canvas id="scrCanvas" width="1136" height="640" style="position: absolute; top: 10px; left: 10px; z-index: 4; border: 0px solid black;"></canvas>
+	<!-- Prevent the browser window from zooming on double tap. -->
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
+//Source URL for the background audio.
 var audioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/09/Guifrog_-_Xia_Yu.mp3";
+//Global variables for the background audio.
 var audioContext, audioVolume, audioBuffer, lastAudioSource, isIOS = 0, isMobile = 0;
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var imageCanvas = document.getElementById("imgCanvas");
 var imageContext = imageCanvas.getContext("2d");
@@ -25,6 +29,7 @@ var dumplingContext = dumplingCanvas.getContext("2d");
 var scoreCanvas = document.getElementById("scrCanvas");
 var scoreContext = scoreCanvas.getContext("2d");
 
+//Find the width and height of the game.
 var canvasWidth = dumplingCanvas.width;
 var canvasHeight = dumplingCanvas.height;
 
@@ -43,10 +48,12 @@ var dumplingTimer, dumplingTimerIsRunning = 0, keyTimer, keyTimerIsRunning = 0, 
 
 var SCORE = 0, gameOver = 0, isLandscapeModeOn = 0, isReplayOn = 0, isAudioLoaded = 0, isAudioLoading = 0;
 
+//Disable and hide the scrollbars (we don't need them).
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function playBackgroundAudio() {
+	//Play the background audio on an endless loop.
 	if (lastAudioSource) {
 		lastAudioSource.loop = false;
 		lastAudioSource.stop();
@@ -67,6 +74,7 @@ function playBackgroundAudio() {
 }
 
 function loadAudio() {
+	//Load the background audio for playback, and play it once loaded.
 	if (isAudioLoading) return;
 	isAudioLoading = 1;
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -86,6 +94,7 @@ function loadAudio() {
 }
 
 function centerCanvas(canvas) {
+	//Reposition the canvas at the center of the screen.
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
 	var rect = canvas.getBoundingClientRect();
@@ -98,6 +107,7 @@ function centerCanvas(canvas) {
 }
 
 function centerAllCanvases() {
+	//Reposition all of the canvases at the center of the screen.
 	centerCanvas(scrollPreventCanvas);
 	centerCanvas(imageCanvas);
 	centerCanvas(backgroundCanvas);
@@ -114,6 +124,7 @@ function rescaleCanvas(canvas,context,scale) {
 }
 
 function rescaleAllCanvases() {
+	//Rescale all the canvases to fit the screen and center them when done.
 	window.scrollTo(0,0);
 	dumplingCanvas.style.left = "0px";
 	dumplingCanvas.style.top = "0px";
@@ -128,11 +139,11 @@ function rescaleAllCanvases() {
 	scale = (scale >= 1. ? 1.:scale);
 	imageCanvas.width = 0;
 	imageCanvas.height = 0;
-	//rescaleCanvas(imageCanvas,imageContext,scale);
 	rescaleCanvas(backgroundCanvas,backgroundContext,scale);
 	rescaleCanvas(dumplingCanvas,dumplingContext,scale);
 	rescaleCanvas(scoreCanvas,scoreContext,scale);
 	if (isMobile) {
+		//Mobile devices require a 500 ms lag before centering or the dimensions they pass will be wrong.
 		setTimeout(function() {
 			window.scrollTo(0,rect.top);
 			centerAllCanvases();
@@ -141,6 +152,7 @@ function rescaleAllCanvases() {
 		window.scrollTo(0,rect.top);
 		centerAllCanvases();
 	}
+	//Re-render since rescaling the context clears the rendering.
 	drawScore();
 	backgroundContext.clearRect(0,0,canvasWidth,canvasHeight);
 	dumplingContext.clearRect(0,0,canvasWidth,canvasHeight);
@@ -157,6 +169,7 @@ function rescaleAllCanvases() {
 }
 
 function drawScore() {
+	//Render the score on the game view.
 	scoreContext.clearRect(0,0,canvasWidth,canvasHeight);
 	scoreContext.drawImage(dumplingImage,0,0,40,40,10,10,20,20);
 	scoreContext.fillStyle = "white";
@@ -170,6 +183,7 @@ function drawScore() {
 }
 
 function render() {
+	//Render all objects in the game view.
 	if (dumplingY-40 >= canvasHeight) {
 		gameOverSequence();
 		return;
@@ -187,6 +201,9 @@ function render() {
 }
 
 function keyDownEvent(evt) {
+	//Called whenever the user presses a key.
+	//evt is the keydown event passed by the event listener.
+	//Allows the user to move the bowl left & right by pressing the appropriate arrow keys.
 	if (gameOver) return;
 	switch (evt.keyCode) {
 		case 37: //left
@@ -195,7 +212,7 @@ function keyDownEvent(evt) {
 		case 39: //right
 			playerX += playerVX;
 			break;
-		default:
+		default: //any other key
 			return;
 	}
 	playerX = (playerX < playerWidth/2 ? playerWidth/2:playerX);
@@ -204,6 +221,7 @@ function keyDownEvent(evt) {
 		clearTimeout(keyTimer);
 		keyTimerIsRunning = 0;
 	}
+	//If the user is holding the key down, the keyTimer will automatically fire the keydown event for them.
 	keyTimer = setTimeout(function() {
 		keyDownEvent(evt);
 	},10);
@@ -212,6 +230,10 @@ function keyDownEvent(evt) {
 }
 
 function keyUpEvent(evt) {
+	//Called whenever the user releases a key.
+	//evt is the keyup event passed by the event listener.
+	//When the user holds the key down for some time, the keyTimer automatically fires the keydown event for them.
+	//When the user releases the key, the keyTimer gets cancelled.
 	if (keyTimerIsRunning) {
 		clearTimeout(keyTimer);
 		keyTimerIsRunning = 0;
@@ -219,42 +241,42 @@ function keyUpEvent(evt) {
 }
 
 function mouseMoveEvent(evt) {
-	//if (!isAudioLoaded) loadAudio();
+	//Called whenever the user moves the mouse.
+	//evt is the mousemove event passed by the event listener.
+	//Allows the user to move the bowl by moving the mouse.
 	evt.preventDefault();
 	if (gameOver) return;
+	//Find the x value of the mouse/stylus.
 	playerX = (evt.clientX || evt.targetTouches[0].clientX);
+	//Shift the axis so that the upper left corner of the game is origin.
 	playerX -= scoreCanvas.getBoundingClientRect().left;
+	//Rescale to match the scaling of the game's x-axis.
 	playerX *= 1136./scoreCanvas.width;
+	//Don't allow the bowl to go offscreen to the left.
 	playerX = (playerX < playerWidth/2 ? playerWidth/2:playerX);
+	//Don't allow the bowl to go offscreen to the right.
 	playerX = (playerX > (canvasWidth - playerWidth/2 - 1) ? (canvasWidth - playerWidth/2 - 1):playerX);
 	render();
 }
 
-function gyroscopeEvent(thetaX,thetaY) {
-	var normalizedPhi;
-	if (window.outerWidth > window.outerHeight) {
-		//landscape mode
-		normalizedPhi = thetaX/180;
-	} else {
-		//portrait mode
-		//normalizedPhi = thetaY/90;
-		normalizedPhi = thetaX/180;
-	}
-	playerX = canvasWidth/2*(1+normalizedPhi);
-	playerX = (playerX < playerWidth/2 ? playerWidth/2:playerX);
-	playerX = (playerX > (canvasWidth - playerWidth/2 - 1) ? (canvasWidth - playerWidth/2 - 1):playerX);
-}
-
 function touchEndEvent(evt) {
+	//Called whenever the user lifts a finger/stylus from the touchscreen.
+	//evt is the touchend event passed by the event listener.
+	
+	//If the audio isn't loaded already, load it.
+	//New browser protocols require audio to be loaded following a touch event.
 	if (isIOS && !isAudioLoaded) loadAudio();
+	//Prevent the user from accidentally scrolling the window while dragging their finger.
 	evt.preventDefault();
 	if (!gameOver) return;
+	//If the game is over, the user has just clicked the replay button and would like the game to restart.
 	gameOver = 0;
 	isReplayOn = 0;
 	initializeGame();
 }
 
 function setEventListeners() {
+	//Set all the event listeners for the game.
 	document.addEventListener("keydown",keyDownEvent);
 	document.addEventListener("keyup",keyUpEvent);
 	document.addEventListener("mousemove",mouseMoveEvent);
@@ -263,12 +285,14 @@ function setEventListeners() {
 	scoreCanvas.addEventListener("touchend",touchEndEvent);
 	document.addEventListener("mouseup",touchEndEvent);
 	window.addEventListener("resize",rescaleAllCanvases);
+	//Prevent the user from accidentally scrolling while dragging their finger.
 	scrollPreventCanvas.addEventListener("touchmove",function(evt) {
 		evt.preventDefault();
 	});
 }
 
 function gameOverSequence() {
+	//End the game and put up the replay button.
 	gameOver = 1;
 	isReplayOn = 1;
 	if (dumplingTimerIsRunning) {
@@ -279,6 +303,7 @@ function gameOverSequence() {
 }
 
 function moveDumpling() {
+	//Move the dumpling's position by some small time step.
 	dumplingY += dumplingVY;
 	if (dumplingY >= endZone) {
 		if (Math.abs(dumplingX - playerX) < playerWidth/2) {
@@ -294,6 +319,7 @@ function moveDumpling() {
 }
 
 function setTimingEvents() {
+	//Set the time interval.
 	if (!dumplingTimerIsRunning) {
 		dumplingTimer = setInterval(moveDumpling,10);
 		dumplingTimerIsRunning = 1;
@@ -301,6 +327,7 @@ function setTimingEvents() {
 }
 
 function initializeGame() {
+	//Restart the game.
 	imageCanvas.width = 0;
 	imageCanvas.height = 0;
 	playerX = canvasWidth/2;
@@ -312,7 +339,7 @@ function initializeGame() {
 }
 
 function drawBackgroundImage() {
-	//These dimensions are designed for an iPhone 5 screen.
+	//Draw the background graphics and load them into an image.
 	imageCanvas.width = canvasWidth;
 	imageCanvas.height = canvasHeight;
 	imageContext.fillStyle = "maroon";
@@ -374,6 +401,7 @@ function drawBackgroundImage() {
 }
 
 function drawBowlAndChopsticks() {
+	//Draw the bowl and chopsticks and load them into an image.
 	imageCanvas.width = 250;
 	imageCanvas.height = 155;
 	imageContext.translate(0,-95);
@@ -395,6 +423,7 @@ function drawBowlAndChopsticks() {
 }
 
 function drawChopsticks() {
+	//Draw the chopsticks and load them into an image.
 	imageCanvas.width = 10;
 	imageCanvas.height = 200;
 	imageContext.save();
@@ -427,6 +456,7 @@ function drawChopsticks() {
 }
 
 function sketchBowl() {
+	//Draw the bowl and load it into an image.
 	imageCanvas.width = 200;
 	imageCanvas.height = 90;
 	imageContext.fillStyle = "black";
@@ -465,6 +495,7 @@ function sketchBowl() {
 }
 
 function sketchBowlDesign() {
+	//Draw the design to be printed onto the bowl, and load it into an image.
 	imageCanvas.width = 200;
 	imageCanvas.height = 90;
 	imageContext.fillStyle = "rgb(204,0,0)";
@@ -516,6 +547,7 @@ function sketchBowlDesign() {
 }
 
 function sketchDumpling() {
+	//Draw the dumpling and load it into an image.
 	imageCanvas.width = 40;
 	imageCanvas.height = 40;
 	//main body
@@ -571,6 +603,7 @@ function sketchDumpling() {
 }
 
 function drawDumplingFaceImage() {
+	//Draw the dumpling face and load it into an image.
 	imageCanvas.width = 40;
 	imageCanvas.height = 40;
 	//cheeks
@@ -624,6 +657,7 @@ function drawDumplingFaceImage() {
 }
 
 function drawReplayButtonImage() {
+	//Draw the replay button and load it into an image.
 	imageCanvas.width = replayButtonImage.width
 	imageCanvas.height = replayButtonImage.height;
 	imageContext.fillStyle = "black";
@@ -639,8 +673,11 @@ function drawReplayButtonImage() {
 }
 
 function run() {
+	//This is the first function to be run when the body loads.
+	//Fill the screen with a black landscape so we can draw images for later use.
 	scoreContext.fillStyle = "black";
 	scoreContext.fillRect(0,0,scoreCanvas.width,scoreCanvas.height);
+	//Draw the images we will be using throughout the rest of the game.
 	drawReplayButtonImage();
 }
 
