@@ -319,6 +319,7 @@ function gameOverSequence() {
 }
 
 function checkForCollision(i) {
+	//Check for collision.
 	var x, y;
 	x = eggX-mushroomXs[i];
 	y = canvasHeight/2-mushroomYs[i];
@@ -549,6 +550,8 @@ function afterImagesAreLoaded() {
 }
 
 function loadScoreImage() {
+	//Purpose:
+		//Load the score image.
 	scoreImage = new Image();
 	scoreImage.src = scoreDataURL;
 	scoreImage.onload = afterImagesAreLoaded;
