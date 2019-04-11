@@ -4,17 +4,29 @@
 <title> MINESWEEPER </title>
 </head>
 <body onload="play()">
+	<!-- scrollPreventCanvas -->
 <canvas id="scrollPreventCanvas" width="400" height="400" style="position: absolute; left: 3px; top: 56px; z-index: 0; border: 0px solid grey;"></canvas>
+	<!-- numberCanvas -->
 <canvas id="nmbrCanvas" width="400" height="400" style="position: absolute; left: 3px; top: 56px; z-index: 2; border: 1px solid grey;"></canvas>
+	<!-- tileCanvas -->
 <canvas id="tlCanvas" width="400" height="400" style="position: absolute; left: 3px; top: 56px; z-index: 3; border: 1px solid grey;"></canvas>
+	<!-- flagCanvas -->
 <canvas id="flgCanvas" width="400" height="400" style="position: absolute; left: 3px; top: 56px; z-index: 4; border: 1px solid grey;"></canvas>
+	<!-- backgroundCanvas -->
 <canvas id="bkgrndCanvas" width="406" height="459" style="position: absolute; left: 0px; top: 0px; z-index: 1; border: 1px solid grey;"></canvas>
+	<!-- timerCanvas -->
 <canvas id="tmrCanvas" width="400" height="50" style="position: absolute; left: 3px; top: 3px; z-index: 2; border: 1px solid grey;"></canvas>
+	<!-- clockCanvas -->
 <canvas id="clkCanvas" width="75" height="37" style="position: absolute; left: 303px; top: 10px; z-index: 3; border: 1px solid grey;"></canvas>
+	<!-- scoreCanvas -->
 <canvas id="scrCanvas" width="75" height="37" style="position: absolute; left: 28px; top: 10px; z-index: 3; border: 1px solid grey;"></canvas>
+	<!-- smileyCanvas -->
 <canvas id="smlyCanvas" width="30" height="30" style="position: absolute; left: 188px; top: 13px; z-index: 3; border: 2px solid grey;"></canvas>
+	<!-- imageCanvas -->
 <canvas id="imgCanvas" width="25" height="37" style="position: absolute; top: 30px; left: 100px; z-index: 1; border: 0px solid black;"></canvas>
+	<!-- hiddenCanvas -->
 <canvas id="hdnCanvas" width="406" height="460" style="position: absolute; left: 0px; top: 0px; z-index: 5; border: 0px solid black;"></canvas>
+	<!-- Prevent the browser window from zooming while double-tapping. -->
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
@@ -25,6 +37,7 @@ var numberOfBombs = 60;
 var horizontalOffset = 0;
 var verticalOffset = 0;
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var numberCanvas = document.getElementById("nmbrCanvas");
 var tileCanvas = document.getElementById("tlCanvas");
@@ -47,8 +60,10 @@ var smileyContext = smileyCanvas.getContext("2d");
 var imageContext = imageCanvas.getContext("2d");
 var hiddenContext = hiddenCanvas.getContext("2d");
 
+//Find the width and height of the game view.
 var canvasWidth = numberCanvas.width;
 var canvasHeight = numberCanvas.height;
+//Find the width and height of a single tile in the game.
 var pixelWidth = Math.round(canvasWidth/numberOfCellsHorizontal);
 var pixelHeight = Math.round(canvasHeight/numberOfCellsVertical);
 
@@ -74,46 +89,18 @@ var imagesLoaded = 0;
 var myTimer, isMyTimerRunning = 0, secondsCounter, numberOfFlagsLeft, tapTimer, tapCounter, lastTap;
 var lastSmiley, playerIsVictorious = 0, isMobile = 0;
 
+//Disable and hide the scrollbars (we don't need them).
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function setEventListeners() {
+	//Set all the event listeners.
 	document.addEventListener("click",clickStuff);
 	window.addEventListener("resize",rescaleAllCanvases);
 	smileyCanvas.addEventListener("touchstart",function(e) {
 		if (e.targetTouches.length > 1) {return;}
 		var click = {clientX:e.targetTouches[0].clientX, clientY:e.targetTouches[0].clientY, which:0};
 		clickStuff(click);
-	},false);
-	smileyCanvas.addEventListener("touchmove",function(e) {
-		if (e.targetTouches.length === 1) {e.preventDefault();}
-	},false);
-	smileyCanvas.addEventListener("touchend",function(e) {
-		e.preventDefault();
-	},false);
-	clockCanvas.addEventListener("touchmove",function(e) {
-		if (e.targetTouches.length === 1) {e.preventDefault();}
-	},false);
-	clockCanvas.addEventListener("touchend",function(e) {
-		e.preventDefault();
-	},false);
-	scoreCanvas.addEventListener("touchmove",function(e) {
-		if (e.targetTouches.length === 1) {e.preventDefault();}
-	},false);
-	scoreCanvas.addEventListener("touchend",function(e) {
-		e.preventDefault();
-	},false);
-	timerCanvas.addEventListener("touchmove",function(e) {
-		if (e.targetTouches.length === 1) {e.preventDefault();}
-	},false);
-	timerCanvas.addEventListener("touchend",function(e) {
-		e.preventDefault();
-	},false);
-	backgroundCanvas.addEventListener("touchmove",function(e) {
-		if (e.targetTouches.length === 1) {e.preventDefault();}
-	},false);
-	backgroundCanvas.addEventListener("touchend",function(e) {
-		e.preventDefault();
 	},false);
 	flagCanvas.addEventListener("touchstart",function(e) {
 		if (e.targetTouches.length > 1) {return;}
@@ -125,9 +112,6 @@ function setEventListeners() {
 		smileyContext.clearRect(0,0,smileyWidth,smileyHeight);
 		smileyContext.drawImage(smiley2,0,0);
 	},false);
-	flagCanvas.addEventListener("touchmove",function(e) {
-		if (e.targetTouches.length === 1) {e.preventDefault();}
-	},false);
 	flagCanvas.addEventListener("touchend",function(e) {
 		e.preventDefault();
 		clearInterval(tapTimer);
@@ -136,6 +120,7 @@ function setEventListeners() {
 		smileyContext.clearRect(0,0,smileyWidth,smileyHeight);
 		smileyContext.drawImage(smiley1,0,0);
 	},false);
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	scrollPreventCanvas.addEventListener("touchmove",function(evt) {
 		evt.preventDefault();
 	});
