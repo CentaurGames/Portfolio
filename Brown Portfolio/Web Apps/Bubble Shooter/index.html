@@ -11,9 +11,11 @@
 <canvas id="lnchCanvas" width="610" height="600" style="padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; display: block; position: absolute; left: 0px; top: 0px; z-index: 5; border: 1px solid black;"></canvas>
 <canvas id="imgCanvas" width="0" height="0" style="padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; display: block; position: absolute; left: 0px; top: 0px; z-index: 1; border: 0px solid black;"></canvas>
 <canvas id="playButton" width="610" height="600" style="padding-left: 0; padding-right: 0; margin-left: auto; margin-right: auto; display: block; position: absolute; left: 0px; top: 0px; z-index: 6; border: 1px solid black;"></canvas>
+	<!-- Prevent the browser window from rescaling every time the user double-clicks the screen. -->
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
+//Fetch the canvases and contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var backgroundCanvas = document.getElementById("bkgrndCanvas");
 var backgroundContext = backgroundCanvas.getContext("2d");
@@ -76,14 +78,15 @@ var gameHasStarted = 0;
 var imagesAreLoaded = 0;
 var isMobile = 0;
 
-//window.onorientationchange = rescaleAllCanvases;
-
+//Disable the scrollbars (we don't need them).
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
+//Rescale and center the canvases every time the window resizes.
 window.addEventListener('resize',rescaleAllCanvases);
 
 function centerCanvas(canvas) {
+	//Position canvas at the center of the screen.
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
 	var rect = canvas.getBoundingClientRect();
@@ -98,18 +101,21 @@ function centerCanvas(canvas) {
 }
 
 function centerAllCanvases() {
+	//Position all of the canvases at the center of the screen.
 	for (var i = 0; i < canvases.length; i++) {
 		centerCanvas(canvases[i]);
 	}
 }
 
 function rescaleCanvas(canvas,context,scale) {
+	//Rescale the canvas to fit the width of the screen.
 	canvas.width = Math.floor(canvasWidth*scale);
 	canvas.height = Math.floor(canvasHeight*scale);
 	context.scale(scale,scale);
 }
 
 function rescaleAllCanvases() {
+	//Rescale all the canvases to fit the width of the screen.
 	window.scrollTo(0,0);
 	for (var i = 0; i < canvases.length; i++) {
 		canvases[i].style.left = "0px";
@@ -137,6 +143,7 @@ function rescaleAllCanvases() {
 		centerAllCanvases();
 	}
 	shooterHeightInRealPixels = scale*shooterHeight;
+	//Render the canvases again since rescaling them clears their content.
 	renderBackground();
 	shooterContext.drawImage(shooterImage,Math.round((canvasWidth-shooterWidth)/2),canvasHeight-2*shooterHeight);
 	if (!isLaunching) {launchContext.drawImage(bubbleImages[launchIndex][0],startX,startY);}
@@ -146,8 +153,8 @@ function rescaleAllCanvases() {
 	}
 }
 
-function drawButton()
-{
+function drawButton() {
+	//Renders the play button when the game is paused.
 	buttonContext.strokeStyle = "white";
 	buttonContext.fillStyle = "white";
 	buttonContext.moveTo(Math.round(canvasWidth/2)-20,Math.round(canvasHeight/2)-20);
@@ -158,11 +165,10 @@ function drawButton()
 	buttonContext.closePath();
 	buttonContext.fill();
 	buttonContext.stroke();
-	return;
 }
 
-function clickButton(e)
-{
+function clickButton(e) {
+	//Called whenever the play button is clicked while the game is paused.
 	var rect = buttonCanvas.getBoundingClientRect();
 	var x = e.clientX - rect.left;
 	var y = e.clientY - rect.top;
@@ -209,8 +215,8 @@ function clickButton(e)
 	return;
 }
 
-function addNewLayer()
-{
+function addNewLayer() {
+	//Drops all the bubbles down a row and adds a new row of bubbles.
 	lastLayerTimer = clockCounter;
 	if (isLaunching)
 	{
@@ -247,11 +253,10 @@ function addNewLayer()
 			}
 		}
 	}
-	return;
 }
 
-function renderGrid()
-{
+function renderGrid() {
+	//Renders all the bubbles and renders the score.
 	for (var i = 0; i < grid.length; i++)
 	{
 		for (var j = 0; j < grid[i].length; j++)
@@ -263,41 +268,39 @@ function renderGrid()
 		}
 	}
 	drawScore();
-	return;
 }
 
-function isConnected(i,j)
-{
-	if (j == 0) {return 1;}
+function isConnected(i,j) {
+	//Tells if the bubble at grid[i][j] is connected to others above it or to the side.
+	if (j == 0) return 1;
 	if (j % 2 == 0)
 	{
 		if (i+1 < grid.length)
 		{
-			if (grid[i+1][j-1]) {return 1};
+			if (grid[i+1][j-1]) return 1;
 		}
 	} else {
 		if (i-1 >= 0)
 		{
-			if (grid[i-1][j-1]) {return 1;}
+			if (grid[i-1][j-1]) return 1;
 		}
 	}
-	if (grid[i][j-1]) {return 1;}
+	if (grid[i][j-1]) return 1;
 	return 0;
 }
 
-function fillGrid(layer)
-{
+function fillGrid(layer) {
+	//Fills the grid with bubbles.
 	if (layer >= numberOfInitialLayers) {return;}
 	for (var i = 0; i < horizontalGridSize; i++)
 	{
 		if (layer < 3 || (isConnected(i,layer) && (Math.random() < 0.5))) {grid[i][layer] = Math.floor(Math.random()*numberOfColors)+1;}
 	}
 	if (layer+1 < numberOfInitialLayers) {fillGrid(layer+1);}
-	return;
 }
 
-function initializeGrid()
-{
+function initializeGrid() {
+	//Creates a new game.
 	for (var i = 0; i < horizontalGridSize; i++)
 	{
 		grid[i] = new Array(verticalGridSize);
@@ -318,11 +321,10 @@ function initializeGrid()
 		}
 	}
 	fillGrid(0);
-	return;
 }
 
-function drawGearTooth(theta1,theta2)
-{
+function drawGearTooth(theta1,theta2) {
+	//Draws the "teeth" upon the gear of the bubble shooter.
 	imageContext.save();
 	imageContext.globalCompositeOperation = "destination-out";
 	var r1 = Math.round(3*shooterWidth/8);
@@ -337,17 +339,12 @@ function drawGearTooth(theta1,theta2)
 	imageContext.closePath();
 	imageContext.fill();
 	imageContext.restore();
-	return;
 }
 
-function drawShooter()
-{
+function drawShooter() {
+	//Sketches the bubble shooter.
 	imageCanvas.width = shooterWidth;
 	imageCanvas.height = 2*shooterHeight;
-	//imageContext.strokeStyle = "darkorange";
-	//var gradient = imageContext.createLinearGradient(0,0,shooterWidth,2*shooterHeight);
-	//gradient.addColorStop(0,"gold");
-	//gradient.addColorStop(1,"darkorange");
 	var gradient = imageContext.createRadialGradient(Math.round(shooterWidth/2),shooterHeight,Math.round(shooterWidth/4),Math.round(shooterWidth/2),shooterHeight,Math.round(1.05*shooterHeight));
 	gradient.addColorStop(0,"darkorange");
 	gradient.addColorStop(0.25,"orangered");
@@ -371,7 +368,6 @@ function drawShooter()
 	{
 		drawGearTooth(2*i*Math.PI/numberOfGearTeeth - deltaTheta, 2*i*Math.PI/numberOfGearTeeth + deltaTheta);
 	}
-	//imageContext.fillStyle = "darkorange";
 	imageContext.fillRect(Math.round(3*shooterWidth/8),Math.round(shooterHeight/4),Math.round(shooterWidth/4),Math.round(3*shooterHeight/4));
 	imageContext.beginPath();
 	imageContext.moveTo(Math.round(shooterWidth/2),0);
@@ -389,17 +385,14 @@ function drawShooter()
 		imageCanvas.height = 0;
 		drawBubbleImage(0,0);
 	};
-	return;
 }
 
-function drawBubbleImage(index,mag)
-{
+function drawBubbleImage(index,mag) {
+	//Sketches a bubble of a specific color (index) and size (mag).
 	if (index >= numberOfColors)
 	{
 		launchIndex = Math.floor(Math.random()*numberOfColors);
 		rescaleAllCanvases();
-		//launchContext.drawImage(bubbleImages[launchIndex][0],startX,startY);
-		//renderGrid();
 		document.onmousemove = mouseMotionDetector;
 		document.onclick = clickButton;
 		window.addEventListener("touchstart",function(e) {
@@ -430,14 +423,7 @@ function drawBubbleImage(index,mag)
 	var bR = bubbleRadius * Math.pow(2,-mag);
 	imageCanvas.width = 2*bubbleRadius;
 	imageCanvas.height = 2*bubbleRadius;
-	//var gradient = imageContext.createRadialGradient(Math.round(bubbleRadius/2),Math.round(bubbleRadius/2),0,Math.round(bubbleRadius/2),Math.round(bubbleRadius/2),bubbleRadius);
-	//gradient.addColorStop(0,shineColors[index]);
-	//gradient.addColorStop(0.6,bubbleColors[index]);
 	var gradient = imageContext.createRadialGradient(Math.round(bubbleRadius/2),Math.round(bubbleRadius/2),0,bubbleRadius,bubbleRadius,Math.round(1.6*bubbleRadius));
-	//gradient.addColorStop(0,"cyan");
-	//gradient.addColorStop(1,"mediumblue");
-	//gradient.addColorStop(0.68,"deepskyblue");
-	//gradient.addColorStop(0.2,"blue");
 	gradient.addColorStop(0,colorStop1[index]);
 	gradient.addColorStop(0.2,colorStop2[index]);
 	gradient.addColorStop(0.68,colorStop3[index]);
@@ -451,11 +437,10 @@ function drawBubbleImage(index,mag)
 		imageCanvas.height = 0;
 		drawBubbleImage(index,mag+1);
 	}
-	return;
 }
 
-function drawBubble(i,j,index,mag)
-{
+function drawBubble(i,j,index,mag) {
+	//Render a bubble of color (index) and size (mag) at location (i,j).
 	var x = i*pixelWidth;
 	var y = j*pixelHeight;
 	if (j % 2 == 0)
@@ -481,18 +466,14 @@ function drawBubble(i,j,index,mag)
 		y = canvasHeight - 1;
 	}
 	bubbleContext.drawImage(bubbleImages[index][mag],x,y);
-	return;
 }
 
-function mouseMotionDetector(e)
-{
-	if (gameOver || gamePaused) {return;}
-	//var x = Math.round(canvasWidth/2) - Math.floor(e.clientX - offsetHorizontal);
-	//var y = canvasHeight - shooterHeight - Math.floor(e.clientY - offsetVertical);
+function mouseMotionDetector(e) {
+	//Called every time the mouse moves.
+	//Allows the bubble shooter to follow the mouse around the screen.
+	if (gameOver || gamePaused) return;
 	var rect = buttonCanvas.getBoundingClientRect();
-
 	var x = Math.round(buttonCanvas.width/2) - Math.floor(e.clientX - rect.left);
-
 	var y = buttonCanvas.height - shooterHeightInRealPixels - Math.floor(e.clientY - rect.top);
 	var theta = Math.atan2(x,y);
 	shooterContext.clearRect(Math.round(canvasWidth/2)-shooterHeight,canvasHeight-2*shooterHeight,2*shooterHeight,2*shooterHeight);
@@ -501,11 +482,10 @@ function mouseMotionDetector(e)
 	shooterContext.rotate(2*Math.PI - theta);
 	shooterContext.drawImage(shooterImage,-Math.round(shooterWidth/2),-shooterHeight);
 	shooterContext.restore();
-	return;
 }
 
-function fillUpPops(i,j)
-{
+function fillUpPops(i,j) {
+	//Search for bubbles that need to be popped.
 	for (var k = 0; k < bubblesToBePoppedI.length; k++)
 	{
 		if (bubblesToBePoppedI[k] == i && bubblesToBePoppedJ[k] == j)
@@ -579,43 +559,42 @@ function fillUpPops(i,j)
 			fillUpPops(i,j+1);
 		}
 	}
-	return;
 }
 
-function isHanging(i,j,direction)
-{
-	if (isConnected(i,j)) {return 0;}
+function isHanging(i,j,direction) {
+	//Check if the bubble at position (i,j) is floating unsupported.
+	if (isConnected(i,j)) return 0;
 	if (direction == 0)
 	{
 		if (i-1 >= 0)
 		{
-			if (grid[i-1][j] && !isHanging(i-1,j,-1)) {return 0;}
+			if (grid[i-1][j] && !isHanging(i-1,j,-1)) return 0;
 		}
 		if (i+1 < grid.length)
 		{
-			if (grid[i+1][j] && !isHanging(i+1,j,1)) {return 0;}
+			if (grid[i+1][j] && !isHanging(i+1,j,1)) return 0;
 		}
 	}
 	if (direction == -1)
 	{
 		if (i-1 >= 0)
 		{
-			if (grid[i-1][j] && !isHanging(i-1,j,-1)) {return 0;}
+			if (grid[i-1][j] && !isHanging(i-1,j,-1)) return 0;
 		}
 	}
 	if (direction == 1)
 	{
 		if (i+1 < grid.length)
 		{
-			if (grid[i+1][j] && !isHanging(i+1,j,1)) {return 0;}
+			if (grid[i+1][j] && !isHanging(i+1,j,1)) return 0;
 		}
 	}
 	return 1;
 }
 
-function gameOverSequence()
-{
-	if (gameOver) {return;}
+function gameOverSequence() {
+	//Called when the game ends.
+	if (gameOver) return;
 	gameOver = 1;
 	clearInterval(layerTimer);
 	launchContext.fillStyle = "white";
@@ -623,11 +602,10 @@ function gameOverSequence()
 	launchContext.textAlign = "center";
 	launchContext.fillText("GAME OVER",canvasWidth/2,canvasHeight/2);
 	drawButton();
-	return;
 }
 
-function checkAllHangers()
-{
+function checkAllHangers() {
+	//Check for bubbles that are floating unsupported and thus need to be popped.
 	for (var i = 0; i < grid.length; i++)
 	{
 		for (var j = 0; j < grid[i].length; j++)
@@ -665,11 +643,12 @@ function checkAllHangers()
 		launchContext.drawImage(bubbleImages[launchIndex][0],startX,startY);
 		drawScore();
 	}
-	return;
 }
 
-function popAllBubbles(mag)
-{
+function popAllBubbles(mag) {
+	//Pops all the bubbles located in the bubblesToBePopped arrays.
+	//"Pops" each bubble by making it shrink to nothingness.
+	//The magnification (mag) tells how large the bubbles currently are as they shrink.
 	if (mag >= numberOfMagnificationStates)
 	{
 		bubbleContext.clearRect(0,0,canvasWidth,canvasHeight);
@@ -710,11 +689,10 @@ function popAllBubbles(mag)
 	im.onload = function() {
 		setTimeout(function() {popAllBubbles(mag+1);},30);
 	}
-	return;
 }
 
-function checkForPops(i,j)
-{
+function checkForPops(i,j) {
+	//Find bubbles that need to be popped.
 	fillUpPops(i,j);
 	if (bubblesToBePoppedI.length < 3)
 	{
@@ -736,11 +714,10 @@ function checkForPops(i,j)
 	}
 	SCORE += bubblesToBePoppedI.length;
 	popAllBubbles(1);
-	return;
 }
 
-function stepForward()
-{
+function stepForward() {
+	//Moves the launched bubble a single "step" forward in its path.
 	var newX = launchX + vx;
 	var newY = launchY + vy;
 	if (newX >= canvasWidth)
@@ -753,12 +730,6 @@ function stepForward()
 		newX *= -1;
 		vx *= -1;
 	}
-	/*
-	if (Math.round(newY) < 0)
-	{
-		newY = 0;
-	}
-	*/
 	if (newY >= canvasHeight)
 	{
 		newY = 2*canvasHeight - newY;
@@ -788,7 +759,6 @@ function stepForward()
 	{
 		j = verticalGridSize-1;
 	}
-	//if (Math.round(newY) == 0) {alert(grid[i][j]);}
 	if (grid[i][j] || Math.round(newY) < 0)
 	{
 		clearInterval(myTimer);
@@ -818,29 +788,22 @@ function stepForward()
 		grid[i][j] = launchIndex+1;
 		launchContext.clearRect(0,0,canvasWidth,canvasHeight);
 		drawBubble(i,j,launchIndex,0);
-		//launchIndex = Math.floor(Math.random()*numberOfColors);
-		//launchContext.drawImage(bubbleImages[launchIndex][0],startX,startY,pixelWidth,pixelHeight);
-		//isLaunching = 0;
 		checkForPops(i,j);
 	} else {
-		//launchContext.clearRect(launchX-pixelWidth,launchY-pixelHeight,2*pixelWidth,2*pixelHeight);
 		launchContext.clearRect(0,0,canvasWidth,canvasHeight);
 		launchX = newX;
 		launchY = newY;
 		launchContext.drawImage(bubbleImages[launchIndex][0],launchX,launchY);
 	}
-	return;
 }
 
-function launch(e)
-{
-	if (isLaunching || gameOver) {return;}
-	//var x = Math.round(canvasWidth/2) - Math.floor(e.clientX - offsetHorizontal);
-	//var y = canvasHeight - shooterHeight - Math.floor(e.clientY - offsetVertical);
+function launch(e) {
+	//This function is called every time the user clicks.
+	//The variable e is a mouseclick or touch event passed by the event listener.
+	//Launches a bubble in the direction of the user's click.
+	if (isLaunching || gameOver) return;
 	var rect = buttonCanvas.getBoundingClientRect();
-
 	var x = Math.round(buttonCanvas.width/2) - Math.floor(e.clientX - rect.left);
-
 	var y = buttonCanvas.height - shooterHeightInRealPixels - Math.floor(e.clientY - rect.top);
 	var theta = Math.atan2(y,x);
 	theta += Math.PI;
@@ -850,11 +813,10 @@ function launch(e)
 	launchY = startY;
 	isLaunching = 1;
 	myTimer = setInterval(stepForward,deltaT);
-	return;	
 }
 
-function renderBackground()
-{
+function renderBackground() {
+	//Renders the background.
 	backgroundContext.fillStyle = "rgb(22,0,77)";
 	backgroundContext.fillRect(0,0,canvasWidth,canvasHeight);
 	backgroundContext.strokeStyle = "red";
@@ -863,19 +825,17 @@ function renderBackground()
 	backgroundContext.lineTo(canvasWidth,noGoZone);
 	backgroundContext.closePath();
 	backgroundContext.stroke();
-	return;
 }
 
-function drawScore()
-{
+function drawScore() {
+	//Renders the score on the canvas.
 	bubbleContext.fillStyle = "white";
 	bubbleContext.font = "12px Arial";
 	bubbleContext.fillText("SCORE: " + SCORE,canvasWidth-3*shooterWidth,canvasHeight-2*shooterHeight);
-	return;
 }
 
-function play()
-{
+function play() {
+	//Starts the game.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1;
 	initializeGrid();
 	if (gamePaused)
