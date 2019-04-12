@@ -13,8 +13,11 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
+//Source URLs for the audio.
 var audioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/07/sport_snooker_ball_cueball_hit_other.mp3";
 var explosionURL = "http://centaurgamesonline.com/wp-content/uploads/2018/07/Grenade3.mp3";
+	
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var myCanvas = document.getElementById("myCanvas");
 var context = myCanvas.getContext("2d");
@@ -41,6 +44,8 @@ var explosiveTimer = new Array(16);
 var explosiveTimerIsRunning = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var explosiveIndex = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
 var radiusOfOutbreak = 50;
+
+//Radius of the balls.
 var r = 10; 
 var h = Math.sqrt(3)*r;
 var ys = [180,180,180+2*r,180+4*r,180-2*r,180-4*r,180+3*r,180+r,180-r,180-3*r,180+2*r,180,180-2*r,180+r,180-r,180];
@@ -65,6 +70,7 @@ var cueTimerIsRunning = 0, myTimerIsRunning = 0, ballTimerIsRunning = [0,0,0,0,0
 var glowImage = new Image(20,20);
 var areImagesLoaded = 0, isCollisionAudioLoaded = 0, isCollisionAudioLoading = 0, isExplosionAudioLoaded = 0, isExplosionAudioLoading = 0, isIOS = 0, isMobile = 0;
 
+//Disable and hide the scrollbars (we don't need them).
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
@@ -97,6 +103,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
+	//Resize the game view to fit the screen, and center it.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -171,6 +178,7 @@ function rescaleCanvases() {
 	livesCanvas.height = Math.round(520.*scale);
 	livesContext.scale(scale,scale);
 	if (isMobile) {
+		//Mobile devices require a 500 ms lag before centering.
 		setTimeout(function() { 
 			window.scrollTo(0,y0);
 			centerAllCanvases();
@@ -179,6 +187,7 @@ function rescaleCanvases() {
 		window.scrollTo(0,y0);
 		centerAllCanvases();
 	}
+	//The game view needs to be re-rendered because the rescaling clears the rendering.
 	paintFloorCanvas();
 	drawLives();
 	drawTable();
@@ -188,6 +197,8 @@ function rescaleCanvases() {
 	}
 }
 
+//The following functions below generate 22 frames for the explosion animation. 
+	
 function smoke7() {
 	imageCanvas.width = imageCanvas.width;
 	imageContext.strokeStyle = "lightgrey"
@@ -763,6 +774,7 @@ function drawRing0() {
 }
 
 function drawGlowImage() {
+	//Sketch the image which makes the balls appear to glow before they explode.
 	imageCanvas.width = imageCanvas.width;
 	var grad = imageContext.createRadialGradient(Math.round(10-r/2),Math.round(10-r/2),0,Math.round(10-r/2),Math.round(10-r/2),(1+1/Math.sqrt(2))*r);
 	grad.addColorStop(0,"white");
@@ -779,6 +791,7 @@ function drawGlowImage() {
 }
 
 function paintFloorCanvas() {
+	//Render the floor.
 	grad = floorContext.createLinearGradient(0,0,800,520);
 	grad.addColorStop(1,"rgb(102,0,0)");
 	grad.addColorStop(0,"rgb(150,0,0)");
@@ -787,7 +800,7 @@ function paintFloorCanvas() {
 }
 
 function drawLives() {
-	//livesCanvas.width = livesCanvas.width;
+	//Render the number of lives left as cue balls.
 	livesContext.clearRect(0,0,800,520);
 	for(var i = 0; i < numberOfLives; i++) {
 		livesContext.drawImage(ballImages[0],Math.round(50+2.5*r*i),15);
@@ -795,6 +808,7 @@ function drawLives() {
 }
 
 function loadAudio() {
+	//Load the audio for the ball collisions.
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
 	audioVolume = audioContext.createGain();
 	audioVolume.connect(audioContext.destination);
@@ -811,6 +825,7 @@ function loadAudio() {
 		};
 		request.send();
 	}
+	//Load the audio for the explosions.
 	if (!isExplosionAudioLoading) {
 		isExplosionAudioLoading = 1;
 		var request2 = new XMLHttpRequest();
@@ -827,6 +842,7 @@ function loadAudio() {
 }
 
 function createBallImage(i) {
+	//Sketches the ith ball image and loads it into an image.
 	imageCanvas.width = imageCanvas.width;
 	if (i > 15) {
 		drawGlowImage();
@@ -851,6 +867,7 @@ function createBallImage(i) {
 }
 
 function initializeGlobals() {
+	//Reset the table and rack up the balls.
 	ys = [180,180,180+2*r,180+4*r,180-2*r,180-4*r,180+3*r,180+r,180-r,180-3*r,180+2*r,180,180-2*r,180+r,180-r,180];
 	xs = [575,65,65,65,65,65,65+h,65+h,65+h,65+h,65+2*h,65+2*h,65+2*h,65+3*h,65+3*h,65+4*h];
 	Vxs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; //10*Math.cos(theta)
@@ -865,6 +882,8 @@ function initializeGlobals() {
 }
 
 function run() {
+	//This is the first function to be run once the body loads.
+	//Initialize the game.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1;
 	if (/iPhone|iPad|iPod/i.test(navigator.userAgent) || true) {
 		isIOS = 1;
@@ -886,6 +905,7 @@ function run() {
 }
 	
 function drawTable() {
+	//Render the table.
 	var scale = 3;
 	tableContext.fillStyle = "rgb(0,70,0)";
 	tableContext.fillRect(0,0,700,420);
@@ -1045,6 +1065,7 @@ function drawTable() {
 }
 
 function drawCueImage() {
+	//Sketch the cue and load it into an image.
 	cueContext.fillStyle = "rgb(102,34,0)";    //Cue Canvas
 	cueContext.beginPath();
 	cueContext.moveTo(350,15);
@@ -1099,22 +1120,37 @@ function drawCueImage() {
 }
 
 function mouseMotionDetector(evt) {
+	//Called every time the user moves the mouse.
+	//evt is the mousemove event passed by the event listener.
+	//Allows the cue to follow the cursor around the screen.
+	//Cue automatically points from the cue ball to the cursor.
+	
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
 	if (cueIsStriking) {
 		return;	
 	}
+	//The cue should only appear if the balls are all at rest.
 	if (areBallsInMotion()) {
 		return;
 	}
 	var rect = cursorCanvas.getBoundingClientRect();
+	//Find the x-position of evt relative to the top left corner of the game view.
 	var x = (evt.clientX || evt.targetTouches[0].clientX) - rect.left;
+	//Find the y-position of evt relative to the top left corner of the game view.
 	var y = (evt.clientY || evt.targetTouches[0].clientY) - rect.top;
+	//Scale the x- and y-axes to match the scaling of the game view.
 	var scale = 800/cursorCanvas.width;
+	//Find the direction from the cue ball to the cursor.
 	phi = Math.atan2(ys[0]+80-y*scale,xs[0]+80-x*scale);
 	drawCue();
 }
 
 function mouseDown(evt) {
+	//Called every time the user presses the mouse button.
+	//evt is the mousedown event passed by the event listener.
+	//Starts a timing interval that pulls back the cue.
+	//The longer the button is pressed, the stronger the cue will hit.
 	if (isIOS && (!isCollisionAudioLoaded || !isExplosionAudioLoaded)) {
 		loadAudio();	
 	}
@@ -1124,10 +1160,12 @@ function mouseDown(evt) {
 	if (evt.targetTouches && evt.targetTouches.length > 1) {
 		return;
 	}
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
 	if (areBallsInMotion()) {
 		return;
 	}
+	//Move the cursor in the direction of the cursor.
 	mouseMotionDetector(evt);
 	cueTimer = setInterval(function() {
 		if (distanceFromCueToBall <= 120) {
@@ -1139,16 +1177,22 @@ function mouseDown(evt) {
 }
 
 function mouseUp(evt) {
+	//Called every time the mouse button is released.
+	//evt is the mouseup event passed by the event listener.
+	//Once the mouse button is released, the cue will strike the cue ball in the direction of evt.
 	if (cueIsStriking) {
 		return;	
 	}
 	if (evt.targetTouches && evt.targetTouches.length > 1) {
 		return;
 	}
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
+	//The cue should only appear if the balls are all at rest.
 	if (areBallsInMotion()) {
 		return;
 	}
+	//Strike the ball.
 	strengthOfHit = distanceFromCueToBall/30;
 	if (cueTimerIsRunning) {
 		clearInterval(cueTimer);
@@ -1178,7 +1222,7 @@ function mouseUp(evt) {
 }
 
 function drawCue() {
-	//cursorCanvas.width = cursorCanvas.width;
+	//Renders the cue at a distance _distanceFromCueToBall_ from the cue ball, with angle _phi_.
 	cursorContext.clearRect(0,0,800,520);
 	cursorContext.save();
 	cursorContext.translate(xs[0]+80,ys[0]+80);
@@ -1189,6 +1233,7 @@ function drawCue() {
 }
 
 function areBallsInMotion() {
+	//Check if any balls are moving.
 	for (var i = 0; i < 16; i++) {
 		if (Vxs[i] != 0 || Vys[i] != 0) {
 			return 1;
@@ -1198,6 +1243,7 @@ function areBallsInMotion() {
 }
 
 function holes() {
+	//Render the holes on the table.
 	var radius = 22;
 	context.fillStyle = "black";
 	context.beginPath();
@@ -1238,6 +1284,7 @@ function holes() {
 }
 
 function tableHoles() {
+	//Render the holes on the table.
 	var radius = 15;
 	//Top left Hole
 	var grad = tableContext.createLinearGradient(0,0,52,52); 
@@ -1376,6 +1423,9 @@ function tableHoles() {
 }
 
 function drawBall() {
+	//Render the balls on the table.
+	
+	//Make sure the balls don't have an unphysical overlap.
 	correctOverlaps();
 	//ballCanvas.width = ballCanvas.width;
 	ballContext.clearRect(0,0,640,360);
@@ -1418,6 +1468,7 @@ function drawBall() {
 }
 
 function moveBall() {
+	//Move the balls forward by some incremental time.
 	for (var i = 0; i < 16; i++) {
 		if (Vxs[i] != 0 || Vys[i] != 0) {
 			var theta = Math.atan2(Vys[i],Vxs[i]);
@@ -1467,6 +1518,7 @@ function moveBall() {
 }
 
 function isBallinPocket(ballx,bally) {
+	//Check if the position (ballx,bally) is within the radius of a pocket.
 	var dx = ballx - 0;
 	var dy = bally - 0;
 	var distance = Math.sqrt(dx * dx + dy * dy);
@@ -1507,6 +1559,7 @@ function isBallinPocket(ballx,bally) {
 }
 
 function areBallsColliding(ballx1,bally1,ballx2,bally2) {
+	//Check if the positions (ballx1,bally1) and (ballx2,bally2) are within a radius of each other.
 	var dx = ballx1 - ballx2;
 	var dy = bally1 - bally2;
 	var distance = Math.sqrt(dx * dx + dy * dy);
@@ -1518,6 +1571,7 @@ function areBallsColliding(ballx1,bally1,ballx2,bally2) {
 }
 
 function spreadContagion(j) {
+	//Initiate the explosion timer for any ball that came in contact with the ball that was hit by the cue.
 	ballTimer[j] = setInterval(function() {
 			explosionCountDown(j);
 	},1000);
@@ -1525,6 +1579,7 @@ function spreadContagion(j) {
 }
 
 function explodeBall(i) {
+	//Initiate an explosion in the ith ball.
 	for (var j = 1; j < 16; j++) {
 		if (i === j) {
 			continue;
@@ -1556,6 +1611,7 @@ function explodeBall(i) {
 }
 
 function explosionCountDown(j) {
+	//Timer function for the jth ball explosion.
 	if (opacity[j] >= 1) {
 		if (numberOfLives === 1) {
 			if (ballTimerIsRunning[j]) {
@@ -1586,6 +1642,7 @@ function explosionCountDown(j) {
 }
 
 function collideBalls(i,j) {
+	//Perform the collision between ball i and ball j.
 	if (Vxs[i] === 0 && Vys[i] === 0 && Vxs[j] === 0 && Vys[j] === 0) {
 		return;
 	} 
@@ -1630,6 +1687,7 @@ function collideBalls(i,j) {
 }
 
 function correctOverlaps() {
+	//Check if any balls have an unphysical overlap, and if so, push them apart.
 	var dx, dy, d, xAve, yAve, xNewI, xNewJ, yNewI, yNewJ;
 	for (var i = 0; i < xs.length; i++) {
 		for (var j = 0; j < ys.length; j++) {
@@ -1697,6 +1755,7 @@ function correctOverlaps() {
 
 
 function collidingSound() {
+	//Play the audio of one ball hitting another.
 	if (!isCollisionAudioLoaded) return;
 	if (lastAudioSource) {
 		lastAudioSource.stop();
@@ -1715,6 +1774,7 @@ function collidingSound() {
 }
 
 function explosionSound() {
+	//Plays the audio of the ball exploding.
 	if (!isExplosionAudioLoaded) return;
 	audioVolume.gain.setValueAtTime(1,audioContext.currentTime);
 	if (lastAudioSource) {
@@ -1733,28 +1793,9 @@ function explosionSound() {
 	lastAudioSource = audioSource;
 }
 
-function endGame() {     // You Win Text function
-	/*
-	if (myTimerIsRunning) {
-		clearInterval(myTimer);
-		myTimerIsRunning = 0;
-	}
-	if (cueTimerIsRunning) {
-		clearInterval(cueTimer);
-		cueTimerIsRunning = 0;
-	}
-	for (var i = 0; i < 16; i++) {
-		if (ballTimerIsRunning[i]) {
-			clearInterval(ballTimer[i]);
-			ballTimerIsRunning[i];
-			opacity[i] = 0;
-		}
-		if (explosiveTimerIsRunning[i]) {
-			clearInterval(explosiveTimer[i]);
-			explosiveTimerIsRunning[i] = 0;
-		}
-	}
-	*/
+function endGame() {     
+	//Called whenever the player wins the game.
+	// You Win Text function
 	var grad = context.createLinearGradient(320,170,320,190);
 	grad.addColorStop(0,"yellow");
 	grad.addColorStop(1,"rgb(255,102,0)");
@@ -1790,24 +1831,8 @@ function endGame() {     // You Win Text function
 	},5000);
 }
 
-function loseGame() {     // You Win Text function
-	/*
-	if (myTimerIsRunning) {
-		clearInterval(myTimer);
-		myTimerIsRunning = 0;
-	}
-	if (cueTimerIsRunning) {
-		clearInterval(cueTimer);
-		cueTimerIsRunning = 0;
-	}
-	for (var i = 0; i < 16; i++) {
-		if (ballTimerIsRunning[i]) {
-			clearInterval(ballTimer[i]);
-			ballTimerIsRunning[i] = 0;
-			opacity[i] = 0;
-		}
-	}
-	*/
+function loseGame() {     
+	//Called whenever the player loses the game.
 	var grad = context.createLinearGradient(320,170,320,190);
 	grad.addColorStop(0,"yellow");
 	grad.addColorStop(1,"rgb(255,102,0)");
@@ -1844,6 +1869,7 @@ function loseGame() {     // You Win Text function
 }
 
 function checkIfGameIsOver() {
+	//Check if any balls are left on the table.
 	for (var i = 1; i < 16; i++) {
 		if (isBallOnTable[i]) {
 			return;
