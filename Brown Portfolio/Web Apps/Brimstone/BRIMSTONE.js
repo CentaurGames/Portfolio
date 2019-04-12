@@ -1,4 +1,4 @@
-//Remove the scrollbars. (We don't need them.)
+//Disable and hide the scrollbars. (We don't need them.)
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
@@ -217,7 +217,7 @@ function playDeathSound() {
 }
 
 function playDrums() {
-	//Plays the background music.
+	//Plays the background music on an endless loop.
 	if (!isDrumsAudioLoaded) return;
 	if (lastAudioSource) {
 		lastAudioSource.loop = false;
@@ -318,7 +318,7 @@ function vectorMultiply(mat,vec) {
 }
 
 function rotateX() {
-	//Rotate the rotationMatrix about the x-axis.
+	//Rotate the rotationMatrix by an angle thetaX about the x-axis.
 	var xRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	xRotation[1][1] = Math.cos(thetaX);
 	xRotation[2][2] = xRotation[1][1];
@@ -328,7 +328,7 @@ function rotateX() {
 }
 
 function rotateY() {
-	//Rotate the rotationMatrix about the y-axis.
+	//Rotate the rotationMatrix by an angle thetaY about the y-axis.
 	var yRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	yRotation[0][0] = Math.cos(thetaY);
 	yRotation[2][2] = yRotation[0][0];
@@ -338,7 +338,7 @@ function rotateY() {
 }
 
 function rotateZ() {
-	//Rotate the rotationMatrix about the z-axis.
+	//Rotate the rotationMatrix by an angle thetaZ about the z-axis.
 	var zRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	zRotation[0][0] = Math.cos(thetaZ);
 	zRotation[1][1] = zRotation[0][0];
@@ -351,7 +351,6 @@ function drawDimmerCanvas() {
 	//Draws a descending sphere of darkness around the character.
 	if (dimmerCanvasIsDrawing || dimmerRadius <= 0) return;
 	dimmerContext.clearRect(0,0,420,420);
-	//var grad = dimmerContext.createRadialGradient(210,210,40+170*embersFound/numberOfEmbers,210,210,210);
 	var grad = dimmerContext.createRadialGradient(210,210,0,210,210,dimmerRadius);
 	grad.addColorStop(0,"rgba(0,0,0,0)");
 	grad.addColorStop(1,"rgba(0,0,0,1)");
@@ -449,8 +448,6 @@ function drawShadow(i,j) {
 		}
 	}
 	var x1_, x2_, x3_, y1_, y2_, y3_;
-	//var ratioOfPlayerHeightToBlockHeight = 1.1 + dimmerRadius/210;
-	//var factor = 1/(ratioOfPlayerHeightToBlockHeight-1);
 	var factor = 0.5;
 	playerX += pixelWidth/2;
 	playerY += pixelHeight/2;
@@ -648,9 +645,8 @@ function rankDirectionsByDistance(distanceArray) {
 	return ranks;
 }
 
-function renderMaze()
-{
-	//Renders all the canvases.
+function renderMaze() {
+	//Renders all the objects in the game view.
 	if (isVictoryPlacardUp) {
 		drawVictoryPlacard();
 		return;
@@ -738,7 +734,7 @@ function drawMazeImage(index) {
 }
 
 function dealiasArray(arr) {
-	//Converts the array reference into a copy.
+	//Converts the array reference into a deep copy of the array.
 	var newArray = new Array(arr.length);
 	for (var i = 0; i < arr.length; i++) {
 		newArray[i] = arr[i];
@@ -747,7 +743,7 @@ function dealiasArray(arr) {
 }
 
 function dealiasGrid(arr) {
-	//Converts the grid reference into a copy.
+	//Converts the grid reference into a deep copy of the grid.
 	var newArray = new Array(arr.length);
 	for (var i = 0; i < arr.length; i++) {
 		newArray[i] = new Array(arr[i].length);
@@ -845,6 +841,7 @@ function initializeGrid() {
 }
 
 function drawHat() {
+	//Sketches the character's hat.
 	imageContext.fillStyle = "saddlebrown";
 	imageContext.beginPath();
 	imageContext.moveTo(30,30);
@@ -866,48 +863,8 @@ function drawHat() {
 	imageContext.fill();
 }
 
-function drawTorch() {
-	imageContext.fillStyle = "saddlebrown";
-	imageContext.fillRect(18,22,6,6);
-	imageContext.fillStyle = "rgb(109,39,0)";
-	imageContext.fillRect(20,24,2,2);
-	var grad = imageContext.createRadialGradient(21,22,0,21,25,20);
-	grad.addColorStop(0,"orangered");
-	grad.addColorStop(1,"rgba(255,69,0,0)");
-	imageContext.fillStyle = grad;
-	imageContext.beginPath();
-	imageContext.moveTo(19,22);
-	imageContext.lineTo(0,0);
-	imageContext.lineTo(42,0);
-	imageContext.lineTo(23,22);
-	imageContext.closePath();
-	imageContext.fill();
-	imageContext.beginPath();
-	imageContext.moveTo(19,28);
-	imageContext.lineTo(0,50);
-	imageContext.lineTo(42,50);
-	imageContext.lineTo(23,28);
-	imageContext.closePath();
-	imageContext.fill();
-	grad = imageContext.createRadialGradient(21,22,0,21,25,20);
-	grad.addColorStop(0,"yellow");
-	grad.addColorStop(1,"rgba(255,25,0,0)");
-	imageContext.fillStyle = grad;
-	imageContext.beginPath();
-	imageContext.moveTo(19,22);
-	imageContext.lineTo(21,0);
-	imageContext.lineTo(23,22);
-	imageContext.closePath();
-	imageContext.fill();
-	imageContext.beginPath();
-	imageContext.moveTo(19,28);
-	imageContext.lineTo(21,50);
-	imageContext.lineTo(23,28);
-	imageContext.closePath();
-	imageContext.fill();
-}
-
 function drawFlashlight() {
+	//Sketch the character's flashlight.
 	imageContext.fillStyle = "dimgrey";
 	imageContext.beginPath();
 	imageContext.moveTo(20,27);
@@ -922,6 +879,7 @@ function drawFlashlight() {
 }
 
 function drawHand() {
+	//Sketch the character's hand.
 	imageContext.fillStyle = "darksalmon";
 	imageContext.beginPath();
 	imageContext.moveTo(20,22);
@@ -934,6 +892,7 @@ function drawHand() {
 }
 
 function drawBody() {
+	//Sketch the character's body.
 	imageContext.fillStyle = "black";
 	imageContext.beginPath();
 	imageContext.moveTo(30,26);
@@ -952,6 +911,7 @@ function drawBody() {
 }
 
 function drawRays() {
+	//Sketch the light cone of the flashlight.
 	var grad = imageContext.createRadialGradient(21,18,0,22,18,16);
 	grad.addColorStop(0,"rgba(255,69,0,1)");
 	grad.addColorStop(1,"rgba(255,69,0,0)");
@@ -979,6 +939,8 @@ function drawRays() {
 }
 
 function setFootstep(x,y,direction) {
+	//Create a footstep at position (x,y) facing along the direction.
+	//Footstep will gradually fade and vanish.
 	var index = -1;
 	for (var i = 0; i < footstepXs.length; i++) {
 		if (footstepXs[i] < 0) {
@@ -1007,6 +969,7 @@ function setFootstep(x,y,direction) {
 }
 
 function drawFootstepImage4() {
+	//Load the image of the footstep along the 4th direction.
 	footstepImages[3] = new Image(10,10);
 	footstepImages[3].src = footstepImageURLs[3];
 	footstepImages[3].onload = function() {
@@ -1015,48 +978,56 @@ function drawFootstepImage4() {
 }
 
 function drawFootstepImage3() {
+	//Load the image of the footstep along the 3rd direction.
 	footstepImages[2] = new Image(10,10);
 	footstepImages[2].src = footstepImageURLs[2];
 	footstepImages[2].onload = drawFootstepImage4;
 }
 
 function drawFootstepImage2() {
+	//Load the image of the footstep along the 2nd direction.
 	footstepImages[1] = new Image(10,10);
 	footstepImages[1].src = footstepImageURLs[1];
 	footstepImages[1].onload = drawFootstepImage3;
 }
 
 function drawFootstepImage1() {
+	//Load the image of the footstep along the 1st direction.
 	footstepImages[0] = new Image(10,10);
 	footstepImages[0].src = footstepImageURLs[0];
 	footstepImages[0].onload = drawFootstepImage2;
 }
 
 function drawPlayerImage4() {
+	//Load the image of the character facing the 4th direction.
 	playerImages[3] = new Image(60,60);
 	playerImages[3].src = playerImageURLs[3];
 	playerImages[3].onload = drawFootstepImage1;
 }
 
 function drawPlayerImage3() {
+	//Load the image of the character facing the 3rd direction.
 	playerImages[2] = new Image(60,60);
 	playerImages[2].src = playerImageURLs[2];
 	playerImages[2].onload = drawPlayerImage4;
 }
 
 function drawPlayerImage2() {
+	//Load the image of the character facing the 2nd direction.
 	playerImages[1] = new Image(60,60);
 	playerImages[1].src = playerImageURLs[1];
 	playerImages[1].onload = drawPlayerImage3;
 }
 
 function drawPlayerImage1() {
+	//Load the image of the character facing the 1st direction.
 	playerImages[0] = new Image(60,60);
 	playerImages[0].src = playerImageURLs[0];
 	playerImages[0].onload = drawPlayerImage2;
 }
 
 function setDimmerInterval() {
+	//Create the timing interval that makes the shadow descend over the game view.
 	if (isDimmerTimerRunning) return;
 	isDimmerTimerRunning = 1;
 	var dimmerInterval = setInterval(function() {
@@ -1073,6 +1044,8 @@ function setDimmerInterval() {
 }
 
 function drawWater() {
+	//Create the timing interval that sets the river flowing.
+	//The river in this game is made of lava rather than water, but we kept the old terminology.
 	waterTheta = 0;
 	waterY = 0;
 	waterTimer = setInterval(function() {
@@ -1087,11 +1060,16 @@ function drawWater() {
 }
 
 function drawWaterImage() {
+	//Loads the image of the river.
+	//The river in this game is made of lava rather than water, but we kept the old terminology.
 	waterImage.src = waterImageURL;
 	waterImage.onload = drawPlayerImage1;
 }
 
 function drawHeiroglyphImage(index) {
+	//Loads the images for the lightning animation.
+	//Creates the timing interval for the lightning animation.
+	//The old game had an animation of a rotating heiroglyph rather than a lightning animation, but we kept the old terminology.
 	if (index >= numberOfLevels) {
 		drawSpikesImage();
 		phiX = -50*Math.PI/180;
@@ -1124,6 +1102,7 @@ function drawHeiroglyphImage(index) {
 }
 
 function drawRotatedCoin(i,j) {
+	//Animate the rotating coin at position (i,j).
 	coinsContext.save();
 	coinsContext.translate((i-playerI)*pixelWidth+blankSpaceWidth+5,(j-playerJ)*pixelHeight+blankSpaceHeight+5);
 	coinsContext.transform(rotationMatrix[0][0],rotationMatrix[1][0],rotationMatrix[0][1],rotationMatrix[1][1],rotationMatrix[0][2],rotationMatrix[1][2]);
@@ -1139,6 +1118,7 @@ function drawRotatedCoin(i,j) {
 }
 
 function drawCoins() {
+	//Animate the rotating coins and powerups.
 	coinsContext.clearRect(0,0,420,420);
 	for (var i = 0; i < coinsI.length; i++) {
 		if (isCoinActive[i]) {
@@ -1153,6 +1133,7 @@ function drawCoins() {
 }
 
 function drawRotatedAnkh(i,j) {
+	//Animate the rotated ankh at position (i,j).
 	coinsContext.save();
 	coinsContext.translate((i-playerI)*pixelWidth+blankSpaceWidth+5,(j-playerJ)*pixelHeight+blankSpaceHeight+5);
 	coinsContext.transform(rotationMatrix[0][0],rotationMatrix[1][0],rotationMatrix[0][1],rotationMatrix[1][1],rotationMatrix[0][2],rotationMatrix[1][2]);
@@ -1168,16 +1149,17 @@ function drawRotatedAnkh(i,j) {
 }
 
 function drawEmbers() {
+	//Animate all the brimstone embers.
 	powerupsContext.clearRect(0,0,420,420);
 	for (var i = 0; i < embersI.length; i++) {
 		if (isEmberActive[i]) {
-			//powerupsContext.drawImage(emberImage,(embersI[i]-playerI)*pixelWidth+blankSpaceWidth,(embersJ[i]-playerJ)*pixelHeight+blankSpaceHeight);
 			powerupsContext.drawImage(flameImages[flameIndex],(embersI[i]-playerI)*pixelWidth+blankSpaceWidth,(embersJ[i]-playerJ)*pixelHeight+blankSpaceHeight-10);
 		}
 	}
 }
 
 function drawScore() {
+	//Render the score on the game view.
 	scoreContext.clearRect(0,0,420,460);
 	scoreContext.fillStyle = "black";
 	scoreContext.fillRect(0,0,420,40);
@@ -1196,10 +1178,11 @@ function drawScore() {
 }
 
 function coinAnimation() {
+	//Create the timing interval which animates the coin as it is collected by the character.
+	//Makes the coin transition from the character to the powerup bar.
 	var x = 200;
 	var y = 240;
 	var coinTimer = setInterval(function() {
-		//drawScore();
 		scoreContext.clearRect(0,40,420,420);
 		scoreContext.drawImage(coinImage,x,y);
 		x += 19;
@@ -1212,6 +1195,8 @@ function coinAnimation() {
 }
 
 function ankhAnimation() {
+	//Create the timing interval which animates the ankh as it is collected by the character.
+	//Makes the ankh transition from the character to the powerup bar.
 	var x = 200;
 	var y = 240;
 	var ankhTimer = setInterval(function() {
@@ -1227,6 +1212,8 @@ function ankhAnimation() {
 }
 
 function drawRotatedHeiroglyph() {
+	//Renders the lightning image.
+	//The old game depicted a rotating heiroglyph in place of the lightning, but we kept the old terminology.
 	if (gameOver) {
 		glyphContext.clearRect(0,0,420,420);
 		return;
@@ -1236,11 +1223,13 @@ function drawRotatedHeiroglyph() {
 }
 
 function drawSpikesImage() {
+	//Load the image of the floor tile with spikes.
 	spikesImage.src = spikesImageURL;
 	spikesImage.onload = drawScreenshotImage;
 }
 
 function drawFloorTileImage() {
+	//Load the image of the bare floor tile.
 	floorTileImage.src = floorTileImageURL;
 	floorTileImage.onload = function() {
 		drawHeiroglyphImage(0);
@@ -1248,26 +1237,32 @@ function drawFloorTileImage() {
 }
 
 function drawEmberImage() {
+	//Load the image of the ember.
 	emberImage.src = emberImageURL;
 	emberImage.onload = drawFloorTileImage;
 }
 
 function drawAnkhEdge() {
+	//Load the image of the ankh edge.
 	ankhEdgeImage.src = ankhEdgeImageURL;
 	ankhEdgeImage.onload = drawEmberImage;
 }
 
 function drawAnkhImage() {
+	//Load the image of the ankh.
 	ankhImage.src = ankhImageURL;
 	ankhImage.onload = drawAnkhEdge;
 }
 
 function drawTargetImage() {
+	//Load the image of the X which marks the target location.
 	targetImage.src = targetImageURL;
 	targetImage.onload = drawAnkhImage;
 }
 
 function drawFlameImage(index) {
+	//Load the images of the flames.
+	//Create the timing interval which animates the flames.
 	if (index >= flameImages.length) {
 		drawTargetImage();
 		flameIndex = 0;
@@ -1286,6 +1281,7 @@ function drawFlameImage(index) {
 }
 
 function drawFireWreathImage() {
+	//Load the image of the fiery pentacle.
 	fireWreathImage.src = fireWreathImageURL;
 	fireWreathImage.onload = function() {
 		drawFlameImage(0);
@@ -1293,6 +1289,7 @@ function drawFireWreathImage() {
 }
 
 function drawLightningImage(index) {
+	//Load the images of the lightning.
 	if (index >= lightningDataURLs.length) {
 		drawFireWreathImage();
 		return;
@@ -1305,6 +1302,7 @@ function drawLightningImage(index) {
 }
 
 function drawCoinEdge() {
+	//Load the coin edge image.
 	coinEdge.src = coinEdgeURL;
 	coinEdge.onload = function() {
 		drawLightningImage(0);
@@ -1312,12 +1310,13 @@ function drawCoinEdge() {
 }
 
 function drawCoinImage() {
+	//Load the image of the coin.
 	coinImage.src = coinImageURL;
 	coinImage.onload = drawCoinEdge;
 }
 
-function walk(currentI,currentJ,newI,newJ,frame)
-{
+function walk(currentI,currentJ,newI,newJ,frame) {
+	//Make the character walk to the new tile.
 	playerWalkIndex = frame-1;
 	if (frame > 4)
 	{
@@ -1375,80 +1374,9 @@ function walk(currentI,currentJ,newI,newJ,frame)
 		}, playerTimer);
 	})(currentI,currentJ,newI,newJ,frame);
 }
-/*
+
 function TargetTracker(currentI,currentJ,avoidDirection,stepNumber) {
-	this.i = currentI,
-	this.j = currentJ,
-	this.avoid = avoidDirection,
-	this.step = stepNumber,
-	this.findMinimumDistanceSquared = function distanceFinder() {
-		var maxSteps = 5;
-		if (this.step >= maxSteps) {
-			if (this.i < 0 || this.j < 0 || this.i >= grid.length || this.j >= grid[this.i].length || grid[this.i][this.j] < 0) return 10000;
-			return (this.i-targetI)*(this.i-targetI) + (this.j-targetJ)*(this.j-targetJ);
-		}
-		var tracker = new TargetTracker(this.i,this.j,-1,maxSteps);
-		var distance = distanceFinder.call(tracker);
-		if (distance >= 10000) return distance;
-		var upTracker = new TargetTracker(this.i,this.j-1,1,this.step+1);
-		var downTracker = new TargetTracker(this.i,this.j+1,0,this.step+1);
-		var leftTracker = new TargetTracker(this.i-1,this.j,3,this.step+1);
-		var rightTracker = new TargetTracker(this.i+1,this.j,2,this.step+1);
-		var upDistSqrd = distanceFinder.call(upTracker);
-		var downDistSqrd = distanceFinder.call(downTracker);
-		var leftDistSqrd = distanceFinder.call(leftTracker);
-		var rightDistSqrd = distanceFinder.call(rightTracker);
-		var minDistSqrd = (upDistSqrd < downDistSqrd ? upDistSqrd : downDistSqrd);
-		minDistSqrd = (minDistSqrd < leftDistSqrd ? minDistSqrd : leftDistSqrd);
-		minDistSqrd = (minDistSqrd < rightDistSqrd ? minDistSqrd : rightDistSqrd);
-		minDistSqrd = (minDistSqrd < distance ? minDistSqrd : distance);
-		return minDistSqrd;
-	},
-	this.findMinimumSteps = function stepsFinder() {
-		var maxSteps = 5;
-		if (this.i === targetI && this.j === targetJ) return this.step;
-		if (this.step >= maxSteps) return 10000;
-		if (this.i < 0 || this.j < 0 || this.i >= grid.length || this.j >= grid[this.i].length || grid[this.i][this.j] < 0) return 10000;
-		var upTracker = new TargetTracker(this.i,this.j-1,1,this.step+1);
-		var downTracker = new TargetTracker(this.i,this.j+1,0,this.step+1);
-		var leftTracker = new TargetTracker(this.i-1,this.j,3,this.step+1);
-		var rightTracker = new TargetTracker(this.i+1,this.j,2,this.step+1);
-		var upSteps = stepsFinder.call(upTracker);
-		var downSteps = stepsFinder.call(downTracker);
-		var leftSteps = stepsFinder.call(leftTracker);
-		var rightSteps = stepsFinder.call(rightTracker);
-		var minSteps = (upSteps < downSteps ? upSteps : downSteps);
-		minSteps = (minSteps < leftSteps ? minSteps : leftSteps);
-		minSteps = (minSteps < rightSteps ? minSteps : rightSteps);
-		return minSteps;
-	},
-	this.rankDirections = function() {
-		var upTracker = new TargetTracker(this.i,this.j-1,1,this.step+1);
-		var downTracker = new TargetTracker(this.i,this.j+1,0,this.step+1);
-		var leftTracker = new TargetTracker(this.i-1,this.j,3,this.step+1);
-		var rightTracker = new TargetTracker(this.i+1,this.j,2,this.step+1);
-		var upDistSqrd = upTracker.findMinimumDistanceSquared();
-		var downDistSqrd = downTracker.findMinimumDistanceSquared();
-		var leftDistSqrd = leftTracker.findMinimumDistanceSquared();
-		var rightDistSqrd = rightTracker.findMinimumDistanceSquared();
-		var distanceSquaredArray = [leftDistSqrd,rightDistSqrd,upDistSqrd,downDistSqrd];
-		var zeroes = 0;
-		for (var i = 0; i < distanceSquaredArray.length; i++) {
-			if (distanceSquaredArray[i] === 0) zeroes++;
-		}
-		if (zeroes > 1) {
-			upDistSqrd = upTracker.findMinimumSteps();
-			downDistSqrd = downTracker.findMinimumSteps();
-			leftDistSqrd = leftTracker.findMinimumSteps();
-			rightDistSqrd = rightTracker.findMinimumSteps();
-			distanceSquaredArray = [leftDistSqrd,rightDistSqrd,upDistSqrd,downDistSqrd];
-		}
-		var directionsRanked = rankDirectionsByDistance(distanceSquaredArray);
-		return directionsRanked;
-	}
-}
-*/
-function TargetTracker(currentI,currentJ,avoidDirection,stepNumber) {
+	//Class which allows the character to navigate the maze towards a target set by the user.
 	this.i = currentI,
 	this.j = currentJ,
 	this.avoid = avoidDirection,
@@ -1518,6 +1446,7 @@ function TargetTracker(currentI,currentJ,avoidDirection,stepNumber) {
 }
 
 function targetTracking() {
+	//Navigate the maze towards the target set by the user.
 	couldIGetAKeyInEdgewise = 0;
 	keyReleased = 1;
 	playerI = Math.round(playerI);
@@ -1560,23 +1489,37 @@ function targetTracking() {
 }
 
 function touchScreen(evt) {
+	//Called every time the user taps the screen.
+	//evt is the touchstart event passed by the event listener.
+	//Sets a target for the character to walk towards.
+	
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
 	if (gameOver) return;
 	var rect = playerCanvas.getBoundingClientRect();
+	//Find the x-position of the touch event relative to the top left corner of the game view.
 	var x = (evt.clientX || evt.targetTouches[0].clientX) - rect.left;
+	//Scale the x-axis so that it matches the scaling of the game view.
 	x *= 420./playerCanvas.width;
+	//Shift the x-axis so that the character always appears at the center of the game view.
 	x += playerI*pixelWidth - 210;
+	//Find the y-position of the touch event relative to the top left corner of the game view.
 	var y = (evt.clientY || evt.targetTouches[0].clientY) - rect.top;
+	//Scale the y-axis so that it matches the scaling of the game view.
 	y *= 420./playerCanvas.height;
+	//Shift the y-axis so that the character always appears at the center of the game view.
 	y += playerJ*pixelHeight - 210;
-	//x = Math.round(x/pixelWidth);
-	//y = Math.round(y/pixelHeight);
+	//Scale by the tile width so that x corresponds to the column number of the grid.
 	x /= pixelWidth;
+	//Scale by the tile height so that y corresponds to the row number of the grid.
 	y /= pixelHeight;
+	//If the character is moving through the temple, transition to the next level.
 	if (isLevelComplete && y < 0 && playerI === 20 && playerJ === 0) {
 		animateTransition();
 		return;
 	}
+	//Find the closest available tile to the target clicked by the user.
+	//"Available tile" refers to a tile on the platform which is not a pillar.
 	var xClosest = 0, yClosest = 0, distClosestSquared = x*x + y*y, tempDistance;
 	for (var i = 0; i < grid.length; i++) {
 		for (var j = 0; j < grid[i].length; j++) {
@@ -1589,13 +1532,17 @@ function touchScreen(evt) {
 			}
 		}
 	}
+	//Set the selected tile as the target for the character to walk towards.
 	targetI = xClosest;
 	targetJ = yClosest;
+	//Turn on target tracking to navigate the character towards the target.
 	if (!isTargetTrackingOn) targetTracking();
 }
 
-function arrowKey(keycode)
-{
+function arrowKey(keycode) {
+	//Called every time the user presses an arrow key.
+	//keycode is the (keydown event)::keyCode passed by the event listener.
+	//Moves the character in the direction indicated by the user.
 	if (gameOver) return;
 	if (isWalking)
 	{
@@ -1648,8 +1595,9 @@ function arrowKey(keycode)
 	return;
 }
 
-function gameOverSequence()
-{
+function gameOverSequence() {
+	//Called every time the game ends.
+	//Put up the replay image.
 	if (isVictoryPlacardUp) return;
 	gameOver = 1;
 	score = 0;
@@ -1663,6 +1611,8 @@ function gameOverSequence()
 }
 
 function resetPlayerPosition() {
+	//Called when a level restarts after the player dies.
+	//Teleports the player to the closest pentacle.
 	var distanceSquared, tempI, tempJ, tempDistance;
 	tempI = pentacleI[0];
 	tempJ = pentacleJ[0];
@@ -1680,6 +1630,7 @@ function resetPlayerPosition() {
 }
 
 function drawPlacard() {
+	//Renders the placard which marks the next level.
 	isPlacardDrawing = 1;
 	textContext.fillStyle = "black";
 	textContext.fillRect(0,0,canvasWidth,canvasHeight);
@@ -1698,6 +1649,7 @@ function drawPlacard() {
 }
 
 function checkForPentacle() {
+	//See if the character just crossed over a pentacle.
 	for (var i = 0; i < pentacleI.length; i++) {
 		if (pentacleI[i] === playerI && pentacleJ[i] === playerJ) {
 			igniteEmbers();
@@ -1707,6 +1659,7 @@ function checkForPentacle() {
 }
 
 function igniteEmbers() {
+	//Creates an expanding fiery pentacle which pushes back the darkness.
 	if (areEmbersIgniting) return;
 	if (embersFound === 0) {
 		gameOver = 0;
@@ -1718,8 +1671,6 @@ function igniteEmbers() {
 	var embersCharged = Math.round(numberOfEmbers*(210-dimmerRadius)/210);
 	embersCharged = (embersFound < embersCharged ? embersFound : embersCharged);
 	var largeRadius = dimmerRadius + 210*embersCharged/numberOfEmbers;
-	//var numberOfSteps = (210-dimmerRadius)*(embersFound < numberOfEmbers ? embersFound:numberOfEmbers)/numberOfEmbers;
-	//embersFound -= (embersFound < numberOfEmbers ? embersFound:numberOfEmbers);
 	embersFound -= embersCharged;
 	var igniteTimer = setInterval(function() {
 		if (isVictoryPlacardUp) return;
@@ -1749,6 +1700,7 @@ function igniteEmbers() {
 }
 
 function wakeUpSequence() {
+	//Called when the character wakes up after dying.
 	isTargetTrackingOn = 0;
 	dimmerRadius = 10;
 	resetPlayerPosition();
@@ -1758,6 +1710,7 @@ function wakeUpSequence() {
 }
 
 function deathSequence() {
+	//Called whenever the character dies.
 	if (isVictoryPlacardUp) return;
 	gameOver = 1;
 	numberOfLives--;
@@ -1769,6 +1722,7 @@ function deathSequence() {
 }
 
 function drawVictoryPlacard() {
+	//Called when the character wins the game.
 	textContext.clearRect(0,0,canvasWidth,canvasHeight);
 	textContext.fillStyle = "black";
 	textContext.fillRect(0,0,canvasWidth,canvasHeight);
@@ -1786,8 +1740,8 @@ function drawVictoryPlacard() {
 	textContext.fillText("CLICK TO PLAY AGAIN",Math.round(canvasWidth/2),Math.round(canvasHeight/2)+5);
 }
 
-function victorySequence()
-{
+function victorySequence() {
+	//Called whenever the character wins the game.
 	if (lastAudioSource) {
 		lastAudioSource.loop = false;
 		lastAudioSource.stop();
@@ -1800,6 +1754,8 @@ function victorySequence()
 }
 
 function animateTransition() {
+	//Called whenever the character passes to the next level.
+	//Creates an animation of the character walking through the temple.
 	if (isTransitionRendering) return;
 	isTransitionRendering = 1;
 	if (isTransitionAudioLoaded) playTransitionSound();
@@ -1834,6 +1790,7 @@ function animateTransition() {
 }
 
 function centerCanvas(canvas) {
+	//Repositions the canvas to the center of the screen.
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
 	var rect = canvas.getBoundingClientRect();
@@ -1846,6 +1803,7 @@ function centerCanvas(canvas) {
 }
 
 function centerAllCanvases() {
+	//Repostions the game view to the center of the screen.
 	centerCanvas(scrollPreventCanvas);
 	centerCanvas(imageCanvas);
 	centerCanvas(hiddenCanvas);
@@ -1865,6 +1823,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvas(canvas,context,scale,offsetX,offsetY) {
+	//Rescale the canvas to a specified size, shifted by an offset.
 	canvas.width = Math.floor(canvasWidth*scale);
 	canvas.height = Math.floor(canvasHeight*scale);
 	canvas.top = offsetY + "px";
@@ -1873,6 +1832,7 @@ function rescaleCanvas(canvas,context,scale,offsetX,offsetY) {
 }
 
 function rescaleAllCanvases() {
+	//Rescale the game view to fit the screen, and center it.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -1910,6 +1870,7 @@ function rescaleAllCanvases() {
 	rescaleCanvas(coinsCanvas,coinsContext,scale,offsetX,offsetY);
 	rescaleCanvas(powerupsCanvas,powerupsContext,scale,offsetX,offsetY);
 	if (isMobile) {
+		//Mobile devices require a 500 ms lag before centering the game view.
 		setTimeout(function() {
 			window.scrollTo(0,rect.top);
 			centerAllCanvases();
@@ -1918,6 +1879,7 @@ function rescaleAllCanvases() {
 		window.scrollTo(0,rect.top);
 		centerAllCanvases();
 	}
+	//The game view needs to be re-rendered since the rescaling clears the rendering.
 	waterContext.fillStyle = "black";
 	waterContext.fillRect(0,0,canvasWidth,canvasHeight);
 	drawDimmerCanvas();
@@ -1943,8 +1905,9 @@ function rescaleAllCanvases() {
 	}
 }
 
-function play()
-{
+function play() {
+	//This is the first function to be called when the body loads.
+	//Initialize the game.
 	if (/iPhone|iPad|iPod|Android|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		isMobile = 1;
 	}
