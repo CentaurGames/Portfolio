@@ -1,6 +1,8 @@
+//Disable and hide the scrollbars. (We don't need them.)
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var imageCanvas = document.getElementById("imgCanvas");
 var imageContext = imageCanvas.getContext("2d");
@@ -41,6 +43,7 @@ var canvasHeight = backgroundCanvas.height;
 
 var audioContext, audioVolume, drumsBuffer, lastAudioSource, audioContext2, audioVolume2, deathBuffer, transitionBuffer, lastAudioSource2;
 
+//Each array contains the grid for that level. 0s represent tiles, -1s represent pillars, and -2s represent traps.
 var gridLevel1 = [[0,-2,0,0,0,-1,0,-2,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,-2,0,0,0,0,0,-1],[0,0,0,0,0,0,0,0,0,0,0,0,-1,0,-1,0,0,0,0,-1,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0],[0,-1,-1,0,0,0,-1,0,0,0,-2,0,0,0,-1,0,-1,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-2,0,0,0,0,0,-1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-2,-1,0,0,-1,0,0,0,0,0,0],[0,0,0,-2,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,-2,-1,0,0,-1,0,0,0],[0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-2,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0],[0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,-2,0,0,0],[0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,-1,0,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,-1,-1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0],[0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0],[0,0,0,-1,0,0,0,0,0,0,-1,0,0,-1,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,-2,0,-1,-2,0,0,0,0,0,0,-1,-1],[0,0,0,0,0,0,0,-2,0,0,0,0,0,0,0,-1,0,0,0,0,0,-2,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0],[0,0,0,-1,0,0,-1,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,-1,0],[0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-2,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0],[0,0,0,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0],[0,-1,0,0,0,-1,0,-1,0,0,-1,0,0,0,0,0,-1,0,0,-1,0,0,0,0,-1,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,0,0,0,0,0,0,0,-2,-2,0,0,0,0,0,0,0,0,0,-1],[0,-1,-1,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,0,0],[0,0,0,-1,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0],[0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,-2,-1,-1,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,-2,0,-1,0,0,0,-1,0,0,-1,0,0,0,0,0,0,-1,-1,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0],[0,-2,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,-1,-1,0,0,-1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,-1,0,0,0,0,-1,0,-1,0,0],[0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,-1,-2,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,-1,0,-1,0,0,0,0,0,-1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,-2,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,0,0,0,0,0,0],[0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,-1],[0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,-2,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1],[0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,-1,-1]];
 var gridLevel2 = [[0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,-1,0,-1,0,0,-1,0,0],[0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0],[0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,-2,0,0,0,0],[0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,-1,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,-1,0,0,-1,-1,0,0,0,-1,0,0],[0,0,0,0,0,-2,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,0,-2,-1,0],[0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,-1,-1,0,0,0,-2,-1],[0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,0],[0,-1,0,-1,0,0,-1,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,-1,-2,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0],[0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,-1,0,0,-2,0,0,0,0,0,0,-2,0,0,0,0,0,0,0,-1,0],[0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,-2,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2],[0,0,-1,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0],[0,0,-1,0,-1,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-2,0,0,0,0,0,0,0,0,0,0],[0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,-2],[0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,-1,0,0,0,0],[0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,-1,0,-1,-1,0,0,0,0,0,-1,0,0,0,0,-1,-2,-1,-1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,-2,0,0,0,0,0,0,0,0,-1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0],[0,0,0,0,0,-1,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,-1,0,0,0,0,0,0,0],[0,0,0,0,0,0,-2,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,-1,0,0,0,-1,0,0,0,0,0,-1,-1,0,0,0,0,-1,0,0,0,0],[0,0,-1,0,0,0,0,-1,0,0,0,-1,0,-1,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,-2,-2,0,0,0,0,0,0,-1,0,-2,0,0,-1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,-2,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,-1,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0],[0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-2,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-2,0,0,-2,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,-1,0,0,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0],[0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0],[0,0,0,0,0,0,0,0,0,0,-2,-2,-1,-2,-1,0,-1,0,0,0,-2,0,0,0,0,-1,0,0,-1,0,-2,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,-1,0,0,0,0,-2,-1,0,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0],[0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,-1,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0],[0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,0,-1,0,-1,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,0],[0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,0,0,0,0,0,-1,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,-1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,-2,-1,0,0,0,0,0,0,0,0,0,0]];
 var gridLevel3 = [[0,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,-2,0,-1,0,0,0,0,0,0,0,0,0,0],[0,-1,-1,0,-2,0,0,-2,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0],[0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1],[0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-2,0,0,0,0,0],[0,0,0,0,0,0,0,0,-1,0,0,0,0,-2,0,0,-1,0,0,0,0,-1,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0,-1],[0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,-1,-1,0],[0,-1,0,0,0,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0],[0,0,0,-2,-1,0,0,0,0,0,0,0,0,0,0,-2,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0],[0,-1,0,0,-2,0,0,-1,0,0,-2,-2,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,-1,0,0,-1,0,0,0,0],[0,0,0,-1,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0],[0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-2,0],[0,-1,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0],[0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0],[0,-2,0,-1,0,0,-1,0,-1,0,0,0,0,0,0,-2,0,0,0,0,-1,-1,0,0,0,0,0,-1,0,-1,0,-1,-1,0,0,0,0,-1,-1,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,-1,0,-1,-1,0,0,0,0,0,0,-1,-2,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,-1,0,0],[0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,-1,0,0,-1,0,-1,0],[0,0,0,-1,0,0,-1,0,-2,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,-1,0,0,0],[0,-1,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-2,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-2,0,0,-2,0,0,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0],[0,-1,0,-1,0,0,0,-2,-1,0,0,0,0,-1,0,0,-1,0,-1,0,0,-1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,-1,0],[0,0,0,0,0,0,-1,0,0,0,-1,0,0,-1,-1,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,-1,0,0,0,0,0,0,0,-1,0,0,-1,0,0,-1,0,-1,0,0,0,0],[0,0,0,-2,-1,0,0,0,0,0,0,0,0,0,-2,0,0,0,0,0,0,-1,-1,-1,0,0,-1,0,0,-2,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,-1,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,-2,0,0,0,0,0,0,0,0,0,0,0,-2,0,0,-1,-1,-1,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,-1,0,0],[0,0,0,0,0,0,-2,0,0,-1,0,-1,0,0,0,0,-1,0,0,-1,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,-1,-2],[0,0,-1,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,-1,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,-1,-2,0,-1,-1,0,0,0,-1,-1,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,-1,-1,0,0,0,-1,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,-2,-1,0,0,-1,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0],[0,0,0,0,-2,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,-1,-1,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,-1,-1,0,0],[0,-1,0,0,-1,0,0,0,0,0,0,0,0,0,0,-1,-1,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,-1,0,0,0,0,-1,0],[0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0,-1,0,0,0,0,0,0,0,0,-2,-1,0,0,0,-1,-1,0,0,0,0,-2,0,-1,-2,0,0,0],[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,0,0,-1],[0,-1,0,-1,-1,0,0,0,-2,0,0,0,0,0,0,0,0,0,-2,0,-1,0,0,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0],[0,0,0,-1,0,0,0,-1,0,0,0,-1,0,0,0,0,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,0,0,0,0],[0,0,0,0,-1,0,0,-1,0,0,-1,0,0,-1,-1,0,0,0,0,0,0,-1,0,0,-1,0,0,0,0,-1,0,0,0,-1,0,0,0,0,0,0,0,0]];
@@ -68,18 +71,29 @@ var gridLevels = [
 	gridLevel11,
 	gridLevel12
 ];
-
+//Initial x-position for the character at level 1.
 var playerILevel1 = 41;
+//Initial y-position for the character at level 1.
 var playerJLevel1 = 35;
+//x-positions for the monsters on level 1.
 var monsterILevel1 = [41,7,26,15,16,9,33,16,23,13];
+//y-positions for the monsters on level 1.
 var monsterJLevel1 = [23,33,7,3,12,18,18,5,36,20];
+//Direction indices for the monsters on level 1.
 var monsterDirectionLevel1 = [2,0,2,2,3,0,1,2,2,1];
+//x-positions for the coins on level 1.
 var coinsILevel1 = [0,32,30,15,16,3,29,3,24,27,31,24,1,15,15,4,3,33,9,3];
+//y-positions for the coins on level 1.
 var coinsJLevel1 = [40,19,37,23,2,31,34,25,4,26,33,37,20,13,8,26,4,41,8,21];
+//x-positions for the ankhs on level 1.
 var ankhsILevel1 = [28];
+//y-positions for the ankhs on level 1.
 var ankhsJLevel1 = [12];
+//x-positions for the embers on level 1.
 var embersILevel1 = [3];
+//y-positions for the embers on level 1.
 var embersJLevel1 = [23];
+//The following variables have the same naming conventions as the ones above.
 var playerILevel2 = 2;
 var playerJLevel2 = 18;
 var monsterILevel2 = [41,33,32,39,15,9,16,29,15,4,2,14,38,7,26];
@@ -392,18 +406,16 @@ var keyReleased = 1;
 var isTargetTrackingOn = 0;
 var lastkeycode;
 var couldIGetAKeyInEdgewise = 0;
-var monsterIsAsleep;// = new Array(numberOfMonsters);
-var monsterWalkIndex;// = new Array(numberOfMonsters);
+var monsterIsAsleep;
+var monsterWalkIndex;
 var playerWalkIndex = 0;
-var monsterIsAlive;// = new Array(numberOfMonsters);
+var monsterIsAlive;
 var monsterTimer = 80;
 var playerTimer = 30;
 
 var blankSpaceWidth = Math.round((canvasWidth-pixelWidth)/2);
 var blankSpaceHeight = Math.round((canvasHeight-pixelHeight)/2);
-//var mazeImage = new Image(numberOfPixelsInGrid*pixelWidth+2*blankSpaceWidth,numberOfPixelsInGrid*pixelHeight+2*blankSpaceHeight);
 var mazeImages = new Array(numberOfLevels);
-//var trapsImage = new Image(mazeImage.width,mazeImage.height);
 var trapsImages = new Array(numberOfLevels);
 var ballImage = new Image(pixelWidth,pixelHeight);
 var playerImages = new Array(4);
@@ -414,9 +426,7 @@ var spiderWalkImages = [new Image(pixelWidth,pixelHeight),new Image(pixelWidth,p
 var restingSpiderImage = new Image(pixelWidth,pixelHeight);
 var tileImages = [new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight)];
 var liftedTileImages = [new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight),new Image(pixelWidth,pixelHeight)];
-//var overImage = new Image(numberOfPixelsInGrid*pixelWidth+2*blankSpaceWidth,numberOfPixelsInGrid*pixelHeight+2*blankSpaceHeight);
 var overImages = new Array(numberOfLevels);
-//var underImage = new Image(numberOfPixelsInGrid*pixelWidth+2*blankSpaceWidth,numberOfPixelsInGrid*pixelHeight+2*blankSpaceHeight);
 var underImages = new Array(numberOfLevels);
 var gameOver = 0;
 var monsterSightRadius = 5;
@@ -431,7 +441,6 @@ var brickImage = new Image(40,40);
 var tileImage = new Image(20,20);
 var floorTileImage = new Image(20,20);
 var gateImage = new Image(265,200);
-//var heiroglyphImage = new Image(60,60);
 var heiroglyphImages = new Array(numberOfLevels);
 var spikesImage = new Image(20,20);
 var coinImage = new Image(20,20);
@@ -448,6 +457,7 @@ var phiY = 0*Math.PI/180;
 var thetaX = 0, thetaY = 0, thetaZ = 0;
 var rotationMatrix = [[1,0,0],[0,1,0],[0,0,1]];
 
+//mazeImageSourceLevel1...mazeImageSourceLevel12 are image data URIs defined in "dataURIs.js".
 var mazeImageSourceLevels = [
 	mazeImageSourceLevel1,
 	mazeImageSourceLevel2,
@@ -463,6 +473,7 @@ var mazeImageSourceLevels = [
 	mazeImageSourceLevel12
 ];
 
+//overImageSourceLevel1...overImageSourceLevel12 are image data URIs defined in "dataURIs.js".
 var overImageSourceLevels = [
 	overImageSourceLevel1,
 	overImageSourceLevel2,
@@ -478,6 +489,7 @@ var overImageSourceLevels = [
 	overImageSourceLevel12
 ];
 
+//underImageSourceLevel1...underImageSourceLevel12 are image data URIs defined in "dataURIs.js".
 var underImageSourceLevels = [
 	underImageSourceLevel1,
 	underImageSourceLevel2,
@@ -493,6 +505,7 @@ var underImageSourceLevels = [
 	underImageSourceLevel12
 ];
 
+//trapsImageSourceLevel1...trapsImageSourceLevel12 are image data URIs defined in "dataURIs.js".
 var trapsImageSourceLevels = [
 	trapsImageSourceLevel1,
 	trapsImageSourceLevel2,
@@ -508,6 +521,7 @@ var trapsImageSourceLevels = [
 	trapsImageSourceLevel12
 ];
 
+//heiroglyphSourceLevel1...heiroglyphSourceLevel12 are image data URIs defined in "dataURIs.js".
 var heiroglyphSourceLevels = [
 	heiroglyphSourceLevel1,
 	heiroglyphSourceLevel2,
@@ -561,11 +575,13 @@ var isDrumsAudioLoaded = 0, isDeathAudioLoaded = 0, isTransitionAudioLoaded = 0,
 var screenshotImage = new Image(420,460);
 
 function drawScreenshotImage() {
+	//Load the image of the screenshot used for the replay screen.
 	screenshotImage.src = screenshotImageURL;
 	screenshotImage.onload = drawWaterImage;
 }
 
 function playTransitionSound() {
+	//Play the audio which marks the transition from one level to the next.
 	if (lastAudioSource2) {
 		lastAudioSource2.stop();
 	}
@@ -584,11 +600,7 @@ function playTransitionSound() {
 }
 
 function playDeathSound() {
-	/*
-	if (lastAudioSource2) {
-		lastAudioSource2.stop();
-	}
-	*/
+	//Play the audio which marks the character's death.
 	var audioSource = audioContext2.createBufferSource();
 	audioVolume2.gain.value = 1;
 	audioSource.connect(audioVolume2);
@@ -604,6 +616,7 @@ function playDeathSound() {
 }
 
 function playDrums() {
+	//Play the background audio on an endless loop.
 	if (lastAudioSource) {
 		lastAudioSource.loop = false;
 		lastAudioSource.stop();
@@ -624,6 +637,7 @@ function playDrums() {
 }
 
 function loadTransitionAudio() {
+	//Load the audio which marks the transition from one level to the next.
 	if (isTransitionAudioLoading) return;
 	isTransitionAudioLoading = 1;
 	var request = new XMLHttpRequest();
@@ -639,6 +653,7 @@ function loadTransitionAudio() {
 }
 
 function loadDeathAudio() {
+	//Load the audio which marks the death of the character.
 	if (isDeathAudioLoading) return;
 	isDeathAudioLoading = 1;
 	audioContext2 = new (window.AudioContext || window.webkitAudioContext)();
@@ -657,6 +672,7 @@ function loadDeathAudio() {
 }
 
 function loadDrumsAudio() {
+	//Load the background audio for playback.
 	if (isDrumsAudioLoading) return;
 	isDrumsAudioLoading = 1;
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -676,6 +692,7 @@ function loadDrumsAudio() {
 }
 
 function matrixMultiply(mat1,mat2) {
+	//Standard matrix multiplication, used to create the coin rotation effects.
 	var matrix = [[0,0,0],[0,0,0],[0,0,0]];
 	for (var i = 0; i < 3; i++) {
 		for (var j = 0; j < 3; j++) {
@@ -688,6 +705,7 @@ function matrixMultiply(mat1,mat2) {
 }
 
 function vectorMultiply(mat,vec) {
+	//Standard (matrix)(vector) multiplication, used to create the coin rotation effects.
 	var vector = [0,0,0];
 	for (var i = 0; i < 3; i++) {
 		for (var j = 0; j < 3; j++) {
@@ -698,12 +716,14 @@ function vectorMultiply(mat,vec) {
 }
 
 function rotateColor(red,green,blue,alpha) {
+	//Used to generate the colors for the heiroglyph's aura.
 	var oldColor = [red,green,blue];
 	var newColor = vectorMultiply(colorRotation,oldColor);
 	return "rgba(" + Math.floor(newColor[0]) + "," + Math.floor(newColor[1]) + "," + Math.floor(newColor[2]) + "," + alpha + ")";
 }
 
 function rotateX() {
+	//Rotate the rotationMatrix by an angle thetaX about the x-axis.
 	var xRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	xRotation[1][1] = Math.cos(thetaX);
 	xRotation[2][2] = xRotation[1][1];
@@ -713,6 +733,7 @@ function rotateX() {
 }
 
 function rotateY() {
+	//Rotate the rotationMatrix by an angle thetaY about the y-axis.
 	var yRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	yRotation[0][0] = Math.cos(thetaY);
 	yRotation[2][2] = yRotation[0][0];
@@ -722,6 +743,7 @@ function rotateY() {
 }
 
 function rotateZ() {
+	//Rotate the rotationMatrix by an angle thetaZ about the z-axis.
 	var zRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	zRotation[0][0] = Math.cos(thetaZ);
 	zRotation[1][1] = zRotation[0][0];
@@ -731,12 +753,8 @@ function rotateZ() {
 }
 
 function drawDimmerCanvas() {
+	//Draws a descending sphere of darkness around the character.
 	dimmerContext.clearRect(0,0,420,420);
-	/*
-	if (embersFound >= numberOfEmbers - 1) {
-		return;
-	}
-	*/
 	var grad = dimmerContext.createRadialGradient(210,210,40+170*embersFound/numberOfEmbers,210,210,210);
 	grad.addColorStop(0,"rgba(0,0,0,0)");
 	grad.addColorStop(1,"rgba(0,0,0,1)");
@@ -745,6 +763,7 @@ function drawDimmerCanvas() {
 }
 
 function drawShadow(i,j) {
+	//Draw the shadow for the pillar located at position (i,j) on the grid.
 	if (Math.abs(i-playerI) > 10 || Math.abs(j-playerJ) > 10) return;
 	var xLeft = i*pixelWidth + blankSpaceWidth;
 	var yTop = j*pixelHeight + blankSpaceHeight;
@@ -896,6 +915,7 @@ function drawShadow(i,j) {
 }
 
 function drawCoinAura(i,j) {
+	//Draw the glow around the coin located at grid position (i,j).
 	if (Math.abs(i-playerI) > 10 || Math.abs(j-playerJ) > 10) return;
 	var radius = 20;
 	var grad = imageContext.createRadialGradient(i*pixelWidth+blankSpaceWidth+5,j*pixelHeight+blankSpaceHeight+5,0,i*pixelWidth+blankSpaceWidth+5,j*pixelHeight+blankSpaceHeight+5,radius);
@@ -910,6 +930,7 @@ function drawCoinAura(i,j) {
 }
 
 function drawAnkhAura(i,j) {
+	//Draw the glow around the ankh located at grid position (i,j).
 	if (Math.abs(i-playerI) > 10 || Math.abs(j-playerJ) > 10) return;
 	var radius = 20;
 	var grad = imageContext.createRadialGradient(i*pixelWidth+blankSpaceWidth+5,j*pixelHeight+blankSpaceHeight+5,0,i*pixelWidth+blankSpaceWidth+5,j*pixelHeight+blankSpaceHeight+5,radius);
@@ -924,6 +945,7 @@ function drawAnkhAura(i,j) {
 }
 
 function drawEmberAura(i,j) {
+	//Draw the glow around the ember located at grid position (i,j).
 	if (Math.abs(i-playerI) > 10 || Math.abs(j-playerJ) > 10) return;
 	var radius = 20;
 	var grad = imageContext.createRadialGradient(i*pixelWidth+blankSpaceWidth+10,j*pixelHeight+blankSpaceHeight+10,0,i*pixelWidth+blankSpaceWidth+10,j*pixelHeight+blankSpaceHeight+10,radius);
@@ -938,10 +960,11 @@ function drawEmberAura(i,j) {
 }
 
 function drawShadowCanvas() {
+	//Draw all the shadows and auras.
 	shadowContext.clearRect(0,0,canvasWidth,canvasHeight);
+	//To give all the shadows/auras equal opacity, we first draw them to the imageCanvas and then draw that with some opacity to the shadowCanvas.
 	imageContext.clearRect(0,0,canvasWidth,canvasHeight);
 	imageContext.save();
-	//shadowContext.translate(playerI*pixelWidth+blankSpaceWidth,playerJ*pixelHeight+blankSpaceHeight);
 	imageContext.translate(-playerI*pixelWidth,-playerJ*pixelHeight);
 	for (var i = 0; i < grid.length; i++) {
 		for (var j = 0; j < grid[i].length; j++) {
@@ -966,13 +989,12 @@ function drawShadowCanvas() {
 		}
 	}
 	imageContext.restore();
-	//shadowContext.globalAlpha = 0.5*(1-embersFound/numberOfEmbers);
 	shadowContext.globalAlpha = 0.5;
 	shadowContext.drawImage(imageCanvas,0,0,imageCanvas.width,imageCanvas.height,0,0,canvasWidth,canvasHeight);
 }
 
-function isPlayerVisible(i,j)
-{
+function isPlayerVisible(i,j) {
+	//Tests if the character is visible to the tile located at position (i,j).
 	var deltaI = playerI - i;
 	var deltaJ = playerJ - j;
 	var rSquared = deltaI*deltaI + deltaJ*deltaJ;
@@ -1036,8 +1058,8 @@ function isPlayerVisible(i,j)
 	return 1;
 }
 
-function monsterWalk(monsterIndex,currentI,currentJ,nextI,nextJ,frame)
-{
+function monsterWalk(monsterIndex,currentI,currentJ,nextI,nextJ,frame) {
+	//Animates the monster's transition from one tile to the next.
 	if (frame > 4)
 	{
 		monsterWalkIndex[monsterIndex] = frame-1;
@@ -1048,7 +1070,6 @@ function monsterWalk(monsterIndex,currentI,currentJ,nextI,nextJ,frame)
 			monsterIsAlive[monsterIndex] = 0;
 			renderMaze();
 		}
-		//checkIfMonsterSeesPlayer(monsterIndex);
 	} else {
 		monsterWalkIndex[monsterIndex] = frame-1;
 		monsterI[monsterIndex] = (nextI - currentI)*frame/4 + currentI;
@@ -1063,6 +1084,7 @@ function monsterWalk(monsterIndex,currentI,currentJ,nextI,nextJ,frame)
 }
 
 function rankDirectionsByDistance(distArray) {
+	//Ranks the nearest tile in each direction by how close it is to some target.
 	var dist = distArray[0];
 	var rank0 = 0;
 	for (var i = 1; i < 4; i++) {
@@ -1103,6 +1125,8 @@ function rankDirectionsByDistance(distArray) {
 }
 
 function monsterNextMove(monsterIndex) {
+	//Determine the next tile the monster should move to.
+	//Allows the monster to chase the character around the grid.
 	if (!monsterIsAlive[monsterIndex] || gameOver || !isPlayerVisible(Math.round(monsterI[monsterIndex]),Math.round(monsterJ[monsterIndex]))) return;
 	var deltaI = playerI - monsterI[monsterIndex];
 	var deltaJ = playerJ - monsterJ[monsterIndex];
@@ -1154,8 +1178,9 @@ function monsterNextMove(monsterIndex) {
 	monsterWalk(monsterIndex,monsterI[monsterIndex],monsterJ[monsterIndex],newI,newJ,1);
 }
 
-function checkIfMonsterSeesPlayer(monsterIndex)
-{
+function checkIfMonsterSeesPlayer(monsterIndex) {
+	//Test if the player is visible to the monster.
+	//monsterIndex is the location of the monster within the monsterI and monsterJ arrays.
 	if (!monsterIsAlive[monsterIndex]) {return;}
 	monsterI[monsterIndex] = Math.round(monsterI[monsterIndex]);
 	monsterJ[monsterIndex] = Math.round(monsterJ[monsterIndex]);
@@ -1163,28 +1188,10 @@ function checkIfMonsterSeesPlayer(monsterIndex)
 	if (isPlayerVisible(monsterI[monsterIndex],monsterJ[monsterIndex])) {
 		monsterNextMove(monsterIndex);
 	}
-	/*
-	if (monsterIsAsleep[monsterIndex] && isPlayerVisible(monsterI[monsterIndex],monsterJ[monsterIndex]))
-	{
-		monsterIsAsleep[monsterIndex] = 0;
-		monsterNextMove(monsterIndex);
-		renderMaze();
-		return;
-	}
-	if (!monsterIsAsleep[monsterIndex])
-	{
-		if (!isPlayerVisible(monsterI[monsterIndex],monsterJ[monsterIndex]))
-		{
-			monsterIsAsleep[monsterIndex] = 1;
-			renderMaze();
-		} else {
-			monsterNextMove(monsterIndex);
-		}
-	}
-	*/
 }
 
 function setAllMonsterIntervals() {
+	//Create the timing intervals that allow the monsters to chase the character.
 	if (monsterTimerIsRunning) return;
 	globalMonsterTimer = setInterval(function() {
 		for (var i = 0; i < monsterI.length; i++) {
@@ -1194,9 +1201,8 @@ function setAllMonsterIntervals() {
 	monsterTimerIsRunning = 1;
 }
 
-function renderMaze()
-{
-	//footstepsCanvas.width = footstepsCanvas.width;
+function renderMaze() {
+	//Renders all the objects in the game view.
 	footstepsContext.clearRect(0,0,420,420);
 	footstepsContext.save();
 	footstepsContext.translate(-playerI*pixelWidth,-playerJ*pixelHeight);
@@ -1212,7 +1218,6 @@ function renderMaze()
 		footstepsContext.drawImage(targetImage,(targetI - playerI)*pixelWidth + blankSpaceWidth,(targetJ - playerJ)*pixelHeight + blankSpaceHeight);
 	}
 	drawShadowCanvas();
-	//drawRotatedHeiroglyph();
 	drawEmbers();
 	playerContext.clearRect(0,0,canvasWidth,canvasHeight);
 	playerContext.drawImage(playerImages[playerDirection],blankSpaceWidth-20,blankSpaceHeight-20);
@@ -1246,6 +1251,7 @@ function renderMaze()
 	return;
 }
 
+//snakeImageSources0...snakeImageSources4 are image data URIs defined in the file "dataURIs.js".
 var snakeImageSources = [
 	snakeImageSources0,
 	snakeImageSources1,
@@ -1254,8 +1260,8 @@ var snakeImageSources = [
 	snakeImageSources4
 ];
 
-function drawSnakeImages(index,direction)
-{
+function drawSnakeImages(index,direction) {
+	//Load images of the snake slithering.
 	if (direction > 3)
 	{
 		drawSnakeImages(index+1,0);
@@ -1272,6 +1278,7 @@ function drawSnakeImages(index,direction)
 	}
 }
 
+//spiderImageSources0...spiderImageSources4 are image data URIs defined in the file "dataURIs.js".
 var spiderImageSources = [
 	spiderImageSources0,
 	spiderImageSources1,
@@ -1280,8 +1287,8 @@ var spiderImageSources = [
 	spiderImageSources4
 ];
 
-function drawSpiderImages(index,direction)
-{
+function drawSpiderImages(index,direction) {
+	//Load images of the spider crawling.
 	if (direction > 3)
 	{
 		drawSpiderImages(index+1,0);
@@ -1309,8 +1316,8 @@ function drawSpiderImages(index,direction)
 	}
 }
 
-function drawTrapsImage(index)
-{
+function drawTrapsImage(index) {
+	//Load the image of the trap.
 	if (index >= numberOfLevels) {
 		drawSnakeImages(0,0);
 		return;
@@ -1323,6 +1330,8 @@ function drawTrapsImage(index)
 }
 
 function drawUnderImage(index) {
+	//Loads the under image for each level.
+	//Each under image displays all the tiles that are to be rendered below the character.
 	if (index >= numberOfLevels) {
 		drawTrapsImage(0);
 		return;
@@ -1334,8 +1343,9 @@ function drawUnderImage(index) {
 	};
 }
 
-function drawOverImage(index)
-{
+function drawOverImage(index) {
+	//Loads the over image for each level.
+	//Each over image displays all the parts of the pillars that are to be rendered above the character.
 	if (index >= numberOfLevels) {
 		drawUnderImage(0);
 		return;
@@ -1347,8 +1357,8 @@ function drawOverImage(index)
 	};
 }
 
-function drawMazeImage(index)
-{
+function drawMazeImage(index) {
+	//Loads the image for each level.
 	if (index >= numberOfLevels) {
 		drawOverImage(0);
 		return;
@@ -1361,6 +1371,7 @@ function drawMazeImage(index)
 }
 
 function dealiasArray(arr) {
+	//Converts the array reference into a deep copy of the array.
 	var newArray = new Array(arr.length);
 	for (var i = 0; i < arr.length; i++) {
 		newArray[i] = arr[i];
@@ -1369,6 +1380,7 @@ function dealiasArray(arr) {
 }
 
 function dealiasGrid(arr) {
+	//Converts the grid reference into a deep copy of the grid.
 	var newArray = new Array(arr.length);
 	for (var i = 0; i < arr.length; i++) {
 		newArray[i] = new Array(arr[i].length);
@@ -1379,8 +1391,8 @@ function dealiasGrid(arr) {
 	return newArray;
 }
 
-function initializeGrid()
-{
+function initializeGrid() {
+	//Prepares all the global variables for the beginning of each level.
 	if (/iPhone|iPad|iPod|Android|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		isMobile = 1;
 	}
@@ -1497,6 +1509,7 @@ function initializeGrid()
 }
 
 function drawHat() {
+	//Sketches the character's hat.
 	imageContext.fillStyle = "saddlebrown";
 	imageContext.beginPath();
 	imageContext.moveTo(30,30);
@@ -1518,57 +1531,8 @@ function drawHat() {
 	imageContext.fill();
 }
 
-function drawTorch() {
-	imageContext.fillStyle = "saddlebrown";
-	imageContext.fillRect(18,22,6,6);
-	imageContext.fillStyle = "rgb(109,39,0)";
-	imageContext.fillRect(20,24,2,2);
-	//imageContext.beginPath();
-	//imageContext.moveTo(20,22);
-	//imageContext.arc(20,22,4,0,2*Math.PI);
-	//imageContext.closePath();
-	//imageContext.fill();
-	var grad = imageContext.createRadialGradient(21,22,0,21,25,20);
-	grad.addColorStop(0,"orangered");
-	grad.addColorStop(1,"rgba(255,69,0,0)");
-	imageContext.fillStyle = grad;
-	imageContext.beginPath();
-	imageContext.moveTo(19,22);
-	imageContext.lineTo(0,0);
-	imageContext.lineTo(42,0);
-	imageContext.lineTo(23,22);
-	//imageContext.arc(20,22,10,0,2*Math.PI);
-	imageContext.closePath();
-	imageContext.fill();
-	imageContext.beginPath();
-	imageContext.moveTo(19,28);
-	imageContext.lineTo(0,50);
-	imageContext.lineTo(42,50);
-	imageContext.lineTo(23,28);
-	//imageContext.arc(20,22,10,0,2*Math.PI);
-	imageContext.closePath();
-	imageContext.fill();
-	grad = imageContext.createRadialGradient(21,22,0,21,25,20);
-	grad.addColorStop(0,"yellow");
-	grad.addColorStop(1,"rgba(255,25,0,0)");
-	imageContext.fillStyle = grad;
-	imageContext.beginPath();
-	imageContext.moveTo(19,22);
-	imageContext.lineTo(21,0);
-	imageContext.lineTo(23,22);
-	//imageContext.arc(20,22,10,0,2*Math.PI);
-	imageContext.closePath();
-	imageContext.fill();
-	imageContext.beginPath();
-	imageContext.moveTo(19,28);
-	imageContext.lineTo(21,50);
-	imageContext.lineTo(23,28);
-	//imageContext.arc(20,22,10,0,2*Math.PI);
-	imageContext.closePath();
-	imageContext.fill();
-}
-
 function drawFlashlight() {
+	//Sketch the character's flashlight.
 	imageContext.fillStyle = "dimgrey";
 	imageContext.beginPath();
 	imageContext.moveTo(20,27);
@@ -1583,19 +1547,20 @@ function drawFlashlight() {
 }
 
 function drawHand() {
+	//Sketch the character's hand.
 	imageContext.fillStyle = "darksalmon";
 	imageContext.beginPath();
 	imageContext.moveTo(20,22);
 	imageContext.lineTo(18,27);
 	imageContext.lineTo(20,29);
 	imageContext.bezierCurveTo(24,28,24,28,23,27);
-	//imageContext.lineTo(20,32);
 	imageContext.bezierCurveTo(21,26,21,26,20,22);
 	imageContext.closePath();
 	imageContext.fill();
 }
 
 function drawBody() {
+	//Sketch the character's body.
 	imageContext.fillStyle = "black";
 	imageContext.beginPath();
 	imageContext.moveTo(30,26);
@@ -1614,6 +1579,7 @@ function drawBody() {
 }
 
 function drawRays() {
+	//Sketch the light cone of the flashlight.
 	var grad = imageContext.createRadialGradient(21,18,0,22,18,16);
 	grad.addColorStop(0,"rgba(255,69,0,1)");
 	grad.addColorStop(1,"rgba(255,69,0,0)");
@@ -1641,6 +1607,8 @@ function drawRays() {
 }
 
 function setFootstep(x,y,direction) {
+	//Create a footstep at position (x,y) facing along the direction.
+	//Footstep will gradually fade and vanish.
 	var index = -1;
 	for (var i = 0; i < footstepXs.length; i++) {
 		if (footstepXs[i] < 0) {
@@ -1669,6 +1637,7 @@ function setFootstep(x,y,direction) {
 }
 
 function drawFootstepImage4() {
+	//Load the image of the footstep along the 4th direction.
 	footstepImages[3] = new Image(10,10);
 	footstepImages[3].src = footstepImageURLs[3];
 	footstepImages[3].onload = function() {
@@ -1677,48 +1646,56 @@ function drawFootstepImage4() {
 }
 
 function drawFootstepImage3() {
+	//Load the image of the footstep along the 3rd direction.
 	footstepImages[2] = new Image(10,10);
 	footstepImages[2].src = footstepImageURLs[2];
 	footstepImages[2].onload = drawFootstepImage4;
 }
 
 function drawFootstepImage2() {
+	//Load the image of the footstep along the 2nd direction.
 	footstepImages[1] = new Image(10,10);
 	footstepImages[1].src = footstepImageURLs[1];
 	footstepImages[1].onload = drawFootstepImage3;
 }
 
 function drawFootstepImage1() {
+	//Load the image of the footstep along the 1st direction.
 	footstepImages[0] = new Image(10,10);
 	footstepImages[0].src = footstepImageURLs[0];
 	footstepImages[0].onload = drawFootstepImage2;
 }
 
 function drawPlayerImage4() {
+	//Load the image of the character facing the 4th direction.
 	playerImages[3] = new Image(60,60);
 	playerImages[3].src = playerImageURLs[3];
 	playerImages[3].onload = drawFootstepImage1;
 }
 
 function drawPlayerImage3() {
+	//Load the image of the character facing the 3rd direction.
 	playerImages[2] = new Image(60,60);
 	playerImages[2].src = playerImageURLs[2];
 	playerImages[2].onload = drawPlayerImage4;
 }
 
 function drawPlayerImage2() {
+	//Load the image of the character facing the 2nd direction.
 	playerImages[1] = new Image(60,60);
 	playerImages[1].src = playerImageURLs[1];
 	playerImages[1].onload = drawPlayerImage3;
 }
 
 function drawPlayerImage1() {
+	//Load the image of the character facing the 1st direction.
 	playerImages[0] = new Image(60,60);
 	playerImages[0].src = playerImageURLs[0];
 	playerImages[0].onload = drawPlayerImage2;
 }
 
 function drawWater() {
+	//Create the timing interval that sets the river flowing.
 	waterTheta = 0;
 	waterY = 0;
 	waterTimer = setInterval(function() {
@@ -1732,11 +1709,14 @@ function drawWater() {
 }
 
 function drawWaterImage() {
+	//Loads the image of the river.
 	waterImage.src = waterImageURL;
 	waterImage.onload = drawPlayerImage1;
 }
 
 function drawHeiroglyphImage(index) {
+	//Load the images for the rotating heiroglyph animation.
+	//Set the timing interval for the rotating heiroglyph animation.
 	if (index >= numberOfLevels) {
 		drawSpikesImage();
 		phiX = -50*Math.PI/180;
@@ -1767,6 +1747,7 @@ function drawHeiroglyphImage(index) {
 }
 
 function drawRotatedCoin(i,j) {
+	//Animate the rotating coin at position (i,j).
 	coinsContext.save();
 	coinsContext.translate((i-playerI)*pixelWidth+blankSpaceWidth+5,(j-playerJ)*pixelHeight+blankSpaceHeight+5);
 	coinsContext.transform(rotationMatrix[0][0],rotationMatrix[1][0],rotationMatrix[0][1],rotationMatrix[1][1],rotationMatrix[0][2],rotationMatrix[1][2]);
@@ -1782,6 +1763,7 @@ function drawRotatedCoin(i,j) {
 }
 
 function drawCoins() {
+	//Animate the rotating coins and powerups.
 	coinsContext.clearRect(0,0,420,420);
 	for (var i = 0; i < coinsI.length; i++) {
 		if (isCoinActive[i]) {
@@ -1796,6 +1778,7 @@ function drawCoins() {
 }
 
 function drawRotatedAnkh(i,j) {
+	//Animate the rotated ankh at position (i,j).
 	coinsContext.save();
 	coinsContext.translate((i-playerI)*pixelWidth+blankSpaceWidth+5,(j-playerJ)*pixelHeight+blankSpaceHeight+5);
 	coinsContext.transform(rotationMatrix[0][0],rotationMatrix[1][0],rotationMatrix[0][1],rotationMatrix[1][1],rotationMatrix[0][2],rotationMatrix[1][2]);
@@ -1811,6 +1794,7 @@ function drawRotatedAnkh(i,j) {
 }
 
 function drawEmbers() {
+	//Render all the embers.
 	powerupsContext.clearRect(0,0,420,420);
 	for (var i = 0; i < embersI.length; i++) {
 		if (isEmberActive[i]) {
@@ -1820,6 +1804,7 @@ function drawEmbers() {
 }
 
 function drawScore() {
+	//Render the score on the game view.
 	scoreContext.clearRect(0,0,420,460);
 	scoreContext.fillStyle = "black";
 	scoreContext.fillRect(0,0,420,40);
@@ -1837,6 +1822,8 @@ function drawScore() {
 }
 
 function coinAnimation() {
+	//Create the timing interval which animates the coin as it is collected by the character.
+	//Makes the coin transition from the character to the powerup bar.
 	var x = 200;
 	var y = 240;
 	var coinTimer = setInterval(function() {
@@ -1854,6 +1841,8 @@ function coinAnimation() {
 }
 
 function ankhAnimation() {
+	//Create the timing interval which animates the ankh as it is collected by the character.
+	//Makes the ankh transition from the character to the powerup bar.
 	var x = 200;
 	var y = 240;
 	var ankhTimer = setInterval(function() {
@@ -1869,16 +1858,13 @@ function ankhAnimation() {
 }
 
 function drawRotatedHeiroglyph() {
-	//glyphCanvas.width = 60;
-	//glyphCanvas.height = 60;
+	//Render the rotating heiroglyph.
 	if (gameOver) {
 		glyphContext.clearRect(0,0,420,420);
 		return;
 	}
 	glyphContext.clearRect(0,0,420,420);
 	var grad = glyphContext.createRadialGradient(-playerI*pixelWidth+570,-playerJ*pixelHeight+20,0,-playerI*pixelWidth+570,-playerJ*pixelHeight+20,60);
-	//grad.addColorStop(0,"rgba(255,100,0,0.2)");
-	//grad.addColorStop(1,"rgba(255,255,0,0)");
 	grad.addColorStop(0,heiroglyphAuraColorStop0);
 	grad.addColorStop(1,heiroglyphAuraColorStop1);
 	glyphContext.fillStyle = grad;
@@ -1892,11 +1878,13 @@ function drawRotatedHeiroglyph() {
 }
 
 function drawSpikesImage() {
+	//Load the image of the floor tile with spikes.
 	spikesImage.src = spikesImageURL;
 	spikesImage.onload = drawScreenshotImage;
 }
 
 function drawFloorTileImage() {
+	//Load the image of the bare floor tile.
 	floorTileImage.src = floorTileImageURL;
 	floorTileImage.onload = function() {
 		drawHeiroglyphImage(0);
@@ -1904,37 +1892,43 @@ function drawFloorTileImage() {
 }
 
 function drawEmberImage() {
+	//Load the image of the ember.
 	emberImage.src = emberImageURL;
 	emberImage.onload = drawFloorTileImage;
 }
 
 function drawAnkhEdge() {
+	//Load the image of the ankh edge.
 	ankhEdgeImage.src = ankhEdgeImageURL;
 	ankhEdgeImage.onload = drawEmberImage;
 }
 
 function drawAnkhImage() {
+	//Load the image of the ankh.
 	ankhImage.src = ankhImageURL;
 	ankhImage.onload = drawAnkhEdge;
 }
 
 function drawTargetImage() {
+	//Load the image of the X which marks the target location.
 	targetImage.src = targetImageURL;
 	targetImage.onload = drawAnkhImage;
 }
 
 function drawCoinEdge() {
+	//Load the coin edge image.
 	coinEdge.src = coinEdgeURL;
 	coinEdge.onload = drawTargetImage;
 }
 
 function drawCoinImage() {
+	//Load the coin image.
 	coinImage.src = coinImageURL;
 	coinImage.onload = drawCoinEdge;
 }
 
-function walk(currentI,currentJ,newI,newJ,frame)
-{
+function walk(currentI,currentJ,newI,newJ,frame) {
+	//Make the character walk to the new tile.
 	playerWalkIndex = frame-1;
 	if (frame > 4)
 	{
@@ -2000,6 +1994,7 @@ function walk(currentI,currentJ,newI,newJ,frame)
 }
 
 function targetTracking() {
+	//Navigate the maze towards the target set by the user.
 	couldIGetAKeyInEdgewise = 0;
 	keyReleased = 1;
 	var deltaI = targetI - playerI;
@@ -2043,7 +2038,6 @@ function targetTracking() {
 			playerDirection = 2;
 			break;
 	}
-	//playerDirection = directionsRanked[0];
 	isWalking = 1;
 	var shiftFootstepX = (playerDirection % 2 === 0 ? 5:0);
 	var shiftFootstepY = (playerDirection % 2 === 0 ? 0:5);
@@ -2053,29 +2047,46 @@ function targetTracking() {
 }
 
 function touchScreen(evt) {
+	//Called every time the user taps the screen.
+	//evt is the touchstart event passed by the event listener.
+	//Sets a target for the character to walk towards.
+	
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
 	if (gameOver) return;
 	var rect = playerCanvas.getBoundingClientRect();
+	//Find the x-position of the touch event relative to the top left corner of the game view.
 	var x = evt.targetTouches[0].clientX - rect.left;
+	//Scale the x-axis so that it matches the scaling of the game view.
 	x *= 420./playerCanvas.width;
+	//Shift the x-axis so that the character always appears at the center of the game view.
 	x += playerI*pixelWidth - 210;
+	//Find the y-position of the touch event relative to the top left corner of the game view.
 	var y = evt.targetTouches[0].clientY - rect.top;
+	//Scale the y-axis so that it matches the scaling of the game view.
 	y *= 420./playerCanvas.height;
+	//Shift the y-axis so that the character always appears at the center of the game view.
 	y += playerJ*pixelHeight - 210;
+	//Scale by the tile width so that x corresponds to the column number of the grid.
 	x = Math.round(x/pixelWidth);
+	//Scale by the tile height so that y corresponds to the row number of the grid.
 	y = Math.round(y/pixelHeight);
-	//if (x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) return;
+	//If the character is moving through the temple, transition to the next level.
 	if (isLevelComplete && y < 0 && playerI === 20 && playerJ === 0) {
 		animateTransition();
 		return;
 	}
+	//Set the selected tile as the target for the character to walk towards.
 	targetI = x;
 	targetJ = y;
+	//Turn on target tracking to navigate the character towards the target.
 	if (!isTargetTrackingOn) targetTracking();
 }
 
-function arrowKey(keycode)
-{
+function arrowKey(keycode) {
+	//Called every time the user presses an arrow key.
+	//keycode is the (keydown event)::keyCode passed by the event listener.
+	//Moves the character in the direction indicated by the user.
 	if (gameOver) {return;}
 	if (isWalking)
 	{
@@ -2128,39 +2139,24 @@ function arrowKey(keycode)
 	return;
 }
 
-function gameOverSequence()
-{
-	/*
-	if (lastAudioSource) {
-		lastAudioSource.loop = false;
-		lastAudioSource.stop();
-	}
-	*/
+function gameOverSequence() {
+	//Called every time the game ends.
+	//Put up the replay image.
 	gameOver = 1;
 	score = 0;
 	embersFound = 0;
 	numberOfLives = 0;
 	isReplayOn = 1;
-	//drawScore();
 	dimmerContext.fillStyle = "black";
 	dimmerContext.fillRect(0,0,420,420);
 	scoreContext.clearRect(0,0,420,460);
 	scoreContext.drawImage(screenshotImage,0,0);
-	/*
-	textContext.fillStyle = "gold";
-	textContext.font = "20px Georgia";
-	textContext.textAlign = "center";
-	textContext.textBaseline = "bottom";
-	textContext.fillRect(Math.round((canvasWidth-pixelWidth)/2)-3*pixelWidth,Math.round(canvasHeight/2)-pixelHeight,7*pixelWidth,2*pixelHeight);
-	textContext.fillStyle = "indigo";
-	textContext.fillText("GAME OVER",Math.round(canvasWidth/2),Math.round(canvasHeight/2)+2);
-	textContext.textBaseline = "top";
-	textContext.font = "10px Georgia";
-	textContext.fillText("CLICK TO REPLAY",Math.round(canvasWidth/2),Math.round(canvasHeight/2)+5);
-	*/
 }
 
 function resetPlayerPosition() {
+	//Called when a level restarts after the player dies.
+	//Teleports the player to the initial position for that level.
+	//If that tile is occupied by a monster, randomly teleport to another available tile.
 	playerI = playerILevels[currentLevel];
 	playerJ = playerJLevels[currentLevel];
 	var test = 1;
@@ -2204,6 +2200,7 @@ function resetPlayerPosition() {
 }
 
 function drawPlacard() {
+	//Renders the placard which marks the next level.
 	isPlacardDrawing = 1;
 	textContext.fillStyle = "black";
 	textContext.fillRect(0,0,canvasWidth,canvasHeight);
@@ -2222,6 +2219,8 @@ function drawPlacard() {
 }
 
 function wakeUpSequence() {
+	//Called when the character wakes up after dying.
+	//Pushes back the darkness.
 	isTargetTrackingOn = 0;
 	embersFound = 0;
 	for (var i = 0; i < isAnkhActive.length; i++) {
@@ -2251,6 +2250,8 @@ function wakeUpSequence() {
 }
 
 function deathSequence() {
+	//Called whenever the character dies.
+	//The character spins out while darkness descends.
 	if (isDeathAudioLoaded) playDeathSound();
 	gameOver = 1;
 	numberOfLives--;
@@ -2280,8 +2281,8 @@ function deathSequence() {
 	},10);
 }
 
-function victorySequence()
-{
+function victorySequence() {
+	//Called whenever the character wins the game.
 	if (lastAudioSource) {
 		lastAudioSource.loop = false;
 		lastAudioSource.stop();
@@ -2301,6 +2302,8 @@ function victorySequence()
 }
 
 function animateTransition() {
+	//Called whenever the character passes to the next level.
+	//Creates an animation of the character walking through the temple.
 	if (isTransitionAudioLoaded) playTransitionSound();
 	gameOver = 1;
 	if (monsterTimerIsRunning) clearInterval(globalMonsterTimer);
@@ -2330,6 +2333,7 @@ function animateTransition() {
 }
 
 function centerCanvas(canvas) {
+	//Repositions the canvas to the center of the screen.
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
 	var rect = canvas.getBoundingClientRect();
@@ -2342,6 +2346,7 @@ function centerCanvas(canvas) {
 }
 
 function centerAllCanvases() {
+	//Repostions the game view to the center of the screen.
 	centerCanvas(scrollPreventCanvas);
 	centerCanvas(imageCanvas);
 	centerCanvas(hiddenCanvas);
@@ -2363,6 +2368,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvas(canvas,context,scale,offsetX,offsetY) {
+	//Rescale the canvas to a specified size, shifted by an offset.
 	canvas.width = Math.floor(canvasWidth*scale);
 	canvas.height = Math.floor(canvasHeight*scale);
 	canvas.top = offsetY + "px";
@@ -2370,7 +2376,8 @@ function rescaleCanvas(canvas,context,scale,offsetX,offsetY) {
 	context.scale(scale,scale);
 }
 
-function rescaleAllCanvases() {
+function rescaleAllCanvases() 
+	//Rescale the game view to fit the screen, and center it.
 	window.scrollTo(0,0);
 	scoreCanvas.style.left = "0px";
 	scoreCanvas.style.top = "0px";
@@ -2410,6 +2417,7 @@ function rescaleAllCanvases() {
 	rescaleCanvas(coinsCanvas,coinsContext,scale,offsetX,offsetY);
 	rescaleCanvas(powerupsCanvas,powerupsContext,scale,offsetX,offsetY);
 	if (isMobile) {
+		//Mobile devices require a 500 ms lag before centering the game view.
 		setTimeout(function() {
 			window.scrollTo(0,rect.top);
 			centerAllCanvases();
@@ -2418,6 +2426,7 @@ function rescaleAllCanvases() {
 		window.scrollTo(0,rect.top);
 		centerAllCanvases();
 	}
+	//The game view needs to be re-rendered since the rescaling clears the rendering.
 	waterContext.fillStyle = "black";
 	waterContext.fillRect(0,0,canvasWidth,canvasHeight);
 	drawDimmerCanvas();
@@ -2443,8 +2452,9 @@ function rescaleAllCanvases() {
 	}
 }
 
-function play()
-{
+function play() {
+	//This is the first function to be called when the body loads.
+	//Initialize the game.
 	dimmerContext.fillStyle = "black";
 	dimmerContext.fillRect(0,0,canvasWidth,canvasHeight);
 	initializeGrid();
