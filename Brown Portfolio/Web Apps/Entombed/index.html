@@ -4,25 +4,45 @@
 <title> ENTOMBED </title>
 </head>
 <body onload="play()">
+  <!-- scrollPreventCanvas -->
 <canvas id="scrollPreventCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 0; border: 0px solid black;"></canvas>
+  <!-- imageCanvas -->
 <canvas id="imgCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 1; border: 0px solid black;"></canvas>
+  <!-- hiddenCanvas -->
 <canvas id="hddnCanvas" width="620" height="460" style="position: absolute; top: 0px; left: 0px; z-index: 2; border: 0px solid black;"></canvas>
+  <!-- waterCanvas -->
 <canvas id="wtrCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 3; border: 0px solid black;"></canvas>
+  <!-- backgroundCanvas -->
 <canvas id="bkgrndCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 4; border: 0px solid black;"></canvas>
+  <!-- footstepsCanvas -->
 <canvas id="ftstpsCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 5; border: 0px solid black;"></canvas>
+  <!-- trapsCanvas -->
 <canvas id="trpsCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 5; border: 0px solid black;"></canvas>
+  <!-- coinsCanvas -->
 <canvas id="cnsCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 9; border: 0px solid black;"></canvas>
+  <!-- powerupsCanvas -->
 <canvas id="pwrupsCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 9; border: 0px solid black;"></canvas>
+  <!-- underCanvas -->
 <canvas id="undrCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 8; border: 0px solid black;"></canvas>
+  <!-- playerCanvas -->
 <canvas id="plyrCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 10; border: 0px solid black;"></canvas>
+  <!-- monsterCanvas -->
 <canvas id="mnstrCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 6; border: 0px solid black;"></canvas>
+  <!-- shadowCanvas -->
 <canvas id="shdwCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 7; border: 0px solid black;"></canvas>
+  <!-- overCanvas -->
 <canvas id="ovrCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 11; border: 0px solid black;"></canvas>
+  <!-- glyphCanvas -->
 <canvas id="hrglCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 13; border: 0px solid black;"></canvas>
+  <!-- dimmerCanvas -->
 <canvas id="dmrCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 12; border: 0px solid black;"></canvas>
+  <!-- textCanvas -->
 <canvas id="txtCanvas" width="420" height="420" style="position: absolute; top: 40px; left: 100px; z-index: 14; border: 0px solid black;"></canvas>
+  <!-- scoreCanvas -->
 <canvas id="scrCanvas" width="420" height="460" style="position: absolute; top: 0px; left: 100px; z-index: 14; border: 0px solid black;"></canvas>
+  <!-- Prevent the browser window from zooming upon double-tap. -->
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- "dataURIs.js" contains the data URIs for the images used throughout the game. -->
 <script src="dataURIs.js"></script>
 <script src="CurseOfTheSunGod.js"></script>
 </body>
