@@ -10,11 +10,15 @@
 <canvas id ="imageCanvas" width="20" height="20" style="position: absolute; top: 0; left: 0; z-index: 1; border: 0px solid black"></canvas>
 <canvas id ="floorCanvas" width="800" height="520" style="position: absolute; top: 0; left: 0; z-index: 1; border: 0px solid black"></canvas>
 <canvas id ="scoreCanvas" width="800" height="520" style="position: absolute; top: 0; left: 0; z-index: 2; border: 1px solid black"></canvas>
+<!-- THREE.js library for 3D graphics -->
 <script src="http://threejs.org/build/three.min.js"></script>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <script>
 
+//Source URL for the audio.
 var audioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/07/sport_snooker_ball_cueball_hit_other.mp3";
+	
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var myCanvas = document.getElementById("myCanvas");
 var context = myCanvas.getContext("2d");
@@ -34,6 +38,7 @@ var scoreContext = scoreCanvas.getContext("2d");
 var shinyCanvas = document.getElementById("shinyCanvas");
 var shinyContext = shinyCanvas.getContext("2d");
 
+//Radius of the balls.
 var r = 10; 
 var h = Math.sqrt(3)*r;
 var ys = [180,180,180+2*r,180+4*r,180-2*r,180-4*r,180+3*r,180+r,180-r,180-3*r,180+2*r,180,180-2*r,180+r,180-r,180];
@@ -64,12 +69,15 @@ var rotTimer;
 var gradientImage = new Image(2*r,2*r);
 var isPlayerSolids = 0;
 
+//Disable and hide the scrollbars (we don't need them).
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 var scene, camera, renderer, spheres = new Array(16);
 
 function determineTeams(ballIndex) {
+	//Determine which player is stripes/solids based on the first ball to be sunk.
+	//ballIndex is the index of the first ball to be sunk.
 	if (playerScore!= 0 || AIScore != 0) {
 		return;
 	}
@@ -77,6 +85,8 @@ function determineTeams(ballIndex) {
 }
 
 function updateScore(ballIndex) {
+	//Determine who just scored based on whether the ball was stripes or solids.
+	//ballIndex is the index of the ball that was just pocketed.
 	determineTeams(ballIndex);
 	if (isPlayerSolids) {
 		if (ballIndex < 8) {
@@ -106,6 +116,7 @@ function updateScore(ballIndex) {
 }
 
 function loadMesh(texture,i) {
+	//Wrap an image about the ith sphere.
 	spheres[i] = new THREE.Group();
 	var sphere = new THREE.SphereGeometry(r,20,20);
 	var material = new THREE.MeshLambertMaterial({map: texture, overdraw: 0.5});
@@ -138,6 +149,7 @@ function loadMesh(texture,i) {
 }
 
 function initialize3d() {
+	//Create the 3D renderer and the spheres.
 	renderer = new THREE.WebGLRenderer({canvas: ballCanvas, antialias: true, alpha: true});
 	renderer.setClearColor(0x000000,0);
 	renderer.setSize(ballCanvas.width,ballCanvas.height);
@@ -178,6 +190,7 @@ function initialize3d() {
 }
 
 function drawGradientImage() {
+	// Creating shiny effect 
 	r++;
 	imageCanvas.width = 2*r;
 	imageCanvas.height = 2*r;
@@ -214,6 +227,7 @@ function drawGradientImage() {
 }
 
 function updateRotation() {
+	//Rotate each of the balls using their angular velocity, determined from their velocity divided by their radius.
 	var wx, wy;
 	for (var i = 0; i < 16; i++) {
 		wx = -Vys[i] / r;
@@ -224,6 +238,7 @@ function updateRotation() {
 }
 
 function carpetPattern() {
+	//Sketch the carpet pattern and load it into an image.
 	imageCanvas.width = 50;
 	imageCanvas.height = 50;
 	imageContext.strokeStyle = "maroon"    
@@ -245,6 +260,8 @@ function carpetPattern() {
 }
 
 function runAI() {
+	//Governs the AI for the opponent.
+	//Determines the ball nearest a hole and aims it towards that hole.
 	if (gameOver) {
 		return;
 	}
@@ -256,6 +273,7 @@ function runAI() {
 }
 
 function centerCanvas(canvas) {
+	//Reposition the canvas to the center of the screen.
 	// calibrate the origin
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
@@ -271,6 +289,7 @@ function centerCanvas(canvas) {
 }
 
 function centerAllCanvases() {
+	//Reposition the game view to the center of the screen.
 	centerCanvas(scrollPreventCanvas);
 	centerCanvas(myCanvas);
 	centerCanvas(ballCanvas);
@@ -284,6 +303,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
+	//Resize the game view to fit the screen, and center it.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -358,6 +378,7 @@ function rescaleCanvases() {
 	scoreCanvas.height = Math.round(520.*scale);
 	scoreContext.scale(scale,scale);
 	if (isMobile) {
+		//Mobile devices require a 500 ms lag before centering.
 		setTimeout(function() { 
 			window.scrollTo(0,y0);
 			centerAllCanvases();
@@ -366,6 +387,7 @@ function rescaleCanvases() {
 		window.scrollTo(0,y0);
 		centerAllCanvases();
 	}
+	//The game view needs to be re-rendered because the rescaling clears the rendering.
 	paintFloorCanvas();
 	drawTable();
 	drawBall();
@@ -376,6 +398,7 @@ function rescaleCanvases() {
 }
 
 function drawPlayerScore(i) {
+	//Place the balls that have been sunk on the scoreboard.
 	if ((isPlayerSolids && i < 8) || (!isPlayerSolids && i > 8)) {
 		xs[i] = -30 + playerScore*2*r*1.5;
 		ys[i] = -65;
@@ -390,6 +413,7 @@ function drawPlayerScore(i) {
 }
 
 function drawPlayerInfo() {
+	//Render score text.
 	scoreContext.clearRect(0,0,800,520);
 	scoreContext.fillStyle = "white";
 	scoreContext.strokeStyle = "black";
@@ -405,6 +429,7 @@ function drawPlayerInfo() {
 }
 
 function paintFloorCanvas() {
+	//Render the carpet.
 	var grad = floorContext.createLinearGradient(0,0,800,520);
 	grad.addColorStop(1,"rgb(204,0,0)");
 	grad.addColorStop(0,"rgb(153,0,0)");
@@ -419,6 +444,7 @@ function paintFloorCanvas() {
 }
 
 function loadAudio() {
+	//Load the audio of the balls hitting each other.
 	if (isAudioLoading) return;
 	isAudioLoading = 1;
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -437,6 +463,7 @@ function loadAudio() {
 }
 
 function createBallImage(i) {
+	//Sketch and load the ith ball image, to be wrapped about the ball's sphere.
 	imageCanvas.width = 128;
 	imageCanvas.height = 64;
 	if (i > 15) {
@@ -474,6 +501,7 @@ function createBallImage(i) {
 }
 
 function initializeGlobals() {
+	//Reset the table and rack up the balls.
 	ys = [180,180,180+2*r,180+4*r,180-2*r,180-4*r,180+3*r,180+r,180-r,180-3*r,180+2*r,180,180-2*r,180+r,180-r,180];
 	xs = [575,65,65,65,65,65,65+h,65+h,65+h,65+h,65+2*h,65+2*h,65+2*h,65+3*h,65+3*h,65+4*h];
 	Vxs = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; //10*Math.cos(theta)
@@ -501,6 +529,8 @@ function initializeGlobals() {
 }
 
 function run() {
+	//This is the first function to be run once the body loads.
+	//Initialize the game.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1;
 	if (/iPhone|iPad|iPod/i.test(navigator.userAgent) || true) {
 		isIOS = 1;
@@ -527,6 +557,7 @@ function run() {
 }
 	
 function drawTable() {
+	//Render the table.
 	var scale = 3;
 	tableContext.fillStyle = "rgb(0,70,0)";
 	tableContext.fillRect(0,0,700,420);
@@ -686,6 +717,7 @@ function drawTable() {
 }
 
 function drawCueImage() {
+	//Sketch the cue and load it into an image.
 	cueContext.fillStyle = "rgb(102,34,0)";    //Cue Canvas
 	cueContext.beginPath();
 	cueContext.moveTo(350,15);
@@ -742,6 +774,7 @@ function drawCueImage() {
 }
 
 function nearestHoleToBall(i) {
+	//Find the nearest hole to the ith ball.
 	if (!isBallOnTable[i]) {
 		return 100000;	
 	}
@@ -795,6 +828,8 @@ function nearestHoleToBall(i) {
 }
 
 function findClosestBallToAnyHole() {
+	//Find the ball which is closest to a hole.
+	//Returns the ball's index.
 	var shortestDistance = nearestHoleToBall(1);
 	index = 1;
 	for (var i = 2; i < 16; i++) {
@@ -808,6 +843,7 @@ function findClosestBallToAnyHole() {
 }
 
 function mouseDownAI() {
+	//Creates the mousedown event for the AI.
 	cueIsStriking = 1;
 	cueTimer = setInterval(function() {
 		if (distanceFromCueToBall <= 120) {
@@ -821,6 +857,7 @@ function mouseDownAI() {
 }
 
 function mouseUpAI() {
+	//Creates the mouseup event for the AI.
 	strengthOfHit = distanceFromCueToBall/30;
 	clearInterval(cueTimer);
 	cueIsStriking = 1;
@@ -844,6 +881,12 @@ function mouseUpAI() {
 }
 
 function mouseMotionDetector(evt) {
+	//Called every time the user moves the mouse.
+	//evt is the mousemove event passed by the event listener.
+	//Allows the cue to follow the cursor around the screen.
+	//Cue automatically points from the cue ball to the cursor.
+	
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
 	if (isOpponentPlaying) {
 		//alert("Opponent is playing.");
@@ -853,20 +896,28 @@ function mouseMotionDetector(evt) {
 		//alert("Cue is striking.");
 		return;	
 	}
+	//The cue should only appear if the balls are all at rest.
 	if (areBallsInMotion()) {
 		//alert("Balls are in motion.");
 		return;
 	}
 	var rect = cursorCanvas.getBoundingClientRect();
+	//Find the x-position of evt relative to the top left corner of the game view.
 	var x = (evt.clientX || evt.targetTouches[0].clientX) - rect.left;
+	//Find the y-position of evt relative to the top left corner of the game view.
 	var y = (evt.clientY || evt.targetTouches[0].clientY) - rect.top;
-	//clear previous cue drawings
+	//Scale the x- and y-axes to match the scaling of the game view.
 	var scale = 800/cursorCanvas.width;
+	//Find the direction from the cue ball to the cursor.
 	phi = Math.atan2(ys[0]+80-y*scale,xs[0]+80-x*scale);
 	drawCue();
 }
 
 function mouseDown(evt) {
+	//Called every time the user presses the mouse button.
+	//evt is the mousedown event passed by the event listener.
+	//Starts a timing interval that pulls back the cue.
+	//The longer the button is pressed, the stronger the cue will hit.
 	if (isOpponentPlaying) {
 		return;
 	}
@@ -879,10 +930,12 @@ function mouseDown(evt) {
 	if (evt.targetTouches && evt.targetTouches.length > 1) {
 		return;
 	}
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
 	if (areBallsInMotion()) {
 		return;
 	}
+	//Move the cue in the direction of the cursor.
 	mouseMotionDetector(evt);
 	cueTimer = setInterval(function() {
 		if (distanceFromCueToBall <= 120) {
@@ -893,6 +946,9 @@ function mouseDown(evt) {
 }
 
 function mouseUp(evt) {
+	//Called every time the mouse button is released.
+	//evt is the mouseup event passed by the event listener.
+	//Once the mouse button is released, the cue will strike the cue ball in the direction of evt.
 	if (isOpponentPlaying) {
 		return;
 	}
@@ -902,7 +958,9 @@ function mouseUp(evt) {
 	if (evt.targetTouches && evt.targetTouches.length > 1) {
 		return;
 	}
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	evt.preventDefault();
+	//The cue should only appear if the balls are all at rest.
 	if (areBallsInMotion()) {
 		return;
 	}
@@ -929,7 +987,7 @@ function mouseUp(evt) {
 }
 
 function drawCue() {
-	//cursorCanvas.width = cursorCanvas.width;
+	//Renders the cue at a distance _distanceFromCueToBall_ from the cue ball, with angle _phi_.
 	cursorContext.clearRect(0,0,800,520);
 	cursorContext.save();
 	cursorContext.translate(xs[0]+80,ys[0]+80);
@@ -940,6 +998,7 @@ function drawCue() {
 }
 
 function areBallsInMotion() {
+	//Check if any balls are moving.
 	for (var i = 0; i < 16; i++) {
 		if (Vxs[i] != 0 || Vys[i] != 0) {
 			return 1;
@@ -949,6 +1008,7 @@ function areBallsInMotion() {
 }
 
 function holes() {
+	//Render the holes on the table.
 	var radius = 22;
 	context.fillStyle = "black";
 	context.beginPath();
@@ -989,6 +1049,7 @@ function holes() {
 }
 
 function tableHoles() {
+	//Render the holes on the table.
 	var radius = 15;
 	//Top left Hole
 	var grad = tableContext.createLinearGradient(0,0,52,52); 
@@ -1127,6 +1188,7 @@ function tableHoles() {
 }
 
 function drawBall() {
+	//Render the balls on the table.
 	if (gameOver) {
 		return;
 	}
@@ -1167,6 +1229,7 @@ function drawBall() {
 }
 
 function moveBall() {
+	//Move the balls forward by some incremental time.
 	for (var i = 0; i < 16; i++) {
 		if (Vxs[i] != 0 || Vys[i] != 0) {
 			var theta = Math.atan2(Vys[i],Vxs[i]);
@@ -1219,6 +1282,7 @@ function moveBall() {
 }
 
 function isBallinPocket(ballx,bally) {
+	//Check if the position (ballx,bally) is within the radius of a pocket.
 	var dx = ballx - 0;
 	var dy = bally - 0;
 	var distance = Math.sqrt(dx * dx + dy * dy);
@@ -1259,6 +1323,7 @@ function isBallinPocket(ballx,bally) {
 }
 
 function areBallsColliding(ballx1,bally1,ballx2,bally2) {
+	//Check if the positions (ballx1,bally1) and (ballx2,bally2) are within a radius of each other.
 	var dx = ballx1 - ballx2;
 	var dy = bally1 - bally2;
 	var distance = Math.sqrt(dx * dx + dy * dy);
@@ -1269,6 +1334,7 @@ function areBallsColliding(ballx1,bally1,ballx2,bally2) {
 }
 
 function collideBalls(i,j) {
+	//Perform the collision between ball i and ball j.
 	if (Vxs[i] === 0 && Vys[i] === 0 && Vxs[j] === 0 && Vys[j] === 0) {
 		return;
 	} 
@@ -1293,6 +1359,7 @@ function collideBalls(i,j) {
 }
 
 function correctOverlaps() {
+	//Check if any balls have an unphysical overlap, and if so, push them apart.
 	var dx, dy, d, xAve, yAve, xNewI, xNewJ, yNewI, yNewJ;
 	for (var i = 0; i < xs.length; i++) {
 		for (var j = 0; j < ys.length; j++) {
@@ -1359,6 +1426,7 @@ function correctOverlaps() {
 }
 
 function collidingSound() {
+	//Play the audio of one ball hitting another.
 	if (!isAudioLoaded) return;
 	if (lastAudioSource) {
 		lastAudioSource.stop();
@@ -1376,7 +1444,9 @@ function collidingSound() {
 	lastAudioSource = audioSource;
 }
 
-function endGame(didPlayerWin) {     // You Win Text function
+function endGame(didPlayerWin) {     
+	//Called whenever the game ends.
+	//didPlayerWin is a Boolean which tells who won the game.
 	gameOver = 1;
 	clearInterval(myTimer);
 	//clearInterval(cueTimer);
@@ -1405,6 +1475,7 @@ function endGame(didPlayerWin) {     // You Win Text function
 }
 
 function checkIfGameIsOver() {
+	//Check if any balls are left on the table.
 	if (!isBallOnTable[8]) {
 		if (isOpponentPlaying) {
 			endGame(playerScore === 7);
