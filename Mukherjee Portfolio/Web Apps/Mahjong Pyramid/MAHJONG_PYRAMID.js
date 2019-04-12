@@ -1,6 +1,8 @@
+//URLs for the audio.
 var backgroundAudioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/09/Belly-Dance-Arabic-Middle-Eastern-Music-Royalty-Free-No-Copyrights-Music-for-Videos-Creators.mp3";
 var swipeAudioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/09/dustyroom_cartoon_swipe_med_pitch.mp3";
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var imageCanvas = document.getElementById("imgCanvas");
 var imageContext = imageCanvas.getContext("2d");
@@ -37,11 +39,13 @@ var isShuffling = 0;
 var backgroundAudioContext, swipeAudioContext, swipeBuffer, backgroundBuffer,  backgroundAudioVolume, swipeAudioVolume, lastSwipeAudioSource, isSwipeAudioLoaded = 0, isBackgroundAudioLoaded = 0, isSwipeAudioLoading = 0, isBackgroundAudioLoading = 0, backgroundIsPlaying = 0;
 var isIOS = 0, isMobile = 0;
 
+//Remove the scrollbars.
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function loadBackgroundAudio() {
-if (isBackgroundAudioLoading) {
+	//Loads the background audio for playback.
+	if (isBackgroundAudioLoading) {
 		return;
 	}
 	isBackgroundAudioLoading = 1;
@@ -62,6 +66,7 @@ if (isBackgroundAudioLoading) {
 }
 
 function loadSwipeAudio() {
+	//Loads the swipe audio for playback.
 	if (isSwipeAudioLoading) {
 		return;
 	}
@@ -82,6 +87,7 @@ function loadSwipeAudio() {
 }
 
 function playSwipeSound() {
+	//Plays the swipe audio.
 	if (!isSwipeAudioLoaded) {
 		return;
 	}
@@ -103,6 +109,7 @@ function playSwipeSound() {
 }
 
 function playBackgroundSound() {
+	//Plays the background audio
 	if (!isBackgroundAudioLoaded) {
 		return;
 	}
@@ -145,6 +152,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
+	//Centers and rescales all the Canvases.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -238,6 +246,7 @@ function gameOverSequence() {
 }
 
 function selectedTile() {
+	//Highlight the selected tile.
 	imageCanvas.width = tileWidth;
 	imageCanvas.height = tileHeight;
 	imageContext.save();
@@ -255,7 +264,7 @@ function selectedTile() {
 }
 
 function drawTileImage(index) {
-	//this was to test if our images look right, we don't actually need it in the end program.
+	//this was to test if our images look right.
 	imageContext.drawImage(tileImages[index],0,0);
 }
 
@@ -274,6 +283,7 @@ function drawTiles(index) {
 }
 
 function drawFrontTiles(index) {
+	//Sketch the tiles and load them.
 	if (index >= highlightedTiles.length) {
 		//images are done loading...do next thing here
 		drawShadedTiles(0);
@@ -406,6 +416,7 @@ function drawFrontTiles(index) {
 }
 
 function drawShadedTiles(index) {
+	//Sketch the shaded tiles and load them.
 	if (index >= shadedTiles.length) {
 		//images are done loading...do next thing here
 		drawBackGroundImage();
@@ -428,6 +439,7 @@ function drawShadedTiles(index) {
 }
 
 function drawBackGroundImage() {
+	//Load the background image.
 	backgroundImage = new Image();
 	//backgroundImage.src = "http://centaurgamesonline.com/wp-content/uploads/2018/08/MahjongBackground.jpg";
 	backgroundImage.src = backgroundImageURL;
@@ -440,6 +452,7 @@ function drawBackGroundImage() {
 }
 
 function doesTileMatch(index1,index2) {
+	//Check if any two selected tiles match.
 	//seasons: index 38-41
 	//flowers: index 34-37
 	if (index1 === index2) {
@@ -457,6 +470,7 @@ function doesTileMatch(index1,index2) {
 }
 
 function makeSecondSelection(evt) {
+	//Player selects the second tile.
 	var rect = tileCanvas.getBoundingClientRect();
 	var scale = 1050/backgroundCanvas.width;
 	var x = (evt.clientX || evt.targetTouches[0].clientX) - rect.left;
@@ -506,6 +520,7 @@ function makeSecondSelection(evt) {
 }
 
 function makeFirstSelection(evt) {
+	//Player selects the first tile.
 	evt.preventDefault();
 	if (gameOver) return;
 	if (isIOS && !isSwipeAudioLoaded) loadSwipeAudio();
@@ -549,6 +564,7 @@ function makeFirstSelection(evt) {
 }
 
 function renderGrid() {
+	//This function renders the grid pattern.
 	if (isShuffling) return;
 	tileContext.clearRect(0,0,1050,700);
 	backgroundContext.clearRect(0,0,1050,700);
@@ -593,6 +609,7 @@ function renderGrid() {
 }
 
 function setEventListeners() {
+	//Set all the event listeners for the game.
 	if (isMobile) {
 		scrollPreventCanvas.addEventListener("touchstart",makeFirstSelection);
 	} else {
@@ -605,6 +622,7 @@ function setEventListeners() {
 }
 
 function reshuffleGrid() {
+	//Reshuffles the grid.
 	var needsTileI = [], needsTileJ = [], needsTileK = [], indicesOnBoard = [];
 	for (var i = 0; i < numX; i++) {
 		for (var j = 0; j < numY; j++) {
@@ -635,6 +653,7 @@ function reshuffleGrid() {
 }
 
 function drawReshufflePlacard() {
+	//This function sketches the reshuffle placard.
 	isShuffling = 1;
 	scoreContext.clearRect(0,0,1050,700);
 	scoreContext.strokeStyle = "black";
@@ -654,6 +673,7 @@ function drawReshufflePlacard() {
 }
 
 function checkForShuffle() {
+	//Check if the game is solvable. If not, shuffle the board.
 	if (gameOver) {
 		return;
 	}
@@ -684,6 +704,7 @@ function checkForShuffle() {
 }
 
 function randomizeGrid() {
+	//Randomly distribute the tiles around the grid.
 	var index = 0;
 	for (var i = 0; i < numX; i++) {
 		for (var j = 0; j < numY; j++) {
@@ -705,6 +726,7 @@ function randomizeGrid() {
 }
 
 function createGrid() {
+	//Creates the grid and marks the overall shape of the Mahjong game.
 	imageCanvas.width = 0;
 	imageCanvas.Height = 0;
 	score = 0;
@@ -818,20 +840,8 @@ function createGrid() {
 	randomizeGrid();
 }
 
-function isClickableAtBeginning(i,j,k) {
-	if (k < numZ-1 && grid[i][j][k+1] === -2) {
-		return 0;
-	}
-	if (i === 0 || grid[i-1][j][k] > -2) {
-		return 1;
-	}
-	if (i === numX-1 || grid[i+1][j][k] > -2) {
-		return 1;
-	}
-	return 0;
-}
-
 function isClickable(i,j,k) {
+	//Tells if the tile can be clicked.
 	if (grid[i][j][k] === -1) return 0;
 	if (k < numZ-1 && grid[i][j][k+1] >= 0) {
 		return 0;
@@ -846,6 +856,7 @@ function isClickable(i,j,k) {
 }
 
 function sketch() {
+	//Starts the game.
 	if (/Android|iPhone|iPad|iPod|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) isMobile = 1;
 	if (/iPhone|iPad|iPod/i.test(navigator.userAgent) || true) {
 		isIOS = 1;
