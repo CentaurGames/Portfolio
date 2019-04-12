@@ -1166,7 +1166,7 @@ function mouseDown(evt) {
 	if (areBallsInMotion()) {
 		return;
 	}
-	//Move the cursor in the direction of the cursor.
+	//Move the cue in the direction of the cursor.
 	mouseMotionDetector(evt);
 	cueTimer = setInterval(function() {
 		if (distanceFromCueToBall <= 120) {
