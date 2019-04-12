@@ -8,13 +8,18 @@
 <canvas id="goldCanvas" width="1136" height="640" style="position: absolute; top: 0; left: 0; z-index: 5; border: 0px solid black"></canvas>
 <canvas id="cartCanvas" width="1136" height="640" style="position: absolute; top: 0; left: 0; z-index: 6; border: 0px solid black"></canvas>
 <canvas id="placardCanvas" width="1136" height="640" style="position: absolute; top: 0; left: 0; z-index: 7; border: 0px solid black"></canvas>
+	<!-- Prevent the browser window from zooming when double-tapped. -->
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- "dataURIs.js" contains the image data URIs for the images used in this file. -->
 <script src="dataURIs.js"></script>
 <script>
 
+//Source URL for the background audio.
 var audioURL = "http://centaurgamesonline.com/wp-content/uploads/2018/10/Bauchamp_-_90_vie_organique_moog.mp3";
+//Global variables for the background audio.
 var audioContext, audioVolume, audioBuffer, isAudioLoaded = 0, isAudioLoading = 0, isIOS = 0, isMobile = 0;
 
+//Fetch the canvases and their contexts.
 var scrollPreventCanvas = document.getElementById("scrollPreventCanvas");
 var lavaCanvas = document.getElementById("lavaCanvas");
 var lavaContext = lavaCanvas.getContext("2d");
@@ -58,10 +63,12 @@ var currentLevel = 0, numberOfRectangles;
 var swipeStartX, swipeStartY, swipeDirection;
 var ignoreNextMove, swipeListen = 0;
 
+//Disable and hide the scrollbars.
 document.documentElement.style.overflow = "hidden";
 document.body.scroll = "no";
 
 function playAudio() {
+	//Play the background audio on an endless loop.
 	var audioSource = audioContext.createBufferSource();
 	audioVolume.gain.value = 1;
 	audioSource.connect(audioVolume);
@@ -77,6 +84,7 @@ function playAudio() {
 }
 
 function loadAudio() {
+	//Load the background audio for playback, and play it once loaded.
 	if (isAudioLoading || isAudioLoaded) return;
 	isAudioLoading = 1;
 	audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -96,6 +104,7 @@ function loadAudio() {
 }
 
 function matrixMultiply(mat1,mat2) {
+	//Standard matrix multiplication, used to transform some of the rotating objects in the game.
 	var matrix = [[0,0,0],[0,0,0],[0,0,0]];
 	for (var i = 0; i < 3; i++) {
 		for (var j = 0; j < 3; j++) {
@@ -108,6 +117,7 @@ function matrixMultiply(mat1,mat2) {
 }
 
 function rotateX(angle,matrix) {
+	//Rotate matrix by a rotation angle about the x-axis.
 	var xRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	xRotation[1][1] = Math.cos(angle);
 	xRotation[2][2] = xRotation[1][1];
@@ -117,6 +127,7 @@ function rotateX(angle,matrix) {
 }
 
 function rotateY(angle,matrix) {
+	//Rotate matrix by a rotation angle about the y-axis.
 	var yRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	yRotation[0][0] = Math.cos(angle);
 	yRotation[2][2] = yRotation[0][0];
@@ -126,6 +137,7 @@ function rotateY(angle,matrix) {
 }
 
 function rotateZ(angle,matrix) {
+	//Rotate matrix by a rotation angle about the z-axis.
 	var zRotation = [[1,0,0],[0,1,0],[0,0,1]];
 	zRotation[0][0] = Math.cos(angle);
 	zRotation[1][1] = zRotation[0][0];
@@ -135,6 +147,8 @@ function rotateZ(angle,matrix) {
 }
 
 function restartLevel() {
+	//Start the level from the beginning.
+	//Called when the player dies.
 	grid = dealiasGrid(levelGrid);
 	cartX = levelPositionX;
 	cartY = levelPositionY;
@@ -147,6 +161,7 @@ function restartLevel() {
 }
 
 function setLavaInterval() {
+	//Sets the time interval which makes the lava flow.
 	scrollY = 0;
 	var lavaInterval = setInterval(function() {
 		scrollY++;
@@ -157,17 +172,20 @@ function setLavaInterval() {
 }
 
 function clearFallingCartInterval() {
+	//Ends the time interval used to make the cart fall to its death.
+	//Called when the cart hits the lava.
 	if (!isFallingCartIntervalRunning) return;
 	score -= coinsInCart.length;
 	playerContext = cartContext;
 	clearInterval(fallingCartInterval);
-	//stopRendering = 1;
 	cartIsRolling = 0;
 	isFallingCartIntervalRunning = 0;
 	restartLevel();
 }
 
 function setFallingCartInterval() {
+	//Creates the time interval used to make the cart fall to its death.
+	//Called when the cart goes off the tracks.
 	if (isFallingCartIntervalRunning) return;
 	playerContext = fallingContext;
 	var left = (canvasWidth - gridWidth)/2;
@@ -194,6 +212,7 @@ function setFallingCartInterval() {
 }
 
 function drawFallingDebris() {
+	//Renders the track debris falling through the air. Transformations are used to make the debris tumble end-over-end as it falls.
 	var width = tileImages[0].width;
 	var height = tileImages[0].height;
 	var scale, matrix;
@@ -210,6 +229,7 @@ function drawFallingDebris() {
 }
 
 function rescaleFallingDebris() {
+	//Makes the track debris appear smaller as it falls, to account for parallax.
 	if (fallingDebrisX.length === 0) return;
 	var x, y, radius, theta, matrix;
 	for (var i = 0; i < fallingDebrisScale.length; i++) {
@@ -241,10 +261,12 @@ function rescaleFallingDebris() {
 }
 
 function setFallingDebrisInterval() {
+	//Starts the timing interval which renders the falling debris.
 	var fallingDebrisInterval = setInterval(rescaleFallingDebris,20);
 }
 
 function coinTimerFunction() {
+	//Makes the coins rotate perpendicular to the tracks.
 	thetaX = -omega*Math.sin(phiY)*Math.sin(phiX);
 	thetaY = -omega*Math.cos(phiX);
 	thetaZ = -omega*Math.sin(phiX)*Math.cos(phiY);
@@ -255,12 +277,14 @@ function coinTimerFunction() {
 }
 
 function clearCoinTimer() {
+	//Stops the coins from rotating.
 	if (!isCoinIntervalRunning) return;
 	clearInterval(coinInterval);
 	isCoinIntervalRunning = 0;
 }
 
 function setCoinTimer() {
+	//Initializes the timing interval which makes the coins rotate.
 	if (isCoinIntervalRunning) return;
 	phiX = -50*Math.PI/180;
 	phiY = -20*Math.PI/180;
@@ -276,6 +300,8 @@ function setCoinTimer() {
 }
 
 function drawRotatedCoin(index,i,j) {
+	//Render the rotated coin located at position (i,j).
+	//index tells which type of track the coin is located on.
 	var shiftX, shiftY;
 	switch (index) {
 		case 3:
@@ -312,6 +338,7 @@ function drawRotatedCoin(index,i,j) {
 }
 
 function drawCoins() {
+	//Render all the coins.
 	var left = (canvasWidth - gridWidth)/2;
 	var top = (canvasHeight - gridHeight)/2;
 	goldContext.clearRect(0,0,canvasWidth,canvasHeight);
@@ -321,6 +348,7 @@ function drawCoins() {
 }
 
 function drawCoinsInCart() {
+	//Render the coins which the cart collects.
 	var left = (canvasWidth-gridWidth)/2;
 	var top = (canvasHeight-gridHeight)/2;
 	var cartWidth = 20*cartScale;
@@ -345,6 +373,7 @@ function drawCoinsInCart() {
 }
 
 function drawPlacard() {
+	//Render the placard which announces the new level.
 	var width = canvasWidth/6;
 	var height = canvasHeight/6;
 	placardContext.fillStyle = "gold";
@@ -357,6 +386,7 @@ function drawPlacard() {
 }
 
 function drawScore() {
+	//Renders the score.
 	var height = (canvasHeight-gridHeight)/4;
 	placardContext.fillStyle = "black";
 	placardContext.fillRect(0,0,canvasWidth,height);
@@ -370,7 +400,7 @@ function drawScore() {
 }
 
 function render() {
-	//if (stopRendering) return;
+	//Renders all the objects in the game view.
 	lavaContext.clearRect(0,0,canvasWidth,canvasHeight);
 	placardContext.clearRect(0,0,canvasWidth,canvasHeight);
 	cavernContext.clearRect(0,0,canvasWidth,canvasHeight);
@@ -412,6 +442,7 @@ function render() {
 }
 
 function centerCanvas(canvas) {
+	//Repositions the canvas to the center of the screen.
 	canvas.style.left = "0px";
 	canvas.style.top = "0px";
 	var rect = canvas.getBoundingClientRect();
@@ -426,6 +457,7 @@ function centerCanvas(canvas) {
 }
 
 function centerAllCanvases() {
+	//Repositions the game view to the center of the screen.
 	centerCanvas(scrollPreventCanvas);
 	centerCanvas(lavaCanvas);
 	centerCanvas(cavernCanvas);
@@ -437,6 +469,7 @@ function centerAllCanvases() {
 }
 
 function rescaleCanvases() {
+	//Rescale the game view to fit the screen, and center it.
 	window.scrollTo(0,0);
 	scrollPreventCanvas.style.left = "0px";
 	scrollPreventCanvas.style.top = "0px";
@@ -487,6 +520,7 @@ function rescaleCanvases() {
 	placardCanvas.height = Math.round(canvasHeight*scale);
 	placardContext.scale(scale,scale);
 	if (isMobile) {
+		//Mobile devices require a 500 ms lag before centering can occur.
 		setTimeout(function() {
 			window.scrollTo(0,y0);
 			centerAllCanvases();
@@ -495,18 +529,20 @@ function rescaleCanvases() {
 		window.scrollTo(0,y0);
 		centerAllCanvases();
 	}
+	//Re-rendering is required since rescaling the contexts clears their rendering.
 	render();
 }
 
 function gameOverSequence() {
+	//Make the cart fall off the tracks.
 	if (gameOver) return;
-	//alert("Game Over");
 	gameOver = 1;
 	couldIGetAKeyInEdgewise = 0;
 	setFallingCartInterval();
 }
 
 function victorySequence() {
+	//Move to the next level.
 	if (gameOver) return;
 	currentLevel++;
 	gameOver = 1;
@@ -514,6 +550,7 @@ function victorySequence() {
 }
 
 function checkForVictory() {
+	//See if the tracks have been cleared.
 	for (var i = 0; i < grid.length; i++) {
 		for (var j = 0; j < grid[i].length; j++) {
 			if (cartX === i && cartY === j) continue;
@@ -524,6 +561,8 @@ function checkForVictory() {
 }
 
 function convertCrossroads(newDirection) {
+	//When the cart passes over a crossroads, the track untouched by the cart remains while the track the cart passed over breaks off.
+	//This function finds the piece of the track which remains.
 	switch (cartDirection) {
 		case 0:
 			switch (newDirection) {
@@ -573,6 +612,8 @@ function convertCrossroads(newDirection) {
 }
 
 function findCrossroadFallingPiece(newDirection) {
+	//When the cart passes over a crossroads, the track untouched by the cart remains while the track the cart passed over breaks off.
+	//This function finds the piece of the track which falls off.
 	switch (cartDirection) {
 		case 0:
 			switch (newDirection) {
@@ -622,6 +663,7 @@ function findCrossroadFallingPiece(newDirection) {
 }
 
 function moveCart(newDirection,newX,newY) {
+	//Move the cart forward one time step.
 	if (gameOver || isFallingCartIntervalRunning) return;
 	if (newX < 0 || newY < 0 || newX >= grid.length || newY >= grid[0].length || !grid[newX][newY]) {
 		gameOverSequence();
@@ -663,6 +705,7 @@ function moveCart(newDirection,newX,newY) {
 }
 
 function determineNextMove() {
+	//Find the next direction the cart must move in.
 	if (gameOver || isFallingCartIntervalRunning) return;
 	var nextDirection = cartDirection, nextX = cartX, nextY = cartY;
 	if (grid[cartX][cartY] > 2 && grid[cartX][cartY] < 7) {
@@ -697,6 +740,7 @@ function determineNextMove() {
 }
 
 function transitionBetweenTiles(oldDirection,oldX,oldY,newDirection,newX,newY,index) {
+	//Smooths the transition from one tile to the next.
 	if (gameOver || isFallingCartIntervalRunning) return;
 	if (index > numberOfCartTransitions) {
 		cartDirection %= 4;
@@ -721,6 +765,9 @@ function transitionBetweenTiles(oldDirection,oldX,oldY,newDirection,newX,newY,in
 }
 
 function swipeEndEvent(evt) {
+	//Called when the user finishes swiping.
+	//evt is the touchend event passed by the event listener.
+	//Determines the direction the user swiped in and saves that direction for the cart's next move.
 	evt.preventDefault();
 	var swipeEndX = evt.targetTouches[0].clientX;
 	var swipeEndY = evt.targetTouches[0].clientY;
@@ -742,7 +789,6 @@ function swipeEndEvent(evt) {
 		default: //up
 			key = 38;
 	}
-	//alert(key);
 	var newEvent = {
 		keyCode: key,
 	};
@@ -751,6 +797,11 @@ function swipeEndEvent(evt) {
 
 
 function swipeMoveEvent(evt) {
+	//Called when the user drags their finger across the screen.
+	//evt is the touchmove event passed by the event listener.
+	//If the current touch event is sufficiently far from the starting touch event, swipeEndEvent is called.
+	
+	//Prevent the user from accidentally scrolling while dragging their finger.
 	evt.preventDefault();
 	if (!swipeListen) return;
 	var swipeMoveX = evt.targetTouches[0].clientX;
@@ -764,7 +815,13 @@ function swipeMoveEvent(evt) {
 }
 
 function swipeStartEvent(evt) {
+	//Called when the user touches the screen.
+	//evt is the touchstart event passed by the event listener.
+	
+	//If the audio isn't already loaded, load it.
+	//New browser protocols require that all audio be loaded as a direct result of a touch event.
 	if (isIOS && !isAudioLoaded) loadAudio();
+	//Prevent the user from accidentally scrolling while dragging their finger.
 	evt.preventDefault();
 	swipeStartX = evt.targetTouches[0].clientX;
 	swipeStartY = evt.targetTouches[0].clientY;
@@ -772,10 +829,18 @@ function swipeStartEvent(evt) {
 }
 
 function clickEvent(evt) {
+	//Called when the user clicks on the game with a mouse.
+	//evt is the click event passed by the event listener.
+	
+	//If the audio isn't already loaded, load it.
+	//New browser protocols require that all audio be loaded as a direct result of a touch event.
 	if (isIOS && !isAudioLoaded) loadAudio();
 }
 
 function arrowKeyEvent(evt) {
+	//Called when the user presses an arrow key.
+	//evt is the keypress event passed by the event listener.
+	//Used to determine what direction the cart should move in next.
 	if (gameOver) return;
 	if (cartIsRolling) {
 		canIGetAKeyInEdgewise = 1;
@@ -847,9 +912,11 @@ function arrowKeyEvent(evt) {
 }
 
 function setEventListeners() {
+	//Sets all the event listeners.
 	placardCanvas.addEventListener("mousedown",clickEvent);
 	placardCanvas.addEventListener("touchstart",swipeStartEvent);
 	placardCanvas.addEventListener("touchmove",swipeMoveEvent);
+	//Prevent the user from accidentally scrolling while dragging their finger across the screen.
 	scrollPreventCanvas.addEventListener("touchmove",function(evt) {
 		evt.preventDefault();
 	});
@@ -858,6 +925,7 @@ function setEventListeners() {
 }
 
 function initializePlayerPosition() {
+	//Place the cart at a random location on the tracks.
 	var test = 0;
 	while (!test) {
 		cartX = Math.floor(Math.random()*grid.length);
@@ -868,6 +936,7 @@ function initializePlayerPosition() {
 }
 
 function setGoldPieces() {
+	//Distribute the gold pieces throughout the grid.
 	goldX = [];
 	goldY = [];
 	for (var i = 0; i < grid.length; i++) {
@@ -881,6 +950,7 @@ function setGoldPieces() {
 }
 
 function Rectangle(x,y,w,h) {
+	//This class is used to create the grid.
 	this.left = x;
 	this.top = y;
 	this.width = w;
@@ -1260,6 +1330,7 @@ function Rectangle(x,y,w,h) {
 }
 
 function centerGrid() {
+	//Reposition the grid to the center of the game view.
 	var xs = [], ys = [];
 	for (var i = 0; i < grid.length; i++) {
 		for (var j = 0; j < grid[i].length; j++) {
@@ -1303,6 +1374,7 @@ function centerGrid() {
 }
 
 function createPuzzle() {
+	//Randomly create a new grid.
 	var width = Math.floor(Math.random()*(grid.length - 6) + 6);
 	var height = Math.floor(Math.random()*(grid[0].length - 9) + 9);
 	var canvasRect = new Rectangle(0,0,grid.length,grid[0].length);
@@ -1352,6 +1424,7 @@ function createPuzzle() {
 }
 
 function dealiasGrid(arr) {
+	//Converts a shallow copy into a deep copy.
 	var newGrid = new Array(arr.length);
 	for (var i = 0; i < arr.length; i++) {
 		newGrid[i] = new Array(arr[i].length);
@@ -1363,6 +1436,7 @@ function dealiasGrid(arr) {
 }
 
 function initializeGrid() {
+	//Set up the game.
 	if (/iPhone|iPad|iPod|Android|webOS|Blackberry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 		isMobile = 1;
 	}
@@ -1414,24 +1488,29 @@ function initializeGrid() {
 }
 
 function loadCoinEdge() {
+	//Load the image of the coin edge.
 	coinEdge = new Image();
 	coinEdge.src = 	coinEdgeURL;
 	coinEdge.onload = initializeGrid;
 }
 
 function loadCoinImage() {
+	//Load the image of the coin.
 	coinImage = new Image();
 	coinImage.src = coinImageURL;	
 	coinImage.onload = loadCoinEdge;
 }
 
 function loadCartImage() {
+	//Load the image of the cart.
 	cartImage = new Image();
 	cartImage.src = cartImageURL;
 	cartImage.onload = loadCoinImage;
 }
 
 function loadTileImage(index) {
+	//Load the image of the track.
+	//There are 7 different types of track, and this loads all of them through a recursive call.
 	if (index >= tileImages.length) {
 		loadCartImage();
 		return;
@@ -1444,6 +1523,7 @@ function loadTileImage(index) {
 }
 
 function loadCavernImage() {
+	//Load the image of the cavern.
 	cavernImage = new Image();
 	cavernImage.src = cavernImageURL;
 	cavernImage.onload = function() {
@@ -1452,6 +1532,8 @@ function loadCavernImage() {
 }
 
 function loadLavaImage() {
+	//This is the first function to be called when the body loads.
+	//Load the image of the lava.
 	lavaImage = new Image();
 	lavaImage.src = lavaImageURL;
 	lavaImage.onload = loadCavernImage;
